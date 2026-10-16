@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link id="gsFavicon" rel="icon" href="img/ic_suspendy_16x16.webp" />
+  <link type="text/css" href="css/style.css" rel="stylesheet">
+  <link type="text/css" href="css/debug.css" rel="stylesheet">
+  <script type="module" src="js/debug.js"></script>
+  <title id='gsTitle' data-i18n="__MSG_ext_extension_name__ - Debugger"></title>
+</head>
+
+<body>
+  <div class="debugWrap">
+
+    <div class="debugHeader brandMark">
+      <div class="brandTitle">
+        <img src="img/suspendy-guy-main.webp" alt="" class="extensionIcon" aria-hidden="true" />
+        <h1 data-i18n="__MSG_ext_extension_name__"></h1>
+      </div>
+      <div class="brandCodeworks">
+        <img src="img/marvellous-codeworks-logo.webp" alt="" class="brandLogo" aria-hidden="true" />
+        <span class="brandSubtitle">a Marvellous Codeworks project</span>
+      </div>
+    </div>
+
+    <p class="debugPageTitle">Diagnostic &amp; Debugger</p>
+
+    <div class="gsNote gsNote--warn">
+      This is a service page for diagnosing issues, not a normal settings screen. Some actions here modify stored data (logs, cached favicons, "seen" flags) and can't be undone. Only use it if you know what you're doing, or if you've been asked to as part of a support request.
+    </div>
+
+    <section class="debugSection">
+      <h2 class="debugSectionTitle">Controls</h2>
+
+      <div class="debugOptionsGrid">
+
+        <div class="debugOptionCard">
+          <div class="debugOptionCardHeader">
+            <svg class="debugOptionIcon" aria-hidden="true"><use href="img/icons.svg#scroll"/></svg>
+            <span class="debugOptionLabel">captureLogs</span>
+            <a id='toggleCaptureLogs' href='#' class="debugToggle" data-value="false">false</a>
+          </div>
+          <p class="debugOptionDesc">
+            Captures <code>warning()</code> and <code>log()</code> calls from the Service Worker.
+            <strong>Errors are always captured regardless of this flag.</strong>
+            Persists across Service Worker restarts. Enable before reproducing a bug, then download the report.
+          </p>
+        </div>
+
+        <div class="debugOptionCard">
+          <div class="debugOptionCardHeader">
+            <svg class="debugOptionIcon" aria-hidden="true"><use href="img/icons.svg#archive"/></svg>
+            <span class="debugOptionLabel">discardInPlaceOfSuspend</span>
+            <a id='toggleDiscardInPlaceOfSuspend' href='#' class="debugToggle" data-value="false">false</a>
+          </div>
+          <p class="debugOptionDesc">
+            Tabs are <em>discarded</em> (Chrome unloads them from memory without navigating away)
+            instead of being redirected to a suspended page.
+            Useful for testing native discard behaviour. Not recommended for normal use.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="debugCompactList">
+
+        <div class="debugCompactRow">
+          <svg class="debugCompactIcon" aria-hidden="true"><use href="img/icons.svg#rotate-cw"/></svg>
+          <span class="debugCompactLabel">claim suspended tabs</span>
+          <span class="debugCompactHint">Re-assigns suspended tabs from another extension ID to this instance.</span>
+          <div class="debugCompactActions">
+            <a id='claimSuspendedTabs' href='#' class="debugToggle">run claim</a>
+          </div>
+        </div>
+
+        <div class="debugCompactRow">
+          <svg class="debugCompactIcon" aria-hidden="true"><use href="img/icons.svg#image"/></svg>
+          <span class="debugCompactLabel">favicon cache</span>
+          <span class="debugCompactHint">Wipes cached favicons; rebuilt from Chrome's cache on next suspend. Or repair currently open suspended tabs without wiping anything.</span>
+          <div class="debugCompactActions">
+            <a id='clearFaviconCache' href='#' class="debugToggle">clear cache</a>
+            <span class="debugToggleSep" aria-hidden="true">&middot;</span>
+            <a id='repairFavicons' href='#' class="debugToggle">repair favicons now</a>
+          </div>
+        </div>
+
+        <div class="debugCompactRow">
+          <svg class="debugCompactIcon" aria-hidden="true"><use href="img/icons.svg#history"/></svg>
+          <span class="debugCompactLabel">changelog modal</span>
+          <span class="debugCompactHint">Clears the "already shown" marker so Settings shows it again.</span>
+          <div class="debugCompactActions">
+            <a id='resetChangelogSeen' href='#' class="debugToggle">reset "seen" flag</a>
+          </div>
+        </div>
+
+        <div class="debugCompactRow">
+          <svg class="debugCompactIcon" aria-hidden="true"><use href="img/icons.svg#rss"/></svg>
+          <span class="debugCompactLabel">news feed</span>
+          <span class="debugCompactHint">
+            Last: <strong id="newsFeedLastFetch">-</strong> &middot; unread: <strong id="newsFeedUnread">-</strong> &middot; next: <strong id="newsFeedNextRun">-</strong> &middot; jitter: <strong id="newsFeedJitter">-</strong>
+          </span>
+          <div class="debugCompactActions">
+            <a id='forceNewsFeedRefresh' href='#' class="debugToggle">force refresh</a>
+            <span class="debugToggleSep reallyHidden" aria-hidden="true">·</span>
+            <a id='simulateUnread' href='#' class="debugToggle reallyHidden">simulate unread</a>
+          </div>
+        </div>
+
+        <div class="debugCompactRow">
+          <svg class="debugCompactIcon" aria-hidden="true"><use id="powerSourceIcon" href="img/icons.svg#plug"/></svg>
+          <span class="debugCompactLabel">power source</span>
+          <span class="debugCompactHint">
+            Currently: <strong id="powerSourceStatus">unknown</strong>
+          </span>
+        </div>
+
+        <div class="debugCompactRow">
+          <svg class="debugCompactIcon" aria-hidden="true"><use href="img/icons.svg#shield-check"/></svg>
+          <span class="debugCompactLabel">backup device</span>
+          <span class="debugCompactHint">
+            ID: <strong id="backupDeviceId" class="debugMono">-</strong> &middot; name: <strong id="backupDeviceNameDebug">-</strong>
+          </span>
+        </div>
+
+      </div>
+    </section>
+
+    <hr />
+
+    <section class="debugSection">
+      <h2 class="debugSectionTitle">Log buffer &middot; <span id="logCountFull">0</span> entries</h2>
+      <p class="debugLogHint">Showing only the latest <strong><span id="logCount">0</span></strong> entries below. <strong>Download report</strong> includes the full history above; <strong>Copy report</strong> copies only what's shown below.<br />Download/Copy can take a few seconds to prepare, longer with a lot of open tabs — the button shows "Working…" while it's busy and won't respond to another click until it's done, so there's no need to click it again.</p>
+      <div class="debugLogActions">
+        <button id="btnRefreshLogs" class="debugBtn">Refresh</button>
+        <button id="btnClearLog" class="debugBtn">Clear log</button>
+        <button id="btnFilterWarnErr" class="debugBtn" aria-pressed="false">Warnings &amp; errors only</button>
+        <button id="btnCopyReport" class="debugBtn debugBtn-primary">Copy report</button>
+        <button id="btnDownloadReport" class="debugBtn debugBtn-primary">Download report</button>
+      </div>
+      <div id="logOutput" class="logOutput" aria-live="polite"></div>
+    </section>
+
+    <hr />
+
+    <section class="debugSection">
+      <h2 class="debugSectionTitle">Tab profiler</h2>
+      <table id="gsProfiler">
+        <thead>
+          <tr>
+            <th>WinId</th>
+            <th>TabId</th>
+            <th>Index</th>
+            <th></th>
+            <th>Group</th>
+            <th>Title</th>
+            <th>Time left<br>(MM:SS)</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="gsProfilerBody"></tbody>
+      </table>
+    </section>
+
+  </div>
+</body>
+
+</html>

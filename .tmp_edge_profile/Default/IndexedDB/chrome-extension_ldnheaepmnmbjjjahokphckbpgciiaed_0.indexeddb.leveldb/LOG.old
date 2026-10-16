@@ -1,0 +1,6 @@
+2026/10/16-16:21:25.840 6a7c Creating DB C:\Users\basha\OneDrive\Desktop\demo-the-one\.tmp_edge_profile\Default\IndexedDB\chrome-extension_ldnheaepmnmbjjjahokphckbpgciiaed_0.indexeddb.leveldb since it was missing.
+2026/10/16-16:21:25.888 6a7c Reusing MANIFEST C:\Users\basha\OneDrive\Desktop\demo-the-one\.tmp_edge_profile\Default\IndexedDB\chrome-extension_ldnheaepmnmbjjjahokphckbpgciiaed_0.indexeddb.leveldb/MANIFEST-000001
+2026/10/16-16:21:31.121 3ae0 Level-0 table #5: started
+2026/10/16-16:21:31.125 3ae0 Level-0 table #5: 1354 bytes OK
+2026/10/16-16:21:31.130 3ae0 Delete type=0 #3
+2026/10/16-16:21:31.131 57d4 Manual compaction at level-0 from '\x00\x01\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x02\x00\x00\x00' @ 0 : 0; will stop at (end)

@@ -1,0 +1,42 @@
+{
+  "name": "demo-the-one",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "oxlint",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.9.1",
+    "@tanstack/react-query": "^5.104.3",
+    "@types/leaflet": "^1.9.22",
+    "@types/mapbox-gl": "^3.4.1",
+    "framer-motion": "^14.3.0",
+    "i18next": "^26.4.7",
+    "leaflet": "^1.9.4",
+    "lucide-react": "^1.58.0",
+    "mapbox-gl": "^3.33.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-hook-form": "^7.90.0",
+    "react-i18next": "^17.0.19",
+    "react-router-dom": "^7.18.4",
+    "swiper": "^14.3.0",
+    "zod": "^4.6.7",
+    "zustand": "^5.0.15"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "oxlint": "^1.81.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0"
+  }
+}

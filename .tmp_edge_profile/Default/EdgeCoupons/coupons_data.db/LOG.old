@@ -1,0 +1,6 @@
+2026/10/16-16:21:21.618 4c7c Reusing MANIFEST C:\Users\basha\OneDrive\Desktop\demo-the-one\.tmp_edge_profile\Default\EdgeCoupons/coupons_data.db/MANIFEST-000001
+2026/10/16-16:21:21.621 4c7c Recovering log #4
+2026/10/16-16:21:21.622 4c7c Reusing old log C:\Users\basha\OneDrive\Desktop\demo-the-one\.tmp_edge_profile\Default\EdgeCoupons/coupons_data.db/000004.log 
+2026/10/16-16:21:21.909 50b4 Level-0 table #8: started
+2026/10/16-16:21:21.917 50b4 Level-0 table #8: 683455 bytes OK
+2026/10/16-16:21:21.922 50b4 Delete type=0 #4

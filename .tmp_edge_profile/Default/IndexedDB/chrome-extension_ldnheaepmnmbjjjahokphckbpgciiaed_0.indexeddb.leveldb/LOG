@@ -1,0 +1,7 @@
+2026/10/16-16:22:07.973 126c Reusing MANIFEST C:\Users\basha\OneDrive\Desktop\demo-the-one\.tmp_edge_profile\Default\IndexedDB\chrome-extension_ldnheaepmnmbjjjahokphckbpgciiaed_0.indexeddb.leveldb/MANIFEST-000001
+2026/10/16-16:22:07.975 126c Recovering log #4
+2026/10/16-16:22:07.976 126c Reusing old log C:\Users\basha\OneDrive\Desktop\demo-the-one\.tmp_edge_profile\Default\IndexedDB\chrome-extension_ldnheaepmnmbjjjahokphckbpgciiaed_0.indexeddb.leveldb/000004.log 
+2026/10/16-16:22:08.944 126c Level-0 table #8: started
+2026/10/16-16:22:08.947 126c Level-0 table #8: 1886 bytes OK
+2026/10/16-16:22:08.949 126c Delete type=0 #4
+2026/10/16-16:22:08.950 67ec Manual compaction at level-0 from '\x00\x04\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x05\x00\x00\x00' @ 0 : 0; will stop at (end)

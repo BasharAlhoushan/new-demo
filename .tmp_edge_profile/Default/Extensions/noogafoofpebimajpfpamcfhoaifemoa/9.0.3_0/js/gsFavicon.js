@@ -1,0 +1,503 @@
+// @ts-check
+import  { gsIndexedDb }           from './gsIndexedDb.js';
+import  { gsMascot }              from './gsMascot.js';
+import  { gsStorage }             from './gsStorage.js';
+import  { gsUtils }               from './gsUtils.js';
+
+export const gsFavicon = (() => {
+
+  /**
+   * @typedef { {
+   * favIconUrl          : string,
+   * isDark              : boolean,
+   * normalisedDataUrl   : string,
+   * transparentDataUrl  : string,
+   * v?                  : number,
+   * } } FavIconMeta
+   */
+
+  // Bumped whenever buildFaviconMeta()'s output format/cost characteristics change in a
+  // way that makes a previously-cached entry (persisted in IndexedDB, potentially long
+  // before this version shipped) worth rebuilding rather than reusing as-is — e.g. the
+  // MAX_FAVICON_DIMENSION cap below. isFaviconMetaValid() treats a missing/older version
+  // as invalid, so getFaviconMetaFromCache() falls through to the normal cache-miss path
+  // and rebuilds (and re-saves) it with the current logic, self-healing existing profiles
+  // over time as suspended tabs are naturally revisited, without needing to decode and
+  // measure every cached data URL just to detect an oversized one.
+  const FAVICON_META_VERSION = 2;
+
+  // const GOOGLE_S2_URL = 'https://www.google.com/s2/favicons?domain_url=';
+  /** @type { FavIconMeta } */
+  const FALLBACK_CHROME_FAVICON_META = {
+    favIconUrl          : 'chrome://favicon/size/16@2x/fallbackChromeFaviconMeta',
+    isDark              : true,
+    normalisedDataUrl   : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAYklEQVQ4T2NkoBAwIuuPior6j8O8xmXLljVgk8MwYNmyZdgMfcjAwLAAmyFEGfDv3z9FJiamA9gMIcoAkKsiIiIUsBlClAHofkf2JkED0DWDAnrUgOEfBsRkTpzpgBjN6GoA24V1Efr1zoAAAAAASUVORK5CYII=',
+    transparentDataUrl  : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAaUlEQVQ4T2NkoBAwIuuPioqqx2YeExPTwSVLlhzAJodhwLJlyxrRDWVkZPzIyMh4AZshRBnAxsY28ffv3wnYDCHKAJCrEhISBLAZQpQB6H5H9iZBA9A1gwJ61IDhHwbEZE6c6YAYzehqAAmQeBHM42eMAAAAAElFTkSuQmCC',
+  };
+
+
+  /** @type { Record<string, string> } */
+  let _defaultFaviconFingerprintById  = {};
+  let _defaultChromeFaviconMeta       = FALLBACK_CHROME_FAVICON_META;
+
+
+  // gsFavicon cannot be initialized in the background because it requires a DOM.  So, we'll init JIT.
+  // async function initAsPromised() {
+  //   await addFaviconDefaults();
+  //   gsUtils.log('gsFavicon', 'init successful');
+  // }
+
+  async function getFaviconDefaults() {
+    // Generate a list of potential 'default' favicons so we can avoid caching anything that matches these defaults
+
+    _defaultFaviconFingerprintById    = (await gsStorage.getStorageJSON('session', gsStorage.DEFAULT_FAVICON_FINGERPRINTS)) ?? {};
+    gsUtils.log( 'gsFavicon', 'Loaded session storage defaults', _defaultFaviconFingerprintById );
+    if (Object.keys(_defaultFaviconFingerprintById).length) return;
+
+    const defaultIconUrls = [
+      getChromeFavIconUrl('http://chromeDefaultFavicon'),
+      getChromeFavIconUrl('chromeDefaultFavicon'),
+      // Both mascot variants, not just the one the current setting renders: a suspended
+      // tab can still carry the opposite variant after gsLegacyMascot was toggled, and
+      // neither should ever be fingerprinted as a real favicon.
+      ...gsMascot.resolveBothUrls('img/ic_suspendy_16x16.webp'),
+      await gsMascot.resolveUrl('img/chromeDefaultFavicon.webp'),
+      await gsMascot.resolveUrl('img/chromeDefaultFaviconSml.webp'),
+      await gsMascot.resolveUrl('img/chromeDevDefaultFavicon.webp'),
+      await gsMascot.resolveUrl('img/chromeDevDefaultFaviconSml.webp'),
+    ];
+
+    const faviconPromises = [];
+    for (let i = 0; i < defaultIconUrls.length; i += 1) {
+      const iconUrl = defaultIconUrls[i];
+      faviconPromises.push(
+        /** @type {Promise<void>} */
+        (new Promise(async (resolve) => {
+          const faviconMeta = await addDefaultFaviconMeta(iconUrl);
+          if (faviconMeta) {
+            // gsUtils.log( 'gsFavicon', 'Successfully built default faviconMeta', iconUrl, faviconMeta );
+          }
+          else {
+            gsUtils.warning('gsFavicon', 'Failed to build faviconMeta', iconUrl);
+          }
+          // Set the first url as the default favicon
+          if (i === 0) {
+            _defaultChromeFaviconMeta = faviconMeta ?? FALLBACK_CHROME_FAVICON_META;
+          }
+          resolve();
+        }))
+      );
+    }
+    await Promise.all(faviconPromises);
+    await gsStorage.saveStorage('session', gsStorage.DEFAULT_FAVICON_FINGERPRINTS, _defaultFaviconFingerprintById);
+  }
+
+  /**
+   * @param   { string }  url
+   * @returns { Promise< FavIconMeta | undefined > }
+   */
+  async function addDefaultFaviconMeta(url) {
+    // gsUtils.log( 'gsFavicon', '2 addDefaultFaviconMeta' );
+    /** @type { FavIconMeta } */
+    let faviconMeta;
+    try {
+      faviconMeta = await gsUtils.executeWithRetries(buildFaviconMeta, [url], 4, 0);
+      const url2  = `${url}Transparent`;
+      _defaultFaviconFingerprintById[url]   = await createImageFingerprint(faviconMeta.normalisedDataUrl);
+      _defaultFaviconFingerprintById[url2]  = await createImageFingerprint(faviconMeta.transparentDataUrl);
+      return faviconMeta;
+    }
+    catch (error) {
+      gsUtils.warning('gsFavicon', error);
+    }
+  }
+
+  /**
+   * @param   { string }  url
+   * @returns { string }
+   */
+  function getChromeFavIconUrl(url) {
+    // gsUtils.log( 'gsFavicon', 'getChromeFavIconUrl', url );
+    // https://developer.chrome.com/docs/extensions/how-to/ui/favicons
+    // chrome-extension://EXTENSION_ID/_favicon/?pageUrl=EXAMPLE_URL&size=FAV_SIZE
+    const icon_url = new URL(chrome.runtime.getURL('/_favicon/'));
+    icon_url.searchParams.set('pageUrl', url);
+    icon_url.searchParams.set('size', '32');
+    return icon_url.toString();
+  }
+
+  /**
+   * @param   { string }  url
+   * @param   { string }  tabFavIconUrl
+   * @param   { boolean } fCacheOnly
+   * @param   { boolean } fRecursion
+   * @returns { Promise< FavIconMeta | undefined > }
+   */
+  async function getFaviconMetaForUrl(url, tabFavIconUrl, fCacheOnly = false, fRecursion = false) {
+    gsUtils.log('gsFavicon', 'getFaviconMetaForUrl', url, tabFavIconUrl, fCacheOnly, fRecursion);
+
+    let faviconMeta = await getFaviconMetaFromCache(url);
+    if (faviconMeta) {
+      gsUtils.log('gsFavicon', 'getFaviconMetaForUrl', 'Found cached favicon', url, faviconMeta);
+      return faviconMeta;
+    }
+    gsUtils.log('gsFavicon', 'getFaviconMetaForUrl', 'No cached favicon', url);
+
+    if (fCacheOnly) {
+      return;
+    }
+
+    // Else try to build from chrome's favicon cache
+    faviconMeta = await buildFaviconMetaFromChrome(url);
+    if (faviconMeta) {
+      await saveFaviconMetaToCache(url, faviconMeta);
+      gsUtils.log('gsFavicon', 'getFaviconMetaForUrl', 'Found favicon from Chrome', url, faviconMeta);
+      return faviconMeta;
+    }
+    gsUtils.log('gsFavicon', 'getFaviconMetaForUrl', 'No favicon in chrome cache', url);
+
+    // Else try to build from tabFavIconUrl
+    faviconMeta = await buildFaviconMetaFromTab(tabFavIconUrl);
+    if (faviconMeta) {
+      gsUtils.log('gsFavicon', 'getFaviconMetaForUrl', 'Built faviconMeta from tabFavIconUrl', faviconMeta);
+      return faviconMeta;
+    }
+    gsUtils.log('gsFavicon', 'getFaviconMetaForUrl', 'No tabFavIconUrl', tabFavIconUrl, url);
+
+
+    // Else try one more time with the root hostname -- this is needed for YouTube, for example
+
+    const fullUrl = gsUtils.getNewURL(url)?.toString();
+    const rootUrl = gsUtils.getRootUrlNew(fullUrl);       // data URI and invalid URLs will return undefined here
+
+    if (!fRecursion && fullUrl && rootUrl && fullUrl != rootUrl) {
+      gsUtils.log('gsFavicon', 'Trying root hostname', fullUrl, rootUrl);
+      faviconMeta = await getFaviconMetaForUrl(rootUrl, tabFavIconUrl, fCacheOnly, true);
+      if (faviconMeta) {
+        gsUtils.log('gsFavicon', 'Built faviconMeta from root hostname', faviconMeta);
+        await saveFaviconMetaToCache(url, faviconMeta);
+        return faviconMeta;
+      }
+    }
+
+  }
+
+  /**
+   * @param   { chrome.tabs.Tab } tab
+   * @param   { boolean }         fCacheOnly
+   * @returns { Promise< FavIconMeta > }
+   */
+  async function getFaviconMeta(tab, fCacheOnly = false) {
+    gsUtils.log('gsFavicon', 'getFaviconMeta', tab.url, fCacheOnly);
+
+    if (!tab.url || gsUtils.isFileTab(tab)) {
+      return _defaultChromeFaviconMeta;
+    }
+
+    let   originalUrl   = tab.url ?? '';
+    const tabFavIconUrl = tab.favIconUrl ?? '';
+
+    // First try to fetch from cache
+    if (gsUtils.isSuspendedTab(tab)) {
+      originalUrl = gsUtils.getOriginalUrl(tab.url);
+    }
+
+    const faviconMeta = await getFaviconMetaForUrl(originalUrl, tabFavIconUrl, fCacheOnly);
+    if (faviconMeta) {
+      return faviconMeta;
+    }
+
+    // Else return the default chrome favicon
+    gsUtils.log('gsFavicon', 'Failed to build faviconMeta. Using default icon');
+    return _defaultChromeFaviconMeta;
+  }
+
+  /**
+   * @param { string }  url
+   * @returns { Promise< FavIconMeta | undefined > }
+   */
+  async function buildFaviconMetaFromChrome(url) {
+    const chromeFavIconUrl = getChromeFavIconUrl(url);
+    gsUtils.log('gsFavicon', 'buildFaviconMetaFromChrome', url, chromeFavIconUrl);
+    try {
+      const faviconMeta = await buildFaviconMeta(chromeFavIconUrl);
+      const isValid     = await isFaviconMetaValid(faviconMeta);
+      if (isValid) {
+        return faviconMeta;
+      }
+    }
+    catch (error) {
+      gsUtils.warning('gsUtils', error);
+    }
+  }
+
+  /**
+   * @param   { string }  favIconUrl
+   * @returns { Promise< FavIconMeta | undefined > }
+   */
+  async function buildFaviconMetaFromTab(favIconUrl) {
+    // Reject both mascot variants, not just the currently-rendered one: otherwise a tab
+    // left carrying the opposite variant after a gsLegacyMascot toggle gets its stale
+    // extension icon converted into a valid data: favicon here, which then reads as
+    // "repaired" while the tab still visibly shows the extension icon.
+    if (favIconUrl && !gsMascot.resolveBothUrls('img/ic_suspendy_16x16.webp').includes(favIconUrl)) {
+      gsUtils.log('gsFavicon', 'buildFaviconMetaFromTab', favIconUrl);
+      try {
+        const faviconMeta = await buildFaviconMeta(favIconUrl);
+        const isValid     = await isFaviconMetaValid(faviconMeta);
+        if (isValid) {
+          return faviconMeta;
+        }
+      }
+      catch (error) {
+        gsUtils.warning('gsUtils', error);
+      }
+    }
+  }
+
+  /**
+   * @param { string }  url
+   * @returns { Promise< FavIconMeta | undefined > }
+   */
+  async function getFaviconMetaFromCache(url) {
+    const fullUrl   = gsUtils.getRootUrl(url, true, false);
+    const faviconMeta = await gsIndexedDb.fetchFaviconMeta(fullUrl);
+    // if (!faviconMeta) {
+    //   const rootUrl = gsUtils.getRootUrl(url, false, false);
+    //   faviconMeta   = await gsIndexedDb.fetchFaviconMeta(rootUrl);
+    // }
+    const isValid   = await isFaviconMetaValid(faviconMeta);
+    if (isValid) {
+      return faviconMeta;
+    }
+  }
+
+  /**
+   * @param { string }  url
+   * @param { object }  faviconMeta
+   */
+  async function saveFaviconMetaToCache(url, faviconMeta) {
+    const fullUrl = gsUtils.getRootUrl(url, true, false);
+    // const rootUrl = gsUtils.getRootUrl(url, false, false);
+    gsUtils.log('gsFavicon', `Saving favicon cache entry for ${fullUrl}`, faviconMeta);
+    await gsIndexedDb.addFaviconMeta(fullUrl, Object.assign({}, faviconMeta));
+    // gsUtils.log('gsFavicon', `Saving favicon cache entry for ${rootUrl}`, faviconMeta);
+    // await gsIndexedDb.addFaviconMeta(rootUrl, Object.assign({}, faviconMeta));
+  }
+
+  /**
+   * @param { FavIconMeta }  faviconMeta
+   * @returns { Promise< boolean > }
+   */
+  async function isFaviconMetaValid(faviconMeta) {
+    if (
+      !faviconMeta ||
+      faviconMeta.normalisedDataUrl === 'data:,' ||
+      faviconMeta.transparentDataUrl === 'data:,' ||
+      // A cached entry from before FAVICON_META_VERSION existed (or from an older version
+      // of it) may have been built without the MAX_FAVICON_DIMENSION cap in
+      // buildFaviconMeta() — treating it as invalid here sends every caller down the
+      // normal cache-miss path, which rebuilds (and re-saves) it with the current logic.
+      faviconMeta.v !== FAVICON_META_VERSION
+    ) {
+      return false;
+    }
+    const normalisedFingerprint   = await createImageFingerprint(faviconMeta.normalisedDataUrl);
+    const transparentFingerprint  = await createImageFingerprint(faviconMeta.transparentDataUrl);
+
+    if (!Object.keys(_defaultFaviconFingerprintById).length) {
+      await getFaviconDefaults();
+    }
+
+    for (const id of Object.keys(_defaultFaviconFingerprintById)) {
+      const defaultFaviconFingerprint = _defaultFaviconFingerprintById[id];
+      if (
+        normalisedFingerprint === defaultFaviconFingerprint ||
+        transparentFingerprint === defaultFaviconFingerprint
+      ) {
+        // gsUtils.log('gsFavicon', `FaviconMeta not valid as it matches fingerprint of default favicon ${id}`, faviconMeta);
+        return false;
+      }
+    }
+    return true;
+  }
+
+  /**
+   * @param   { string }  dataUrl
+   * @returns { Promise<string> }
+   * Turns the img into a 16x16 black and white dataUrl
+   */
+  function createImageFingerprint(dataUrl) {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.onload = async () => {
+        const canvas  = document.createElement('canvas');
+        const context = canvas.getContext('2d');
+        const threshold = 80;
+
+        if (context) {
+          canvas.width = 16;
+          canvas.height = 16;
+          context.drawImage(img, 0, 0, 16, 16);
+
+          const imageData = context.getImageData(0, 0, 16, 16);
+          for (let i = 0; i < imageData.data.length; i += 4) {
+            const luma = Math.floor(
+              imageData.data[i] * 0.3 +
+                imageData.data[i + 1] * 0.59 +
+                imageData.data[i + 2] * 0.11
+            );
+            imageData.data[i] = imageData.data[i + 1] = imageData.data[i + 2] =
+              luma > threshold ? 255 : 0;
+            imageData.data[i + 3] = 255;
+          }
+          context.putImageData(imageData, 0, 0);
+          const fingerprintDataUrl = canvas.toDataURL('image/png');
+          resolve(fingerprintDataUrl);
+        }
+        else {
+          reject('Failed to get canvas context');
+        }
+      };
+      img.src = dataUrl;
+    });
+  }
+
+  /**
+   * @param   { string }  url
+   * @returns { Promise<FavIconMeta> }
+   */
+  function buildFaviconMeta(url) {
+    // gsUtils.log( 'gsFavicon', 'buildFaviconMeta', url );
+    const timeout = 5 * 1000;
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      // 12-16-2018 ::: @CollinChaffin ::: Anonymous declaration required to prevent terminating cross origin security errors
+      // 12-16-2018 ::: @CollinChaffin ::: http://bit.ly/2BolEqx
+      // 12-16-2018 ::: @CollinChaffin ::: https://bugs.chromium.org/p/chromium/issues/detail?id=409090#c23
+      // 12-16-2018 ::: @CollinChaffin ::: https://bugs.chromium.org/p/chromium/issues/detail?id=718352#c10
+      img.crossOrigin = 'Anonymous';
+      let imageLoaded = false;
+
+      img.onload = () => {
+        imageLoaded = true;
+
+        // faviconMeta.normalisedDataUrl/transparentDataUrl only ever end up as a tab-bar
+        // <img>/<link rel="icon"> in suspended.js (setFaviconMeta()) — never rendered above
+        // a few dozen px regardless of source resolution. Some sites serve a much larger
+        // "favicon" (e.g. a 512×512 apple-touch-icon reused as-is), and this used to size the
+        // canvas to the image's native dimensions: getImageData() on that plus two
+        // Uint8ClampedArray copies and two toDataURL() PNG encodes below scale with pixel
+        // count, not with what's actually displayed. Confirmed via a live OOM crash dump
+        // (Crashpad's v8-oom-* annotations) showing ~4GB of V8 external/allocator memory in
+        // a single renderer process hosting 49 same-origin suspended.html views — Chrome
+        // shares one process per extension origin, so this per-tab cost multiplies across
+        // every suspended tab sharing it. Capping the working canvas to a small max
+        // dimension (generous for a favicon, tiny next to a full-resolution source image)
+        // bounds that cost regardless of how large the source turns out to be.
+        const MAX_FAVICON_DIMENSION = 128;
+        const scale = Math.min(1, MAX_FAVICON_DIMENSION / Math.max(img.width, img.height));
+        const canvas  = document.createElement('canvas');
+        canvas.width  = Math.max(1, Math.round(img.width  * scale));
+        canvas.height = Math.max(1, Math.round(img.height * scale));
+        const context = canvas.getContext('2d');
+
+        if (context) {
+          context.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+          let imageData;
+          try {
+            imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+          }
+          catch (error) {
+            reject(error);
+            return;
+          }
+
+          const origDataArray = imageData.data;
+          const normalisedDataArray = new Uint8ClampedArray(origDataArray);
+          const transparentDataArray = new Uint8ClampedArray(origDataArray);
+
+          const fuzzy     = 0.1;
+          let   r         = 0;
+          let   g         = 0;
+          let   b         = 0;
+          let   a         = 0;
+          let   light     = 0;
+          let   dark      = 0;
+          let   maxAlpha  = 0;
+          let   maxRGB    = 0;
+
+          for (let x = 0; x < origDataArray.length; x += 4) {
+            r = origDataArray[x];
+            g = origDataArray[x + 1];
+            b = origDataArray[x + 2];
+            a = origDataArray[x + 3];
+
+            const localMaxRgb = Math.max(Math.max(r, g), b);
+            if (localMaxRgb < 128 || a < 128) dark++;
+            else light++;
+            maxAlpha  = Math.max(a, maxAlpha);
+            maxRGB    = Math.max(localMaxRgb, maxRGB);
+          }
+
+          // safety check to make sure image is not completely transparent
+          if (maxAlpha === 0) {
+            reject(`Aborting favicon generation as image is completely transparent ${url}`);
+            return;
+          }
+
+          const darkLightDiff = (light - dark) / (canvas.width * canvas.height);
+          const isDark = darkLightDiff + fuzzy < 0;
+          const normaliserMultiple = 1 / (maxAlpha / 255);
+
+          for (let x = 0; x < origDataArray.length; x += 4) {
+            a = origDataArray[x + 3];
+            normalisedDataArray[x + 3] = parseInt(String(a * normaliserMultiple), 10);
+          }
+          for (let x = 0; x < normalisedDataArray.length; x += 4) {
+            a = normalisedDataArray[x + 3];
+            transparentDataArray[x + 3] = parseInt(String(a * 0.5), 10);
+          }
+
+          imageData.data.set(normalisedDataArray);
+          context.putImageData(imageData, 0, 0);
+          const normalisedDataUrl = canvas.toDataURL('image/png');
+
+          imageData.data.set(transparentDataArray);
+          context.putImageData(imageData, 0, 0);
+          const transparentDataUrl = canvas.toDataURL('image/png');
+
+          /** @type FavIconMeta */
+          const faviconMeta = {
+            favIconUrl: url,
+            isDark,
+            normalisedDataUrl,
+            transparentDataUrl,
+            v: FAVICON_META_VERSION,
+          };
+          resolve(faviconMeta);
+        }
+        else {
+          reject('Failed to get canvas context');
+        }
+      };
+      img.src = url;
+      setTimeout(() => {
+        if (!imageLoaded) {
+          reject(`Failed to load img.src for ${url}`);
+        }
+      }, timeout);
+    });
+  }
+
+  return {
+    // initAsPromised,
+    getFaviconMeta,
+    getChromeFavIconUrl,
+    // buildFaviconMetaFromChrome,
+    // saveFaviconMetaToCache,
+    isFaviconMetaValid,
+    buildFaviconMeta,
+  };
+})();

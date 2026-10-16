@@ -1,0 +1,188 @@
+import { Agent } from '../types';
+
+export const agents: Agent[] = [
+  {
+    id: 'agent-1',
+    name: {
+      en: 'Mansoor Al-Kuwari',
+      ar: 'منصور الكواري',
+    },
+    title: {
+      en: 'Senior Partner & Head of Private Client Advisory',
+      ar: 'شريك أول ورئيس استشارات العملاء المتميزين',
+    },
+    email: 'm.alkuwari@theonerealestate.qa',
+    phone: '+974 4499 8811',
+    whatsapp: '+97444998811',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80',
+    experienceYears: 16,
+    specialization: 'Waterfront Palaces & Private Island Estates',
+    languages: ['Arabic', 'English', 'French'],
+    activeListingsCount: 14,
+    bio: {
+      en: 'With over sixteen years advising royalty, diplomats, and high-net-worth private investors, Mansoor leads our prime waterfront and private island acquisitions across The Pearl and Qetaifan.',
+      ar: 'بخبرة تزيد عن ستة عشر عاماً في تقديم الاستشارات لنخبة المستثمرين وكبار الشخصيات، يقود منصور قطاع الاستحواذ على القصور والفلل الشاطئية الفاخرة في اللؤلؤة وقطيفان.',
+    },
+  },
+  {
+    id: 'agent-2',
+    name: {
+      en: 'Elena Rostova',
+      ar: 'إيلينا روستوفا',
+    },
+    title: {
+      en: 'Director of International Penthouses & Sky Residences',
+      ar: 'مديرة قطاع البنتهاوس والمساكن البانورامية',
+    },
+    email: 'e.rostova@theonerealestate.qa',
+    phone: '+974 4499 8822',
+    whatsapp: '+97444998822',
+    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80',
+    experienceYears: 12,
+    specialization: 'Super-Prime Penthouses & Architectural Duplexes',
+    languages: ['English', 'Russian', 'Arabic'],
+    activeListingsCount: 11,
+    bio: {
+      en: 'Elena specializes in trophy sky-homes and architectural masterworks throughout Lusail Marina and West Bay skyline, matching discerning international buyers with extraordinary spaces.',
+      ar: 'تختص إيلينا في أفخم شقق البنتهاوس والتحف المعمارية المعلقة في مارينا لوسيل وأبراج الخليج الغربي، محققة رغبات نخبة المشترين الدوليين.',
+    },
+  },
+  {
+    id: 'agent-3',
+    name: {
+      en: 'Tariq Al-Sulaiti',
+      ar: 'طارق السليطي',
+    },
+    title: {
+      en: 'Principal Advisor — Off-Plan & Flagship Developments',
+      ar: 'مستشار رئيسي — المشاريع الكبرى والتطوير العقاري',
+    },
+    email: 't.alsulaiti@theonerealestate.qa',
+    phone: '+974 4499 8833',
+    whatsapp: '+97444998833',
+    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80',
+    experienceYears: 14,
+    specialization: 'Mega Projects & Investment Portfolios',
+    languages: ['Arabic', 'English'],
+    activeListingsCount: 18,
+    bio: {
+      en: 'Tariq works closely with Qatar premier master developers to grant our clientele priority early access to off-market launches and architectural signature developments.',
+      ar: 'يتعاون طارق عن قرب مع كبار المطورين العقاريين في قطر لتمكين عملائنا من الأولوية الحصرية في حجز المشاريع الرائدة والفرص الاستثمارية غير المعلنة.',
+    },
+  },
+  {
+    id: 'agent-4',
+    name: {
+      en: 'Sophia Laurent',
+      ar: 'صوفيا لوران',
+    },
+    title: {
+      en: 'Executive Advisor — Heritage & Sustainable Luxury',
+      ar: 'مستشارة تنفيذية — التراث المعماري والفخامة المستدامة',
+    },
+    email: 's.laurent@theonerealestate.qa',
+    phone: '+974 4499 8844',
+    whatsapp: '+97444998844',
+    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=800&q=80',
+    experienceYears: 10,
+    specialization: 'Msheireb Downtown & Modernist Urban Estates',
+    languages: ['English', 'French', 'Arabic'],
+    activeListingsCount: 9,
+    bio: {
+      en: 'A specialist in sustainable luxury design and Msheireb Downtown smart-city mansions, Sophia bridges historic Qatari architectural aesthetics with state-of-the-art living.',
+      ar: 'متخصصة في العمارة المستدامة الفاخرة ومنازل مشيرب قلب الدوحة الذكية، حيث تجمع بين روح العمارة القطرية الأصيلة وأحدث تقنيات المعيشة الذكية.',
+    },
+  },
+  {
+    id: 'agent-5',
+    name: {
+      en: 'Fahad Al-Marri',
+      ar: 'فهد المري',
+    },
+    title: {
+      en: 'Managing Director — Private Villas & Gated Compounds',
+      ar: 'مدير تنفيذي — الفلل الخاصة والمجمعات الحصرية',
+    },
+    email: 'f.almarri@theonerealestate.qa',
+    phone: '+974 4499 8855',
+    whatsapp: '+97444998855',
+    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=800&q=80',
+    experienceYears: 18,
+    specialization: 'Al Waab, West Bay Lagoon & Palatial Mansions',
+    languages: ['Arabic', 'English'],
+    activeListingsCount: 15,
+    bio: {
+      en: 'Fahad advises established families on long-term generational estates, securing expansive gated compounds with unmatched privacy and landscape architecture.',
+      ar: 'يقدم فهد المشورة لأرقى العائلات في اقتناء وتطوير العقارات والقصور العائلية الواسعة في الوعب ولاغون، بأعلى درجات الخصوصية والمساحات الخضراء.',
+    },
+  },
+  {
+    id: 'agent-6',
+    name: {
+      en: 'Nour Benali',
+      ar: 'نور بن علي',
+    },
+    title: {
+      en: 'Senior Consultant — Diplomatic & Executive Leasing',
+      ar: 'مستشارة أولى — التأجير الدبلوماسي والتنفيذي الرفيع',
+    },
+    email: 'n.benali@theonerealestate.qa',
+    phone: '+974 4499 8866',
+    whatsapp: '+97444998866',
+    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80',
+    experienceYears: 9,
+    specialization: 'Ultra-Luxury Residential Leases & Embassy Residences',
+    languages: ['Arabic', 'English', 'Italian'],
+    activeListingsCount: 12,
+    bio: {
+      en: 'Nour leads our confidential VIP leasing desk, curating fully managed luxury residences for multinational executives, embassy leadership, and seasonal private residents.',
+      ar: 'تدير نور قسم التأجير الدبلوماسي والتنفيذي فائق الفخامة، مقدمة حلولاً سكنية راقية ومكتملة الخدمات لكبار الدبلوماسيين والرؤساء التنفيذيين.',
+    },
+  },
+  {
+    id: 'agent-7',
+    name: {
+      en: 'Zaid Al-Husseini',
+      ar: 'زيد الحسيني',
+    },
+    title: {
+      en: 'Head of Valuation & Asset Advisory',
+      ar: 'رئيس قسم التقييم العقاري وإدارة الأصول',
+    },
+    email: 'z.husseini@theonerealestate.qa',
+    phone: '+974 4499 8877',
+    whatsapp: '+97444998877',
+    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=800&q=80',
+    experienceYears: 15,
+    specialization: 'Certified Valuations & Commercial Portfolios',
+    languages: ['Arabic', 'English', 'German'],
+    activeListingsCount: 8,
+    bio: {
+      en: 'Certified property appraiser delivering data-driven market valuations and underwriting for institutional portfolios and private family offices throughout the GCC.',
+      ar: 'خبير تقييم عقاري معتمد يقدم دراسات سوقية دقيقة وتقييمات للأصول العقارية الكبرى والمكاتب العائلية الاستثمارية في قطر والخليج.',
+    },
+  },
+  {
+    id: 'agent-8',
+    name: {
+      en: 'Camilla Moreau',
+      ar: 'كاميلا مورو',
+    },
+    title: {
+      en: 'Private Concierge & Interior Lifestyle Lead',
+      ar: 'مسؤولة الكونسيرج الخاص والتصميم الداخلي الراقي',
+    },
+    email: 'c.moreau@theonerealestate.qa',
+    phone: '+974 4499 8888',
+    whatsapp: '+97444998888',
+    image: 'https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=800&q=80',
+    experienceYears: 11,
+    specialization: 'Turnkey Furnished Mansions & Bespoke Interiors',
+    languages: ['English', 'French', 'Spanish'],
+    activeListingsCount: 7,
+    bio: {
+      en: 'Camilla coordinates turnkey interior curation and bespoke lifestyle services for our international clients acquiring fully furnished trophy estates in Qatar.',
+      ar: 'تتولى كاميلا تنسيق خدمات التصميم الداخلي الفاخر والتأثيث المتكامل من أشهر دور التصميم العالمية للعملاء المستحوذين على قصور جاهزة للسكن.',
+    },
+  },
+];

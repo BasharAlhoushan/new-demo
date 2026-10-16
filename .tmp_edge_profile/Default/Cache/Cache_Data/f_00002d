@@ -1,0 +1,212 @@
+export const agents = [
+	{
+		id: "agent-1",
+		name: {
+			en: "Mansoor Al-Kuwari",
+			ar: "منصور الكواري"
+		},
+		title: {
+			en: "Senior Partner & Head of Private Client Advisory",
+			ar: "شريك أول ورئيس استشارات العملاء المتميزين"
+		},
+		email: "m.alkuwari@theonerealestate.qa",
+		phone: "+974 4499 8811",
+		whatsapp: "+97444998811",
+		image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80",
+		experienceYears: 16,
+		specialization: "Waterfront Palaces & Private Island Estates",
+		languages: [
+			"Arabic",
+			"English",
+			"French"
+		],
+		activeListingsCount: 14,
+		bio: {
+			en: "With over sixteen years advising royalty, diplomats, and high-net-worth private investors, Mansoor leads our prime waterfront and private island acquisitions across The Pearl and Qetaifan.",
+			ar: "بخبرة تزيد عن ستة عشر عاماً في تقديم الاستشارات لنخبة المستثمرين وكبار الشخصيات، يقود منصور قطاع الاستحواذ على القصور والفلل الشاطئية الفاخرة في اللؤلؤة وقطيفان."
+		}
+	},
+	{
+		id: "agent-2",
+		name: {
+			en: "Elena Rostova",
+			ar: "إيلينا روستوفا"
+		},
+		title: {
+			en: "Director of International Penthouses & Sky Residences",
+			ar: "مديرة قطاع البنتهاوس والمساكن البانورامية"
+		},
+		email: "e.rostova@theonerealestate.qa",
+		phone: "+974 4499 8822",
+		whatsapp: "+97444998822",
+		image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
+		experienceYears: 12,
+		specialization: "Super-Prime Penthouses & Architectural Duplexes",
+		languages: [
+			"English",
+			"Russian",
+			"Arabic"
+		],
+		activeListingsCount: 11,
+		bio: {
+			en: "Elena specializes in trophy sky-homes and architectural masterworks throughout Lusail Marina and West Bay skyline, matching discerning international buyers with extraordinary spaces.",
+			ar: "تختص إيلينا في أفخم شقق البنتهاوس والتحف المعمارية المعلقة في مارينا لوسيل وأبراج الخليج الغربي، محققة رغبات نخبة المشترين الدوليين."
+		}
+	},
+	{
+		id: "agent-3",
+		name: {
+			en: "Tariq Al-Sulaiti",
+			ar: "طارق السليطي"
+		},
+		title: {
+			en: "Principal Advisor — Off-Plan & Flagship Developments",
+			ar: "مستشار رئيسي — المشاريع الكبرى والتطوير العقاري"
+		},
+		email: "t.alsulaiti@theonerealestate.qa",
+		phone: "+974 4499 8833",
+		whatsapp: "+97444998833",
+		image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80",
+		experienceYears: 14,
+		specialization: "Mega Projects & Investment Portfolios",
+		languages: ["Arabic", "English"],
+		activeListingsCount: 18,
+		bio: {
+			en: "Tariq works closely with Qatar premier master developers to grant our clientele priority early access to off-market launches and architectural signature developments.",
+			ar: "يتعاون طارق عن قرب مع كبار المطورين العقاريين في قطر لتمكين عملائنا من الأولوية الحصرية في حجز المشاريع الرائدة والفرص الاستثمارية غير المعلنة."
+		}
+	},
+	{
+		id: "agent-4",
+		name: {
+			en: "Sophia Laurent",
+			ar: "صوفيا لوران"
+		},
+		title: {
+			en: "Executive Advisor — Heritage & Sustainable Luxury",
+			ar: "مستشارة تنفيذية — التراث المعماري والفخامة المستدامة"
+		},
+		email: "s.laurent@theonerealestate.qa",
+		phone: "+974 4499 8844",
+		whatsapp: "+97444998844",
+		image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=800&q=80",
+		experienceYears: 10,
+		specialization: "Msheireb Downtown & Modernist Urban Estates",
+		languages: [
+			"English",
+			"French",
+			"Arabic"
+		],
+		activeListingsCount: 9,
+		bio: {
+			en: "A specialist in sustainable luxury design and Msheireb Downtown smart-city mansions, Sophia bridges historic Qatari architectural aesthetics with state-of-the-art living.",
+			ar: "متخصصة في العمارة المستدامة الفاخرة ومنازل مشيرب قلب الدوحة الذكية، حيث تجمع بين روح العمارة القطرية الأصيلة وأحدث تقنيات المعيشة الذكية."
+		}
+	},
+	{
+		id: "agent-5",
+		name: {
+			en: "Fahad Al-Marri",
+			ar: "فهد المري"
+		},
+		title: {
+			en: "Managing Director — Private Villas & Gated Compounds",
+			ar: "مدير تنفيذي — الفلل الخاصة والمجمعات الحصرية"
+		},
+		email: "f.almarri@theonerealestate.qa",
+		phone: "+974 4499 8855",
+		whatsapp: "+97444998855",
+		image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=800&q=80",
+		experienceYears: 18,
+		specialization: "Al Waab, West Bay Lagoon & Palatial Mansions",
+		languages: ["Arabic", "English"],
+		activeListingsCount: 15,
+		bio: {
+			en: "Fahad advises established families on long-term generational estates, securing expansive gated compounds with unmatched privacy and landscape architecture.",
+			ar: "يقدم فهد المشورة لأرقى العائلات في اقتناء وتطوير العقارات والقصور العائلية الواسعة في الوعب ولاغون، بأعلى درجات الخصوصية والمساحات الخضراء."
+		}
+	},
+	{
+		id: "agent-6",
+		name: {
+			en: "Nour Benali",
+			ar: "نور بن علي"
+		},
+		title: {
+			en: "Senior Consultant — Diplomatic & Executive Leasing",
+			ar: "مستشارة أولى — التأجير الدبلوماسي والتنفيذي الرفيع"
+		},
+		email: "n.benali@theonerealestate.qa",
+		phone: "+974 4499 8866",
+		whatsapp: "+97444998866",
+		image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80",
+		experienceYears: 9,
+		specialization: "Ultra-Luxury Residential Leases & Embassy Residences",
+		languages: [
+			"Arabic",
+			"English",
+			"Italian"
+		],
+		activeListingsCount: 12,
+		bio: {
+			en: "Nour leads our confidential VIP leasing desk, curating fully managed luxury residences for multinational executives, embassy leadership, and seasonal private residents.",
+			ar: "تدير نور قسم التأجير الدبلوماسي والتنفيذي فائق الفخامة، مقدمة حلولاً سكنية راقية ومكتملة الخدمات لكبار الدبلوماسيين والرؤساء التنفيذيين."
+		}
+	},
+	{
+		id: "agent-7",
+		name: {
+			en: "Zaid Al-Husseini",
+			ar: "زيد الحسيني"
+		},
+		title: {
+			en: "Head of Valuation & Asset Advisory",
+			ar: "رئيس قسم التقييم العقاري وإدارة الأصول"
+		},
+		email: "z.husseini@theonerealestate.qa",
+		phone: "+974 4499 8877",
+		whatsapp: "+97444998877",
+		image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=800&q=80",
+		experienceYears: 15,
+		specialization: "Certified Valuations & Commercial Portfolios",
+		languages: [
+			"Arabic",
+			"English",
+			"German"
+		],
+		activeListingsCount: 8,
+		bio: {
+			en: "Certified property appraiser delivering data-driven market valuations and underwriting for institutional portfolios and private family offices throughout the GCC.",
+			ar: "خبير تقييم عقاري معتمد يقدم دراسات سوقية دقيقة وتقييمات للأصول العقارية الكبرى والمكاتب العائلية الاستثمارية في قطر والخليج."
+		}
+	},
+	{
+		id: "agent-8",
+		name: {
+			en: "Camilla Moreau",
+			ar: "كاميلا مورو"
+		},
+		title: {
+			en: "Private Concierge & Interior Lifestyle Lead",
+			ar: "مسؤولة الكونسيرج الخاص والتصميم الداخلي الراقي"
+		},
+		email: "c.moreau@theonerealestate.qa",
+		phone: "+974 4499 8888",
+		whatsapp: "+97444998888",
+		image: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=800&q=80",
+		experienceYears: 11,
+		specialization: "Turnkey Furnished Mansions & Bespoke Interiors",
+		languages: [
+			"English",
+			"French",
+			"Spanish"
+		],
+		activeListingsCount: 7,
+		bio: {
+			en: "Camilla coordinates turnkey interior curation and bespoke lifestyle services for our international clients acquiring fully furnished trophy estates in Qatar.",
+			ar: "تتولى كاميلا تنسيق خدمات التصميم الداخلي الفاخر والتأثيث المتكامل من أشهر دور التصميم العالمية للعملاء المستحوذين على قصور جاهزة للسكن."
+		}
+	}
+];
+
+//# sourceMappingURL=data:application/json;base64,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aUJBQWlCO0VBQ2pCLGdCQUFnQjtFQUNoQixXQUFXO0dBQUM7R0FBVztHQUFVO0VBQVM7RUFDMUMscUJBQXFCO0VBQ3JCLEtBQUs7R0FDSCxJQUFJO0dBQ0osSUFBSTtFQUNOO0NBQ0Y7QUFDRiIsIm5hbWVzIjpbXSwic291cmNlcyI6WyJhZ2VudHMudHMiXSwidmVyc2lvbiI6Mywic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgQWdlbnQgfSBmcm9tICcuLi90eXBlcyc7XG5cbmV4cG9ydCBjb25zdCBhZ2VudHM6IEFnZW50W10gPSBbXG4gIHtcbiAgICBpZDogJ2FnZW50LTEnLFxuICAgIG5hbWU6IHtcbiAgICAgIGVuOiAnTWFuc29vciBBbC1LdXdhcmknLFxuICAgICAgYXI6ICfZhdmG2LXZiNixINin2YTZg9mI2KfYsdmKJyxcbiAgICB9LFxuICAgIHRpdGxlOiB7XG4gICAgICBlbjogJ1NlbmlvciBQYXJ0bmVyICYgSGVhZCBvZiBQcml2YXRlIENsaWVudCBBZHZpc29yeScsXG4gICAgICBhcjogJ9i02LHZitmDINij2YjZhCDZiNix2KbZitizINin2LPYqti02KfYsdin2Kog2KfZhNi52YXZhNin2KEg2KfZhNmF2KrZhdmK2LLZitmGJyxcbiAgICB9LFxuICAgIGVtYWlsOiAnbS5hbGt1d2FyaUB0aGVvbmVyZWFsZXN0YXRlLnFhJyxcbiAgICBwaG9uZTogJys5NzQgNDQ5OSA4ODExJyxcbiAgICB3aGF0c2FwcDogJys5NzQ0NDk5ODgxMScsXG4gICAgaW1hZ2U6ICdodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTUwNzAwMzIxMTE2OS0wYTFkZDcyMjhmMmQ/YXV0bz1mb3JtYXQmZml0PWNyb3Amdz04MDAmcT04MCcsXG4gICAgZXhwZXJpZW5jZVllYXJzOiAxNixcbiAgICBzcGVjaWFsaXphdGlvbjogJ1dhdGVyZnJvbnQgUGFsYWNlcyAmIFByaXZhdGUgSXNsYW5kIEVzdGF0ZXMnLFxuICAgIGxhbmd1YWdlczogWydBcmFiaWMnLCAnRW5nbGlzaCcsICdGcmVuY2gnXSxcbiAgICBhY3RpdmVMaXN0aW5nc0NvdW50OiAxNCxcbiAgICBiaW86IHtcbiAgICAgIGVuOiAnV2l0aCBvdmVyIHNpeHRlZW4geWVhcnMgYWR2aXNpbmcgcm95YWx0eSwgZGlwbG9tYXRzLCBhbmQgaGlnaC1uZXQtd29ydGggcHJpdmF0ZSBpbnZlc3RvcnMsIE1hbnNvb3IgbGVhZHMgb3VyIHByaW1lIHdhdGVyZnJvbnQgYW5kIHByaXZhdGUgaXNsYW5kIGFjcXVpc2l0aW9ucyBhY3Jvc3MgVGhlIFBlYXJsIGFuZCBRZXRhaWZhbi4nLFxuICAgICAgYXI6ICfYqNiu2KjYsdipINiq2LLZitivINi52YYg2LPYqtipINi52LTYsSDYudin2YXYp9mLINmB2Yog2KrZgtiv2YrZhSDYp9mE2KfYs9iq2LTYp9ix2KfYqiDZhNmG2K7YqNipINin2YTZhdiz2KrYq9mF2LHZitmGINmI2YPYqNin2LEg2KfZhNi02K7YtdmK2KfYqtiMINmK2YLZiNivINmF2YbYtdmI2LEg2YLYt9in2Lkg2KfZhNin2LPYqtit2YjYp9iwINi52YTZiSDYp9mE2YLYtdmI2LEg2YjYp9mE2YHZhNmEINin2YTYtNin2LfYptmK2Kkg2KfZhNmB2KfYrtix2Kkg2YHZiiDYp9mE2YTYpNmE2KTYqSDZiNmC2LfZitmB2KfZhi4nLFxuICAgIH0sXG4gIH0sXG4gIHtcbiAgICBpZDogJ2FnZW50LTInLFxuICAgIG5hbWU6IHtcbiAgICAgIGVuOiAnRWxlbmEgUm9zdG92YScsXG4gICAgICBhcjogJ9il2YrZhNmK2YbYpyDYsdmI2LPYqtmI2YHYpycsXG4gICAgfSxcbiAgICB0aXRsZToge1xuICAgICAgZW46ICdEaXJlY3RvciBvZiBJbnRlcm5hdGlvbmFsIFBlbnRob3VzZXMgJiBTa3kgUmVzaWRlbmNlcycsXG4gICAgICBhcjogJ9mF2K/Zitix2Kkg2YLYt9in2Lkg2KfZhNio2YbYqtmH2KfZiNizINmI2KfZhNmF2LPYp9mD2YYg2KfZhNio2KfZhtmI2LHYp9mF2YrYqScsXG4gICAgfSxcbiAgICBlbWFpbDogJ2Uucm9zdG92YUB0aGVvbmVyZWFsZXN0YXRlLnFhJyxcbiAgICBwaG9uZTogJys5NzQgNDQ5OSA4ODIyJyxcbiAgICB3aGF0c2FwcDogJys5NzQ0NDk5ODgyMicsXG4gICAgaW1hZ2U6ICdodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTU3MzQ5NjM1OTE0Mi1iOGQ4NzczNGE1YTI/YXV0bz1mb3JtYXQmZml0PWNyb3Amdz04MDAmcT04MCcsXG4gICAgZXhwZXJpZW5jZVllYXJzOiAxMixcbiAgICBzcGVjaWFsaXphdGlvbjogJ1N1cGVyLVByaW1lIFBlbnRob3VzZXMgJiBBcmNoaXRlY3R1cmFsIER1cGxleGVzJyxcbiAgICBsYW5ndWFnZXM6IFsnRW5nbGlzaCcsICdSdXNzaWFuJywgJ0FyYWJpYyddLFxuICAgIGFjdGl2ZUxpc3RpbmdzQ291bnQ6IDExLFxuICAgIGJpbzoge1xuICAgICAgZW46ICdFbGVuYSBzcGVjaWFsaXplcyBpbiB0cm9waHkgc2t5LWhvbWVzIGFuZCBhcmNoaXRlY3R1cmFsIG1hc3RlcndvcmtzIHRocm91Z2hvdXQgTHVzYWlsIE1hcmluYSBhbmQgV2VzdCBCYXkgc2t5bGluZSwgbWF0Y2hpbmcgZGlzY2VybmluZyBpbnRlcm5hdGlvbmFsIGJ1eWVycyB3aXRoIGV4dHJhb3JkaW5hcnkgc3BhY2VzLicsXG4gICAgICBhcjogJ9iq2K7Yqti1INil2YrZhNmK2YbYpyDZgdmKINij2YHYrtmFINi02YLZgiDYp9mE2KjZhtiq2YfYp9mI2LMg2YjYp9mE2KrYrdmBINin2YTZhdi52YXYp9ix2YrYqSDYp9mE2YXYudmE2YLYqSDZgdmKINmF2KfYsdmK2YbYpyDZhNmI2LPZitmEINmI2KPYqNix2KfYrCDYp9mE2K7ZhNmK2Kwg2KfZhNi62LHYqNmK2Iwg2YXYrdmC2YLYqSDYsdi62KjYp9iqINmG2K7YqNipINin2YTZhdi02KrYsdmK2YYg2KfZhNiv2YjZhNmK2YrZhi4nLFxuICAgIH0sXG4gIH0sXG4gIHtcbiAgICBpZDogJ2FnZW50LTMnLFxuICAgIG5hbWU6IHtcbiAgICAgIGVuOiAnVGFyaXEgQWwtU3VsYWl0aScsXG4gICAgICBhcjogJ9i32KfYsdmCINin2YTYs9mE2YrYt9mKJyxcbiAgICB9LFxuICAgIHRpdGxlOiB7XG4gICAgICBlbjogJ1ByaW5jaXBhbCBBZHZpc29yIOKAlCBPZmYtUGxhbiAmIEZsYWdzaGlwIERldmVsb3BtZW50cycsXG4gICAgICBhcjogJ9mF2LPYqti02KfYsSDYsdim2YrYs9mKIOKAlCDYp9mE2YXYtNin2LHZiti5INin2YTZg9io2LHZiSDZiNin2YTYqti32YjZitixINin2YTYudmC2KfYsdmKJyxcbiAgICB9LFxuICAgIGVtYWlsOiAndC5hbHN1bGFpdGlAdGhlb25lcmVhbGVzdGF0ZS5xYScsXG4gICAgcGhvbmU6ICcrOTc0IDQ0OTkgODgzMycsXG4gICAgd2hhdHNhcHA6ICcrOTc0NDQ5OTg4MzMnLFxuICAgIGltYWdlOiAnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE1MDA2NDg3Njc3OTEtMDBkY2M5OTRhNDNlP2F1dG89Zm9ybWF0JmZpdD1jcm9wJnc9ODAwJnE9ODAnLFxuICAgIGV4cGVyaWVuY2VZZWFyczogMTQsXG4gICAgc3BlY2lhbGl6YXRpb246ICdNZWdhIFByb2plY3RzICYgSW52ZXN0bWVudCBQb3J0Zm9saW9zJyxcbiAgICBsYW5ndWFnZXM6IFsnQXJhYmljJywgJ0VuZ2xpc2gnXSxcbiAgICBhY3RpdmVMaXN0aW5nc0NvdW50OiAxOCxcbiAgICBiaW86IHtcbiAgICAgIGVuOiAnVGFyaXEgd29ya3MgY2xvc2VseSB3aXRoIFFhdGFyIHByZW1pZXIgbWFzdGVyIGRldmVsb3BlcnMgdG8gZ3JhbnQgb3VyIGNsaWVudGVsZSBwcmlvcml0eSBlYXJseSBhY2Nlc3MgdG8gb2ZmLW1hcmtldCBsYXVuY2hlcyBhbmQgYXJjaGl0ZWN0dXJhbCBzaWduYXR1cmUgZGV2ZWxvcG1lbnRzLicsXG4gICAgICBhcjogJ9mK2KrYudin2YjZhiDYt9in2LHZgiDYudmGINmC2LHYqCDZhdi5INmD2KjYp9ixINin2YTZhdi32YjYsdmK2YYg2KfZhNi52YLYp9ix2YrZitmGINmB2Yog2YLYt9ixINmE2KrZhdmD2YrZhiDYudmF2YTYp9im2YbYpyDZhdmGINin2YTYo9mI2YTZiNmK2Kkg2KfZhNit2LXYsdmK2Kkg2YHZiiDYrdis2LIg2KfZhNmF2LTYp9ix2YrYuSDYp9mE2LHYp9im2K/YqSDZiNin2YTZgdix2LUg2KfZhNin2LPYqtir2YXYp9ix2YrYqSDYutmK2LEg2KfZhNmF2LnZhNmG2KkuJyxcbiAgICB9LFxuICB9LFxuICB7XG4gICAgaWQ6ICdhZ2VudC00JyxcbiAgICBuYW1lOiB7XG4gICAgICBlbjogJ1NvcGhpYSBMYXVyZW50JyxcbiAgICAgIGFyOiAn2LXZiNmB2YrYpyDZhNmI2LHYp9mGJyxcbiAgICB9LFxuICAgIHRpdGxlOiB7XG4gICAgICBlbjogJ0V4ZWN1dGl2ZSBBZHZpc29yIOKAlCBIZXJpdGFnZSAmIFN1c3RhaW5hYmxlIEx1eHVyeScsXG4gICAgICBhcjogJ9mF2LPYqti02KfYsdipINiq2YbZgdmK2LDZitipIOKAlCDYp9mE2KrYsdin2Ksg2KfZhNmF2LnZhdin2LHZiiDZiNin2YTZgdiu2KfZhdipINin2YTZhdiz2KrYr9in2YXYqScsXG4gICAgfSxcbiAgICBlbWFpbDogJ3MubGF1cmVudEB0aGVvbmVyZWFsZXN0YXRlLnFhJyxcbiAgICBwaG9uZTogJys5NzQgNDQ5OSA4ODQ0JyxcbiAgICB3aGF0c2FwcDogJys5NzQ0NDk5ODg0NCcsXG4gICAgaW1hZ2U6ICdodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTU4MDQ4OTk0NDc2MS0xNWExOWQ2NTQ5NTY/YXV0bz1mb3JtYXQmZml0PWNyb3Amdz04MDAmcT04MCcsXG4gICAgZXhwZXJpZW5jZVllYXJzOiAxMCxcbiAgICBzcGVjaWFsaXphdGlvbjogJ01zaGVpcmViIERvd250b3duICYgTW9kZXJuaXN0IFVyYmFuIEVzdGF0ZXMnLFxuICAgIGxhbmd1YWdlczogWydFbmdsaXNoJywgJ0ZyZW5jaCcsICdBcmFiaWMnXSxcbiAgICBhY3RpdmVMaXN0aW5nc0NvdW50OiA5LFxuICAgIGJpbzoge1xuICAgICAgZW46ICdBIHNwZWNpYWxpc3QgaW4gc3VzdGFpbmFibGUgbHV4dXJ5IGRlc2lnbiBhbmQgTXNoZWlyZWIgRG93bnRvd24gc21hcnQtY2l0eSBtYW5zaW9ucywgU29waGlhIGJyaWRnZXMgaGlzdG9yaWMgUWF0YXJpIGFyY2hpdGVjdHVyYWwgYWVzdGhldGljcyB3aXRoIHN0YXRlLW9mLXRoZS1hcnQgbGl2aW5nLicsXG4gICAgICBhcjogJ9mF2KrYrti12LXYqSDZgdmKINin2YTYudmF2KfYsdipINin2YTZhdiz2KrYr9in2YXYqSDYp9mE2YHYp9iu2LHYqSDZiNmF2YbYp9iy2YQg2YXYtNmK2LHYqCDZgtmE2Kgg2KfZhNiv2YjYrdipINin2YTYsNmD2YrYqdiMINit2YrYqyDYqtis2YXYuSDYqNmK2YYg2LHZiNitINin2YTYudmF2KfYsdipINin2YTZgti32LHZitipINin2YTYo9i12YrZhNipINmI2KPYrdiv2Ksg2KrZgtmG2YrYp9iqINin2YTZhdi52YrYtNipINin2YTYsNmD2YrYqS4nLFxuICAgIH0sXG4gIH0sXG4gIHtcbiAgICBpZDogJ2FnZW50LTUnLFxuICAgIG5hbWU6IHtcbiAgICAgIGVuOiAnRmFoYWQgQWwtTWFycmknLFxuICAgICAgYXI6ICfZgdmH2K8g2KfZhNmF2LHZiicsXG4gICAgfSxcbiAgICB0aXRsZToge1xuICAgICAgZW46ICdNYW5hZ2luZyBEaXJlY3RvciDigJQgUHJpdmF0ZSBWaWxsYXMgJiBHYXRlZCBDb21wb3VuZHMnLFxuICAgICAgYXI6ICfZhdiv2YrYsSDYqtmG2YHZitiw2Yog4oCUINin2YTZgdmE2YQg2KfZhNiu2KfYtdipINmI2KfZhNmF2KzZhdi52KfYqiDYp9mE2K3Ytdix2YrYqScsXG4gICAgfSxcbiAgICBlbWFpbDogJ2YuYWxtYXJyaUB0aGVvbmVyZWFsZXN0YXRlLnFhJyxcbiAgICBwaG9uZTogJys5NzQgNDQ5OSA4ODU1JyxcbiAgICB3aGF0c2FwcDogJys5NzQ0NDk5ODg1NScsXG4gICAgaW1hZ2U6ICdodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTQ3MjA5OTY0NTc4NS01NjU4YWJmNGZmNGU/YXV0bz1mb3JtYXQmZml0PWNyb3Amdz04MDAmcT04MCcsXG4gICAgZXhwZXJpZW5jZVllYXJzOiAxOCxcbiAgICBzcGVjaWFsaXphdGlvbjogJ0FsIFdhYWIsIFdlc3QgQmF5IExhZ29vbiAmIFBhbGF0aWFsIE1hbnNpb25zJyxcbiAgICBsYW5ndWFnZXM6IFsnQXJhYmljJywgJ0VuZ2xpc2gnXSxcbiAgICBhY3RpdmVMaXN0aW5nc0NvdW50OiAxNSxcbiAgICBiaW86IHtcbiAgICAgIGVuOiAnRmFoYWQgYWR2aXNlcyBlc3RhYmxpc2hlZCBmYW1pbGllcyBvbiBsb25nLXRlcm0gZ2VuZXJhdGlvbmFsIGVzdGF0ZXMsIHNlY3VyaW5nIGV4cGFuc2l2ZSBnYXRlZCBjb21wb3VuZHMgd2l0aCB1bm1hdGNoZWQgcHJpdmFjeSBhbmQgbGFuZHNjYXBlIGFyY2hpdGVjdHVyZS4nLFxuICAgICAgYXI6ICfZitmC2K/ZhSDZgdmH2K8g2KfZhNmF2LTZiNix2Kkg2YTYo9ix2YLZiSDYp9mE2LnYp9im2YTYp9iqINmB2Yog2KfZgtiq2YbYp9ihINmI2KrYt9mI2YrYsSDYp9mE2LnZgtin2LHYp9iqINmI2KfZhNmC2LXZiNixINin2YTYudin2KbZhNmK2Kkg2KfZhNmI2KfYs9i52Kkg2YHZiiDYp9mE2YjYudioINmI2YTYp9i62YjZhtiMINio2KPYudmE2Ykg2K/Ysdis2KfYqiDYp9mE2K7YtdmI2LXZitipINmI2KfZhNmF2LPYp9it2KfYqiDYp9mE2K7Yttix2KfYoS4nLFxuICAgIH0sXG4gIH0sXG4gIHtcbiAgICBpZDogJ2FnZW50LTYnLFxuICAgIG5hbWU6IHtcbiAgICAgIGVuOiAnTm91ciBCZW5hbGknLFxuICAgICAgYXI6ICfZhtmI2LEg2KjZhiDYudmE2YonLFxuICAgIH0sXG4gICAgdGl0bGU6IHtcbiAgICAgIGVuOiAnU2VuaW9yIENvbnN1bHRhbnQg4oCUIERpcGxvbWF0aWMgJiBFeGVjdXRpdmUgTGVhc2luZycsXG4gICAgICBhcjogJ9mF2LPYqti02KfYsdipINij2YjZhNmJIOKAlCDYp9mE2KrYo9is2YrYsSDYp9mE2K/YqNmE2YjZhdin2LPZiiDZiNin2YTYqtmG2YHZitiw2Yog2KfZhNix2YHZiti5JyxcbiAgICB9LFxuICAgIGVtYWlsOiAnbi5iZW5hbGlAdGhlb25lcmVhbGVzdGF0ZS5xYScsXG4gICAgcGhvbmU6ICcrOTc0IDQ0OTkgODg2NicsXG4gICAgd2hhdHNhcHA6ICcrOTc0NDQ5OTg4NjYnLFxuICAgIGltYWdlOiAnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE1MzQ1Mjg3NDE3NzUtNTM5OTRhNjlkYWViP2F1dG89Zm9ybWF0JmZpdD1jcm9wJnc9ODAwJnE9ODAnLFxuICAgIGV4cGVyaWVuY2VZZWFyczogOSxcbiAgICBzcGVjaWFsaXphdGlvbjogJ1VsdHJhLUx1eHVyeSBSZXNpZGVudGlhbCBMZWFzZXMgJiBFbWJhc3N5IFJlc2lkZW5jZXMnLFxuICAgIGxhbmd1YWdlczogWydBcmFiaWMnLCAnRW5nbGlzaCcsICdJdGFsaWFuJ10sXG4gICAgYWN0aXZlTGlzdGluZ3NDb3VudDogMTIsXG4gICAgYmlvOiB7XG4gICAgICBlbjogJ05vdXIgbGVhZHMgb3VyIGNvbmZpZGVudGlhbCBWSVAgbGVhc2luZyBkZXNrLCBjdXJhdGluZyBmdWxseSBtYW5hZ2VkIGx1eHVyeSByZXNpZGVuY2VzIGZvciBtdWx0aW5hdGlvbmFsIGV4ZWN1dGl2ZXMsIGVtYmFzc3kgbGVhZGVyc2hpcCwgYW5kIHNlYXNvbmFsIHByaXZhdGUgcmVzaWRlbnRzLicsXG4gICAgICBhcjogJ9iq2K/ZitixINmG2YjYsSDZgtiz2YUg2KfZhNiq2KPYrNmK2LEg2KfZhNiv2KjZhNmI2YXYp9iz2Yog2YjYp9mE2KrZhtmB2YrYsNmKINmB2KfYptmCINin2YTZgdiu2KfZhdip2Iwg2YXZgtiv2YXYqSDYrdmE2YjZhNin2Ysg2LPZg9mG2YrYqSDYsdin2YLZitipINmI2YXZg9iq2YXZhNipINin2YTYrtiv2YXYp9iqINmE2YPYqNin2LEg2KfZhNiv2KjZhNmI2YXYp9iz2YrZitmGINmI2KfZhNix2KTYs9in2KEg2KfZhNiq2YbZgdmK2LDZitmK2YYuJyxcbiAgICB9LFxuICB9LFxuICB7XG4gICAgaWQ6ICdhZ2VudC03JyxcbiAgICBuYW1lOiB7XG4gICAgICBlbjogJ1phaWQgQWwtSHVzc2VpbmknLFxuICAgICAgYXI6ICfYstmK2K8g2KfZhNit2LPZitmG2YonLFxuICAgIH0sXG4gICAgdGl0bGU6IHtcbiAgICAgIGVuOiAnSGVhZCBvZiBWYWx1YXRpb24gJiBBc3NldCBBZHZpc29yeScsXG4gICAgICBhcjogJ9ix2KbZitizINmC2LPZhSDYp9mE2KrZgtmK2YrZhSDYp9mE2LnZgtin2LHZiiDZiNil2K/Yp9ix2Kkg2KfZhNij2LXZiNmEJyxcbiAgICB9LFxuICAgIGVtYWlsOiAnei5odXNzZWluaUB0aGVvbmVyZWFsZXN0YXRlLnFhJyxcbiAgICBwaG9uZTogJys5NzQgNDQ5OSA4ODc3JyxcbiAgICB3aGF0c2FwcDogJys5NzQ0NDk5ODg3NycsXG4gICAgaW1hZ2U6ICdodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTUxOTA4NTM2MDc1My1hZjAxMTlmN2NiZTc/YXV0bz1mb3JtYXQmZml0PWNyb3Amdz04MDAmcT04MCcsXG4gICAgZXhwZXJpZW5jZVllYXJzOiAxNSxcbiAgICBzcGVjaWFsaXphdGlvbjogJ0NlcnRpZmllZCBWYWx1YXRpb25zICYgQ29tbWVyY2lhbCBQb3J0Zm9saW9zJyxcbiAgICBsYW5ndWFnZXM6IFsnQXJhYmljJywgJ0VuZ2xpc2gnLCAnR2VybWFuJ10sXG4gICAgYWN0aXZlTGlzdGluZ3NDb3VudDogOCxcbiAgICBiaW86IHtcbiAgICAgIGVuOiAnQ2VydGlmaWVkIHByb3BlcnR5IGFwcHJhaXNlciBkZWxpdmVyaW5nIGRhdGEtZHJpdmVuIG1hcmtldCB2YWx1YXRpb25zIGFuZCB1bmRlcndyaXRpbmcgZm9yIGluc3RpdHV0aW9uYWwgcG9ydGZvbGlvcyBhbmQgcHJpdmF0ZSBmYW1pbHkgb2ZmaWNlcyB0aHJvdWdob3V0IHRoZSBHQ0MuJyxcbiAgICAgIGFyOiAn2K7YqNmK2LEg2KrZgtmK2YrZhSDYudmC2KfYsdmKINmF2LnYqtmF2K8g2YrZgtiv2YUg2K/Ysdin2LPYp9iqINiz2YjZgtmK2Kkg2K/ZgtmK2YLYqSDZiNiq2YLZitmK2YXYp9iqINmE2YTYo9i12YjZhCDYp9mE2LnZgtin2LHZitipINin2YTZg9io2LHZiSDZiNin2YTZhdmD2KfYqtioINin2YTYudin2KbZhNmK2Kkg2KfZhNin2LPYqtir2YXYp9ix2YrYqSDZgdmKINmC2LfYsSDZiNin2YTYrtmE2YrYrC4nLFxuICAgIH0sXG4gIH0sXG4gIHtcbiAgICBpZDogJ2FnZW50LTgnLFxuICAgIG5hbWU6IHtcbiAgICAgIGVuOiAnQ2FtaWxsYSBNb3JlYXUnLFxuICAgICAgYXI6ICfZg9in2YXZitmE2Kcg2YXZiNix2YgnLFxuICAgIH0sXG4gICAgdGl0bGU6IHtcbiAgICAgIGVuOiAnUHJpdmF0ZSBDb25jaWVyZ2UgJiBJbnRlcmlvciBMaWZlc3R5bGUgTGVhZCcsXG4gICAgICBhcjogJ9mF2LPYpNmI2YTYqSDYp9mE2YPZiNmG2LPZitix2Kwg2KfZhNiu2KfYtSDZiNin2YTYqti12YXZitmFINin2YTYr9in2K7ZhNmKINin2YTYsdin2YLZiicsXG4gICAgfSxcbiAgICBlbWFpbDogJ2MubW9yZWF1QHRoZW9uZXJlYWxlc3RhdGUucWEnLFxuICAgIHBob25lOiAnKzk3NCA0NDk5IDg4ODgnLFxuICAgIHdoYXRzYXBwOiAnKzk3NDQ0OTk4ODg4JyxcbiAgICBpbWFnZTogJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTY3NTMyOTM5NjA0LWI2YjViMGRiMjYwND9hdXRvPWZvcm1hdCZmaXQ9Y3JvcCZ3PTgwMCZxPTgwJyxcbiAgICBleHBlcmllbmNlWWVhcnM6IDExLFxuICAgIHNwZWNpYWxpemF0aW9uOiAnVHVybmtleSBGdXJuaXNoZWQgTWFuc2lvbnMgJiBCZXNwb2tlIEludGVyaW9ycycsXG4gICAgbGFuZ3VhZ2VzOiBbJ0VuZ2xpc2gnLCAnRnJlbmNoJywgJ1NwYW5pc2gnXSxcbiAgICBhY3RpdmVMaXN0aW5nc0NvdW50OiA3LFxuICAgIGJpbzoge1xuICAgICAgZW46ICdDYW1pbGxhIGNvb3JkaW5hdGVzIHR1cm5rZXkgaW50ZXJpb3IgY3VyYXRpb24gYW5kIGJlc3Bva2UgbGlmZXN0eWxlIHNlcnZpY2VzIGZvciBvdXIgaW50ZXJuYXRpb25hbCBjbGllbnRzIGFjcXVpcmluZyBmdWxseSBmdXJuaXNoZWQgdHJvcGh5IGVzdGF0ZXMgaW4gUWF0YXIuJyxcbiAgICAgIGFyOiAn2KrYqtmI2YTZiSDZg9in2YXZitmE2Kcg2KrZhtiz2YrZgiDYrtiv2YXYp9iqINin2YTYqti12YXZitmFINin2YTYr9in2K7ZhNmKINin2YTZgdin2K7YsSDZiNin2YTYqtij2KvZitirINin2YTZhdiq2YPYp9mF2YQg2YXZhiDYo9i02YfYsSDYr9mI2LEg2KfZhNiq2LXZhdmK2YUg2KfZhNi52KfZhNmF2YrYqSDZhNmE2LnZhdmE2KfYoSDYp9mE2YXYs9iq2K3ZiNiw2YrZhiDYudmE2Ykg2YLYtdmI2LEg2KzYp9mH2LLYqSDZhNmE2LPZg9mGLicsXG4gICAgfSxcbiAgfSxcbl07XG4iXX0=

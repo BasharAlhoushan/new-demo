@@ -1,0 +1,1390 @@
+{
+   "ext_cmd_force_suspend_active_window_description": {
+      "message": "Alle anderen Tabs im aktiven Fenster aussetzen (forcieren)"
+   },
+   "ext_cmd_force_suspend_all_windows_description": {
+      "message": "Alle Tabs in allen Fenstern aussetzen (forcieren)"
+   },
+   "ext_cmd_soft_suspend_active_window_description": {
+      "message": "Alle anderen Tabs im aktiven Fenster aussetzen"
+   },
+   "ext_cmd_soft_suspend_all_windows_description": {
+      "message": "Alle Tabs in allen Fenstern aussetzen"
+   },
+   "ext_cmd_suspend_selected_tabs_description": {
+      "message": "Ausgewählte Tabs aussetzen"
+   },
+   "ext_cmd_suspend_tab_group_description": {
+      "message": "Alle Tabs in der Gruppe des aktiven Tabs aussetzen"
+   },
+   "ext_cmd_toggle_tab_pause_description": {
+      "message": "Aussetzen des aktiven Tabs pausieren/fortführen"
+   },
+   "ext_cmd_toggle_tab_suspension_description": {
+      "message": "Aktiven Tab aussetzen/aufwachen"
+   },
+   "ext_cmd_unsuspend_active_window_description": {
+      "message": "Alle Tabs in diesem Fenster aufwachen"
+   },
+   "ext_cmd_unsuspend_all_windows_description": {
+      "message": "Alle Tabs in allen Fenstern aufwachen"
+   },
+   "ext_cmd_unsuspend_selected_tabs_description": {
+      "message": "Ausgewählte Tabs aufwachen"
+   },
+   "ext_cmd_unsuspend_tab_group_description": {
+      "message": "Alle Tabs in der Gruppe des aktiven Tabs aufwachen"
+   },
+   "ext_default_title": {
+      "message": "The Marvellous Suspender"
+   },
+   "ext_extension_description": {
+      "message": "Befreie deinen Arbeitsspeicher. Setze sofort die Tabs aus, die du nicht brauchst."
+   },
+   "ext_extension_name": {
+      "message": "The Marvellous Suspender"
+   },
+   "html_about_community_thanks_link": {
+      "message": "alle Mitwirkenden auf GitHub"
+   },
+   "html_about_contributors": {
+      "message": "Bereitgestellt von"
+   },
+   "html_about_contributors_and": {
+      "message": " und "
+   },
+   "html_about_debugging_prefix": {
+      "message": "Um Protokolle zu erfassen und einen Diagnosebericht zu erstellen, gehe zur "
+   },
+   "html_about_debugging_suffix": {
+      "message": "Diagnoseseite."
+   },
+   "html_about_fork_beginning": {
+      "message": "Basierend auf dem Original"
+   },
+   "html_about_fork_end": {
+      "message": "Weitere Informationen findest du auf"
+   },
+   "html_about_fork_mid": {
+      "message": "auf GitHub ohne ADS-Tracking verfügbar"
+   },
+   "html_about_report_issues_prefix": {
+      "message": "Wenn du Feedback hast oder einen Fehler melden möchtest, melde das auf der"
+   },
+   "html_about_report_issues_suffix": {
+      "message": ". Bitte prüfe vorab, ob deine Idee oder dein Fehler schon gemeldet wurde. Danke!"
+   },
+   "html_about_section_credits": {
+      "message": "Mitwirkende"
+   },
+   "html_about_section_support": {
+      "message": "Entwicklung unterstützen"
+   },
+   "html_about_support_text": {
+      "message": "The Marvellous Suspender ist kostenlos und quelloffen. Wenn du es nützlich findest, erwäge einen kleinen Beitrag: das hilft, das Projekt am Leben zu erhalten und weiterzuentwickeln."
+   },
+   "html_about_tagline": {
+      "message": "Der geistige Nachfolger des modernen Tab-Aussetzens: ersetzt inaktive Tabs durch eine leichte Ruhezustand-Seite und gibt dir genaue Kontrolle darüber, wann sie aufwachen."
+   },
+   "html_about_the_github_issues_page": {
+      "message": "GitHub Projektseite"
+   },
+   "html_about_title": {
+      "message": "Über"
+   },
+   "html_about_version_label": {
+      "message": "Version"
+   },
+   "html_backup_device_name_label": {
+      "message": "Gerätename (optional)"
+   },
+   "html_backup_device_name_save": {
+      "message": "Speichern"
+   },
+   "html_backup_downloads_permission_grant": {
+      "message": "Berechtigung erteilen"
+   },
+   "html_backup_downloads_permission_missing": {
+      "message": "Automatische Sicherung ist aktiviert, aber die Downloads-Berechtigung wurde auf diesem Gerät nicht erteilt (kann nach dem Importieren von Einstellungen oder der Synchronisierung von einem anderen Browser passieren). Sicherungen werden erst ausgeführt, wenn du sie erteilst."
+   },
+   "html_backup_drive_delete_btn": {
+      "message": "Löschen"
+   },
+   "html_backup_drive_delete_device_btn": {
+      "message": "Alle löschen"
+   },
+   "html_backup_drive_delete_device_modal_body": {
+      "message": "Dadurch werden alle $count$ Backup-Dateien für „$device$“ dauerhaft aus Google Drive gelöscht. Dies kann nicht rückgängig gemacht werden.",
+      "placeholders": {
+         "count": {
+            "content": "$1"
+         },
+         "device": {
+            "content": "$2"
+         }
+      }
+   },
+   "html_backup_drive_delete_device_modal_cancel": {
+      "message": "Abbrechen"
+   },
+   "html_backup_drive_delete_device_modal_confirm": {
+      "message": "Alle löschen"
+   },
+   "html_backup_drive_delete_device_modal_title": {
+      "message": "Alle Backups dieses Geräts löschen?"
+   },
+   "html_backup_drive_download_btn": {
+      "message": "Herunterladen"
+   },
+   "html_backup_drive_files_loading": {
+      "message": "Wird geladen…"
+   },
+   "html_backup_drive_files_title": {
+      "message": "Drive-Sicherungsdateien"
+   },
+   "html_backup_drive_folder_note": {
+      "message": "Sicherungen werden im Ordner 'TMS Backups' auf deinem Google Drive gespeichert."
+   },
+   "html_backup_drive_import_modal_body": {
+      "message": "Deine letzte Drive-Sicherung stammt vom $date$. Speichere sie als Sitzung im Sitzungsmanager, damit du sie ohne Google Drive wiederherstellen kannst.",
+      "placeholders": {
+         "date": {
+            "content": "$1"
+         }
+      }
+   },
+   "html_backup_drive_import_modal_cancel": {
+      "message": "Überspringen"
+   },
+   "html_backup_drive_import_modal_confirm": {
+      "message": "In Sitzungen speichern"
+   },
+   "html_backup_drive_import_modal_title": {
+      "message": "Drive-Sicherung vor dem Wechsel speichern?"
+   },
+   "html_backup_drive_label_account": {
+      "message": "Konto"
+   },
+   "html_backup_drive_label_folder": {
+      "message": "Ordner"
+   },
+   "html_backup_drive_no_files": {
+      "message": "Keine Drive-Sicherungsdateien gefunden."
+   },
+   "html_backup_drive_open_folder": {
+      "message": "TMS-Backups-Ordner auf Drive öffnen ↗"
+   },
+   "html_backup_drive_save_settings": {
+      "message": "Einstellungen auf Drive speichern"
+   },
+   "html_backup_interval_warning": {
+      "message": "Achtung: Bei einem so langen Intervall kann zwischen zwei Sicherungen viel passieren. Erwäge ein kürzeres Intervall, um das Risiko von Datenverlust zu verringern."
+   },
+   "html_backup_local_folder_hint": {
+      "message": "Lokale Sicherungen werden im Ordner tms-backups in deinen Downloads gespeichert."
+   },
+   "html_backup_max_files_label": {
+      "message": "Max. Anzahl aufzubewahrender Sicherungen"
+   },
+   "html_backup_nudge_dismiss": {
+      "message": "In 10 Tagen erinnern"
+   },
+   "html_backup_nudge_note_text": {
+      "message": "Automatische Sicherung ist deaktiviert. Wenn du sie aktivierst, schützt du deine Sitzungen, falls dieses Browserprofil jemals zurückgesetzt wird oder beschädigt wird."
+   },
+   "html_backup_nudge_optout": {
+      "message": "Kein Interesse, nicht mehr erinnern"
+   },
+   "html_backup_page_title": {
+      "message": "Sicherung & Wiederherstellung"
+   },
+   "html_backup_restore_desc": {
+      "message": "Importiere eine Sicherungsdatei, um sie als gespeicherte Sitzung wiederherzustellen. Öffne nach dem Import „Sitzungen“, um auszuwählen, welche Fenster wiederhergestellt werden sollen."
+   },
+   "html_backup_restore_drive_select_label": {
+      "message": "Eine Drive-Sicherung auswählen"
+   },
+   "html_backup_restore_drive_title": {
+      "message": "Google Drive"
+   },
+   "html_backup_restore_from_file": {
+      "message": "Sicherungsdatei auswählen"
+   },
+   "html_backup_restore_import": {
+      "message": "Auswahl importieren"
+   },
+   "html_backup_restore_local_title": {
+      "message": "Lokale Datei"
+   },
+   "html_backup_restore_title": {
+      "message": "Aus Sicherung wiederherstellen"
+   },
+   "html_backup_session_desc": {
+      "message": "Anders als Sitzungen werden Sicherungen als JSON-Dateien außerhalb von Chrome gespeichert: in deinem Downloads-Ordner oder auf Google Drive. Sie überstehen Browserabstürze, Profil-Zurücksetzungen und Neuinstallationen. Das ist dein echtes Sicherheitsnetz."
+   },
+   "html_backup_settings_desc": {
+      "message": "Exportiere alle Erweiterungseinstellungen als JSON-Datei, nützlich als Sicherung oder um deine Konfiguration in ein anderes Browserprofil zu übertragen. Der Import einer Datei ersetzt die aktuellen Einstellungen."
+   },
+   "html_backup_settings_drive_restore": {
+      "message": "Einstellungen von Drive wiederherstellen"
+   },
+   "html_backup_settings_drive_title": {
+      "message": "Google Drive"
+   },
+   "html_backup_settings_local_title": {
+      "message": "Lokal"
+   },
+   "html_broken_button_restart_extension": {
+      "message": "Erweiterung neu starten"
+   },
+   "html_broken_line1": {
+      "message": "konnte nicht gestartet werden. Verwendest du eventuell einen inkompatiblen Browser?"
+   },
+   "html_broken_line2": {
+      "message": "Versuche die Erweiterung neu zu starten. Falls das Problem weiterhin besteht, frage nach Hilfe auf der"
+   },
+   "html_broken_line2_github_page": {
+      "message": "GitHub Projektseite"
+   },
+   "html_broken_line3": {
+      "message": "Du kannst verlorene Tabs auf der"
+   },
+   "html_broken_line3_session_management": {
+      "message": "Sitzungsverwaltungsseite"
+   },
+   "html_broken_ruh_roh": {
+      "message": "Oh oh!"
+   },
+   "html_broken_title": {
+      "message": "ist defekt"
+   },
+   "html_health_action_label": {
+      "message": "Favicons werden wiederhergestellt..."
+   },
+   "html_health_after_reload": {
+      "message": "Sobald deine Tabs im Hintergrund fertig geladen haben, kannst du erneut „Tabs scannen“ klicken, um zu sehen, ob sich die Lage verbessert hat."
+   },
+   "html_health_after_repair": {
+      "message": "Fertig. Erneut scannen, um zu prüfen, ob die gruppierten Tabs wieder im ausgesetzten Zustand sind."
+   },
+   "html_health_after_restore": {
+      "message": "Du kannst erneut auf „Tabs scannen“ klicken, um zu sehen, ob sich die Lage verbessert hat."
+   },
+   "html_health_all_good": {
+      "message": "Wir haben keine Probleme mit deinen ausgesetzten Tabs gefunden. Falls trotzdem etwas nicht stimmt, teile es uns unten mit und wir versuchen, diese Prüfung zu erweitern."
+   },
+   "html_health_copy_button": {
+      "message": "Ergebnisse kopieren"
+   },
+   "html_health_need_help1": {
+      "message": "Falls weiterhin Probleme mit Tabs oder Favicons bestehen, kannst du „Ergebnisse kopieren“ klicken und sie in ein neues"
+   },
+   "html_health_need_help2": {
+      "message": "Issue auf GitHub einfügen."
+   },
+   "html_health_num_grouped_broken": {
+      "message": "gruppierte Tabs in defektem Zustand (Tab-Gruppen-Fehler)"
+   },
+   "html_health_num_hostnames": {
+      "message": "eindeutige Tab-Hostnamen"
+   },
+   "html_health_num_tabs_default": {
+      "message": "Tabs haben ein Standard-Favicon"
+   },
+   "html_health_num_tabs_empty": {
+      "message": "Tabs sind nicht geladen"
+   },
+   "html_health_num_tabs_extension": {
+      "message": "Tabs haben das TMS-Favicon"
+   },
+   "html_health_num_tms_cache": {
+      "message": "Favicons im TMS-Cache"
+   },
+   "html_health_num_tms_tabs": {
+      "message": "Von TMS ausgesetzte Tabs"
+   },
+   "html_health_reload_button": {
+      "message": "Weiter: $count$ Tabs neu laden",
+      "placeholders": {
+         "count": {
+            "content": "$1"
+         }
+      }
+   },
+   "html_health_reload_intro": {
+      "message": "Einige deiner ausgesetzten Tabs sind nicht vollständig geladen. Wir können sie neu laden, um das zu bereinigen."
+   },
+   "html_health_repair_button": {
+      "message": "$count$ gruppierte(n) Tab(s) reparieren",
+      "placeholders": {
+         "count": {
+            "content": "$1"
+         }
+      }
+   },
+   "html_health_repair_intro": {
+      "message": "Einige Tabs in Tab-Gruppen befinden sich in einem defekten Zustand: Sie zeigen nach einem Browser-Neustart einen neuen Tab an, statt korrekt zu laden. TMS kann versuchen, sie wiederherzustellen."
+   },
+   "html_health_restore_button": {
+      "message": "Weiter: $count$ Tabs wiederherstellen, um Favicons zu cachen",
+      "placeholders": {
+         "count": {
+            "content": "$1"
+         }
+      }
+   },
+   "html_health_restore_intro": {
+      "message": "Einige deiner ausgesetzten Tabs verwenden das Standard-Favicon des Browsers. Das bedeutet, der TMS-Cache hat sie nicht gespeichert. Wir können eine minimale Anzahl von Tabs wiederherstellen und erneut aussetzen, um die fehlenden Favicons abzurufen."
+   },
+   "html_health_scan_button": {
+      "message": "Tabs scannen"
+   },
+   "html_health_scan_label": {
+      "message": "Tabs werden gescannt..."
+   },
+   "html_health_small_cache": {
+      "message": "Der lokale TMS-Favicon-Cache deckt möglicherweise nicht alle Tabs ab. Wird der Browser-Cache geleert, kann TMS manche Favicons nicht mehr anzeigen."
+   },
+   "html_health_title": {
+      "message": "Tab-Zustand (Beta)"
+   },
+   "html_health_title_intro": {
+      "message": "Falls Probleme mit deinen ausgesetzten Tabs auftreten, insbesondere mit Favicons, klicke auf „Tabs scannen“, um zu sehen, ob wir sie reparieren können."
+   },
+   "html_history_backup_hint_prefix": {
+      "message": "Sitzungen werden nur innerhalb von Chrome gespeichert: sie überstehen weder einen Browserabsturz noch eine Profil-Zurücksetzung."
+   },
+   "html_history_backup_settings_link": {
+      "message": "Richte eine Sicherung ein, um deine Tabs außerhalb des Browsers zu speichern →"
+   },
+   "html_history_current_session": {
+      "message": "Aktuelle Sitzung"
+   },
+   "html_history_import_session": {
+      "message": "Sitzung importieren"
+   },
+   "html_history_migrate_nav": {
+      "message": "Migrieren"
+   },
+   "html_history_migrate_old_id": {
+      "message": "Erweiterungs-ID"
+   },
+   "html_history_migrate_section_desc": {
+      "message": "Stelle Tabs wieder her, die von einer früheren Version oder einem anderen Fork dieser Erweiterung ausgesetzt wurden. Gib unten die alte Erweiterungs-ID ein und klicke auf „Tabs migrieren“, um die ausgesetzten URLs umzuwandeln."
+   },
+   "html_history_migrate_section_title": {
+      "message": "Tab-Migration"
+   },
+   "html_history_migrate_tabs": {
+      "message": "Tabs migrieren"
+   },
+   "html_history_page_desc": {
+      "message": "TMS führt einen laufenden Schnappschuss deiner offenen Tabs, ganz ohne Einrichtung. Sitzungen werden automatisch beim Surfen aktualisiert, existieren aber nur innerhalb von Chrome: Geht das Browserprofil verloren oder wird es beschädigt, gehen sie mit ihm verloren."
+   },
+   "html_history_recent_sessions": {
+      "message": "Kürzliche Sitzungen"
+   },
+   "html_history_saved_sessions": {
+      "message": "Gespeicherte Sitzungen"
+   },
+   "html_history_title": {
+      "message": "Sitzungsverwaltung"
+   },
+   "html_news_desc": {
+      "message": "Bleib auf dem Laufenden über die neuesten Versionen, bekannte Probleme und Ankündigungen aus dem Marvellous-Codeworks-Blog."
+   },
+   "html_news_empty": {
+      "message": "Noch keine Neuigkeiten. Schau bald wieder vorbei!"
+   },
+   "html_news_loading": {
+      "message": "Neuigkeiten werden geladen…"
+   },
+   "html_news_mark_all_read": {
+      "message": "Alle als gelesen markieren"
+   },
+   "html_news_new_pill": {
+      "message": "NEU"
+   },
+   "html_news_title": {
+      "message": "Neuigkeiten & Updates"
+   },
+   "html_options_always_suspend_force": {
+      "message": "Passende Tabs jetzt aussetzen"
+   },
+   "html_options_always_suspend_title": {
+      "message": "Tabs mit URLs aus der folgenden Liste immer aussetzen:"
+   },
+   "html_options_always_suspend_tooltip_line1a": {
+      "message": "Tabs, die dieser Liste entsprechen, werden immer nach dem normalen"
+   },
+   "html_options_always_suspend_tooltip_line1b": {
+      "message": "Timeout ausgesetzt, unabhängig von Audio, Formulareingaben oder angeheftetem Status."
+   },
+   "html_options_always_suspend_tooltip_line2a": {
+      "message": "Ein Eintrag pro Zeile, gleiche Übereinstimmungsregeln wie bei der Liste oben"
+   },
+   "html_options_always_suspend_tooltip_line2b": {
+      "message": "(einfacher Textabgleich an beliebiger Stelle der URL oder /regex/ zwischen Schrägstrichen)."
+   },
+   "html_options_back_to_top": {
+      "message": "↑ Nach oben"
+   },
+   "html_options_backup_daily_time": {
+      "message": "Um welche Uhrzeit"
+   },
+   "html_options_backup_dest_drive": {
+      "message": "Google Drive"
+   },
+   "html_options_backup_dest_local": {
+      "message": "Lokal (Downloads-Ordner)"
+   },
+   "html_options_backup_destination": {
+      "message": "Sicherungsziel"
+   },
+   "html_options_backup_drive_connect": {
+      "message": "Google-Konto verbinden"
+   },
+   "html_options_backup_drive_disconnect": {
+      "message": "Trennen"
+   },
+   "html_options_backup_enable": {
+      "message": "Sitzung automatisch sichern"
+   },
+   "html_options_backup_enable_tooltip_line1a": {
+      "message": "Speichert im Hintergrund eine Kopie deiner aktuellen Sitzung als JSON-Datei."
+   },
+   "html_options_backup_enable_tooltip_line1b": {
+      "message": "Wähle lokale Speicherung (Ordner tms-backups in deinen Downloads)"
+   },
+   "html_options_backup_enable_tooltip_line1c": {
+      "message": "oder einen Ordner 'TMS Backups' auf Google Drive."
+   },
+   "html_options_backup_enable_tooltip_line2a": {
+      "message": "Für lokale Backups muss Chrome so eingestellt sein, dass Dateien automatisch heruntergeladen werden (ohne Nachfrage)."
+   },
+   "html_options_backup_enable_tooltip_line2b": {
+      "message": "Prüfe chrome://settings/downloads."
+   },
+   "html_options_backup_enable_tooltip_line2c": {
+      "message": "Google-Drive-Backups haben diese Anforderung nicht."
+   },
+   "html_options_backup_interval": {
+      "message": "Sicherung alle"
+   },
+   "html_options_backup_note": {
+      "message": "Sowohl lokale als auch Drive-Sicherungen enthalten eine Gerätekennung (z. B. tms-session-a3f7b2c8-2026-06-18T14-30.json), sodass jede Browserinstallation ihren eigenen unabhängigen Pool an Sicherungen führt. Die letzten N lokalen Sicherungen werden pro Gerät aufbewahrt; Drive-Sicherungen ebenso N pro Gerät, sodass sich Sitzungen von verschiedenen Rechnern oder Browsern nie gegenseitig überschreiben.\n\n\u003Cstrong>Auch wenn Google Drive ausgewählt ist, wird beim Schließen des Browsers weiterhin eine lokale Sicherheitsnetz-Datei geschrieben und beim nächsten Start zu Drive hochgeladen. Eine hier angezeigte lokale Datei ist normal, kein Fehler.\u003C/strong>"
+   },
+   "html_options_backup_now": {
+      "message": "Jetzt sichern"
+   },
+   "html_options_backup_title": {
+      "message": "Automatische Sitzungssicherung"
+   },
+   "html_options_changelog_modal_title": {
+      "message": "Was ist neu in v$version$",
+      "placeholders": {
+         "version": {
+            "content": "$1"
+         }
+      }
+   },
+   "html_options_language": {
+      "message": "Sprache"
+   },
+   "html_options_language_auto": {
+      "message": "Systemstandard"
+   },
+   "html_options_list_test_btn": {
+      "message": "Liste testen"
+   },
+   "html_options_other_enable_context_menu": {
+      "message": "Füge The Marvellous Suspender zum Rechtsklick-Kontextmenü hinzu"
+   },
+   "html_options_other_enable_context_menu_tooltip_line1": {
+      "message": "Macht Einstellungen der Erweiterung im Rechtsklick-Kontextmenü einer Webseite verfügbar."
+   },
+   "html_options_other_enable_context_menu_tooltip_line2": {
+      "message": "Das ermöglicht den Zugriff auf umfangreichere Aktionen, die sonst"
+   },
+   "html_options_other_enable_context_menu_tooltip_line3": {
+      "message": "nicht in der Erweiterung zu finden sind."
+   },
+   "html_options_other_enable_news_feed": {
+      "message": "News-Feed aktivieren"
+   },
+   "html_options_other_enable_news_feed_tooltip_line1a": {
+      "message": "Prüft regelmäßig marvellouscode.works auf TMS-Neuigkeiten"
+   },
+   "html_options_other_enable_news_feed_tooltip_line1b": {
+      "message": "und zeigt sie in der Seitenleiste an."
+   },
+   "html_options_other_enable_news_feed_tooltip_line2": {
+      "message": "Deaktivieren, um diese Hintergrundanfrage zu überspringen."
+   },
+   "html_options_other_enable_sync": {
+      "message": "Einstellungen mit deinem Browserprofil synchronisieren"
+   },
+   "html_options_other_enable_sync_tooltip_line1a": {
+      "message": "Die Erweiterungseinstellungen werden auf allen Browsern synchronisiert, die"
+   },
+   "html_options_other_enable_sync_tooltip_line1b": {
+      "message": "auf denen das gleiche Profil angemeldet ist."
+   },
+   "html_options_other_enable_sync_tooltip_line2": {
+      "message": "Dies synchronisiert auch die Einstellungen im Inkognito-Modus."
+   },
+   "html_options_other_enable_sync_warning": {
+      "message": "Wenn du dies aktivierst, werden die Einstellungen auf allen anderen Browsern überschrieben, die mit demselben Profil angemeldet sind"
+   },
+   "html_options_other_legacy_mascot": {
+      "message": "Klassische The-Great-Suspender-Grafik statt des neuen Maskottchens verwenden"
+   },
+   "html_options_other_legacy_mascot_tooltip_line1": {
+      "message": "Stellt Symbole und Illustrationen wieder auf den ursprünglichen The-Great-"
+   },
+   "html_options_other_legacy_mascot_tooltip_line2": {
+      "message": "Suspender-Stil um, sofern eine alte Version des Bilds verfügbar ist."
+   },
+   "html_options_other_legacy_mascot_tooltip_line3": {
+      "message": "Bilder ohne altes Äquivalent verwenden weiterhin die neue Grafik."
+   },
+   "html_options_other_title": {
+      "message": "Allgemein"
+   },
+   "html_options_settings_backup": {
+      "message": "Einstellungssicherung"
+   },
+   "html_options_settings_export": {
+      "message": "Einstellungen exportieren"
+   },
+   "html_options_settings_import": {
+      "message": "Einstellungen importieren"
+   },
+   "html_options_suspend_automatically_after": {
+      "message": "Tabs automatisch aussetzen nach"
+   },
+   "html_options_suspend_automatically_unsuspend": {
+      "message": "Tab automatisch aufwachen, wenn er aufgerufen wird"
+   },
+   "html_options_suspend_claim_by_default": {
+      "message": "Standardmäßig übernehmen"
+   },
+   "html_options_suspend_claim_by_default_tooltip_line1a": {
+      "message": "Übernimmt automatisch Tabs, die bereits von einer anderen kompatiblen Erweiterung"
+   },
+   "html_options_suspend_claim_by_default_tooltip_line1b": {
+      "message": "ausgesetzt wurden (z. B. The Great Suspender oder einer anderen Installation dieser Erweiterung)."
+   },
+   "html_options_suspend_claim_by_default_tooltip_line2a": {
+      "message": "Ein Tab gilt als \"ausgesetzt\", wenn seine URL 'suspended.html' enthält."
+   },
+   "html_options_suspend_claim_by_default_tooltip_line2b": {
+      "message": "Bei Aktivierung wird diese URL auf diese Installation umgeschrieben,"
+   },
+   "html_options_suspend_claim_by_default_tooltip_line2c": {
+      "message": "damit TMS den Tab ab sofort verwalten kann."
+   },
+   "html_options_suspend_day": {
+      "message": "Tag"
+   },
+   "html_options_suspend_days": {
+      "message": "Tage"
+   },
+   "html_options_suspend_discard_after_suspend": {
+      "message": "Beim Aussetzen die integrierte Speicherersparnis des Browsers anwenden"
+   },
+   "html_options_suspend_discard_after_suspend_tooltip_line1a": {
+      "message": "Reduziert den Speicherverbrauch eines Tabs dank"
+   },
+   "html_options_suspend_discard_after_suspend_tooltip_line1b": {
+      "message": "die integrierte 'Tab-Verwerfung' deines Browsers. Dies kann bei einer großen Anzahl von Tabs zu bis"
+   },
+   "html_options_suspend_discard_after_suspend_tooltip_line1c": {
+      "message": "zu 500% mehr Speicher sparen, wenn man eine Vielzahl von Tabs geöffnet hat."
+   },
+   "html_options_suspend_discard_after_suspend_tooltip_line2a": {
+      "message": "Das kann aber auch zu kurzen Darstellungsdauern führen beim Auswählen"
+   },
+   "html_options_suspend_discard_after_suspend_tooltip_line2b": {
+      "message": "eines ausgesetzten Tabs."
+   },
+   "html_options_suspend_discard_after_suspend_tooltip_line3a": {
+      "message": "Weitere Informationen zur Tab-Verwerfung findest du unter:"
+   },
+   "html_options_suspend_discard_after_suspend_tooltip_line3b": {
+      "message": "https://developers.google.com/web/updates/2015/09/tab-discarding"
+   },
+   "html_options_suspend_force_screen_capture": {
+      "message": "Hochwertige Bildschirmaufnahmen aktivieren"
+   },
+   "html_options_suspend_force_screen_capture_tooltip_line1": {
+      "message": "Wenn inaktiv, dann haben Bildschirmaufnahmen die folgenden Einschränkungen zur Leistungsverbesserung:"
+   },
+   "html_options_suspend_force_screen_capture_tooltip_line2": {
+      "message": "- Bildschirmaufnahmen in niedriger Qualtität"
+   },
+   "html_options_suspend_force_screen_capture_tooltip_line4": {
+      "message": "- keine Bildschirmaufnahme, wenn es länger als 1 Minute dauert, das Bild zu erstellen"
+   },
+   "html_options_suspend_force_screen_capture_tooltip_line5": {
+      "message": "- maximale Höhe der Bildschirmaufnahme limitiert auf 5000px"
+   },
+   "html_options_suspend_force_screen_capture_tooltip_line6": {
+      "message": "Aktivieren der hochwertigen Bildschirmaufnahmen kann signifikant die CPU-Last"
+   },
+   "html_options_suspend_force_screen_capture_tooltip_line7": {
+      "message": "und den Speicherverbrauch erhöhen."
+   },
+   "html_options_suspend_hour": {
+      "message": "Stunde"
+   },
+   "html_options_suspend_hours": {
+      "message": "Stunden"
+   },
+   "html_options_suspend_minute": {
+      "message": "Min."
+   },
+   "html_options_suspend_minutes": {
+      "message": "Minuten"
+   },
+   "html_options_suspend_never": {
+      "message": "Nie"
+   },
+   "html_options_suspend_no_active_tabs": {
+      "message": "Aktive Tabs in jedem Fenster nicht aussetzen"
+   },
+   "html_options_suspend_no_app_windows": {
+      "message": "In App-Fenstern geöffnete Tabs nicht aussetzen"
+   },
+   "html_options_suspend_no_audio": {
+      "message": "Tabs mit Audiowiedergabe nicht aussetzen"
+   },
+   "html_options_suspend_no_forms": {
+      "message": "Tabs mit ungespeicherten Formularen nicht aussetzen"
+   },
+   "html_options_suspend_no_pinned": {
+      "message": "Gepinnte Tabs nicht aussetzen"
+   },
+   "html_options_suspend_no_scroll_pos": {
+      "message": "Angehaltene Tabs immer ganz oben auf der Seite erneut öffnen"
+   },
+   "html_options_suspend_no_scroll_pos_tooltip_line1a": {
+      "message": "Der Tab öffnet sich oben auf der Seite erneut, statt an der"
+   },
+   "html_options_suspend_no_scroll_pos_tooltip_line1b": {
+      "message": "Stelle, an der er beim Aussetzen stand."
+   },
+   "html_options_suspend_no_scroll_pos_tooltip_line2a": {
+      "message": "Gilt sowohl für automatisches als auch manuelles Aussetzen und"
+   },
+   "html_options_suspend_no_scroll_pos_tooltip_line2b": {
+      "message": "überschreibt Links, die beim Laden zu einem #Abschnitt springen."
+   },
+   "html_options_suspend_on_battery_after": {
+      "message": "Tabs im Akkubetrieb aussetzen nach"
+   },
+   "html_options_suspend_on_low_memory": {
+      "message": "Bei geringer Speicherverfügbarkeit sofort aussetzen"
+   },
+   "html_options_suspend_on_low_memory_tooltip_discarding_link": {
+      "message": "https://developers.google.com/web/updates/2015/09/tab-discarding"
+   },
+   "html_options_suspend_on_low_memory_tooltip_line1": {
+      "message": "Diese Option überschreibt die automatische Tab-Verwerfungsfunktion."
+   },
+   "html_options_suspend_on_low_memory_tooltip_line2": {
+      "message": "Wenn aktiviert, wird ein Tab zwangsweise ausgesetzt, statt verworfen zu werden."
+   },
+   "html_options_suspend_on_low_memory_tooltip_line3": {
+      "message": "Normalerweise verwirft dein Browser Tabs erst, wenn der Systemspeicher sehr knapp wird."
+   },
+   "html_options_suspend_on_low_memory_tooltip_line4": {
+      "message": "Hinweis: Das kann Tabs früher aussetzen als"
+   },
+   "html_options_suspend_on_low_memory_tooltip_line5": {
+      "message": "in den Einstellung für automatisches Tab aussetzen."
+   },
+   "html_options_suspend_on_low_memory_tooltip_line6": {
+      "message": "Weitere Informationen zur Tab-Verwerfung findest du unter:"
+   },
+   "html_options_suspend_only_connected": {
+      "message": "Tabs nicht aussetzen im Offline-Modus"
+   },
+   "html_options_suspend_only_on_battery": {
+      "message": "Tabs nicht aussetzen bei aktiver Stromversorgung"
+   },
+   "html_options_suspend_reload_unsuspend_background": {
+      "message": "Neuladen aktiviert auch Tabs im Hintergrund (nicht nur den aktiven Tab)"
+   },
+   "html_options_suspend_reload_unsuspend_background_tooltip_line1a": {
+      "message": "Wenn aktiviert, wird eine pausierte Registerkarte beim Neuladen"
+   },
+   "html_options_suspend_reload_unsuspend_background_tooltip_line1b": {
+      "message": "(Strg+R oder Rechtsklick > Neu laden) auch dann reaktiviert,"
+   },
+   "html_options_suspend_reload_unsuspend_background_tooltip_line1c": {
+      "message": "wenn sie nicht die aktive Registerkarte ist."
+   },
+   "html_options_suspend_reload_unsuspend_background_tooltip_line2a": {
+      "message": "Nützlich, um mehrere pausierte Tabs auf einmal neu zu laden,"
+   },
+   "html_options_suspend_reload_unsuspend_background_tooltip_line2b": {
+      "message": "z. B. nach Auswahl mehrerer Tabs und Drücken von Strg+R."
+   },
+   "html_options_suspend_same_as_ac": {
+      "message": "Wie im Netzbetrieb"
+   },
+   "html_options_suspend_screen_capturing": {
+      "message": "Bildschirmaufnahme"
+   },
+   "html_options_suspend_screen_capturing_disabled": {
+      "message": "Gesperrt"
+   },
+   "html_options_suspend_screen_capturing_entire_page": {
+      "message": "Ganze Seite aufnehmen"
+   },
+   "html_options_suspend_screen_capturing_screen_only": {
+      "message": "Nur oberen Bereich aufnehmen"
+   },
+   "html_options_suspend_screen_capturing_tooltip_line1a": {
+      "message": "Die Erweiterung kann eine Vorschau des ausgesetzten Tabs anzeigen,"
+   },
+   "html_options_suspend_screen_capturing_tooltip_line1b": {
+      "message": "die zeigt, wie der Tab vor dem Aussetzen aussah."
+   },
+   "html_options_suspend_screen_capturing_tooltip_line2a": {
+      "message": "Diese experimentelle Einstellung kann für signifikante CPU-Last und"
+   },
+   "html_options_suspend_screen_capturing_tooltip_line2b": {
+      "message": "erhöhte Speicherbelegung sorgen."
+   },
+   "html_options_suspend_screen_capturing_tooltip_line3a": {
+      "message": "Wenn du ungewöhnliches Verhalten bemerkst, etwa dass Tabs lange zum Aussetzen brauchen oder der Browser"
+   },
+   "html_options_suspend_screen_capturing_tooltip_line3b": {
+      "message": "unerwartet abstürzt, solltest du diese Einstellung deaktivieren."
+   },
+   "html_options_suspend_seconds": {
+      "message": "Sekunden"
+   },
+   "html_options_suspend_theme": {
+      "message": "Aussehen"
+   },
+   "html_options_suspend_theme_dark": {
+      "message": "dunkel"
+   },
+   "html_options_suspend_theme_light": {
+      "message": "hell"
+   },
+   "html_options_suspend_theme_system": {
+      "message": "System"
+   },
+   "html_options_suspend_title": {
+      "message": "Automatisches Tab Aussetzen"
+   },
+   "html_options_suspend_week": {
+      "message": "Woche"
+   },
+   "html_options_suspend_weeks": {
+      "message": "Wochen"
+   },
+   "html_options_suspended_add_youtube_timestamp": {
+      "message": "YouTube-Wiedergabeposition beim Aussetzen beibehalten"
+   },
+   "html_options_suspended_append_url_to_title": {
+      "message": "Ursprüngliche URL an den Titel ausgesetzter Tabs anhängen"
+   },
+   "html_options_suspended_append_url_to_title_tooltip_line1a": {
+      "message": "Wenn aktiviert, wird die ursprüngliche URL an den Browser-Tab-Titel"
+   },
+   "html_options_suspended_append_url_to_title_tooltip_line1b": {
+      "message": "ausgesetzter Seiten angehängt."
+   },
+   "html_options_suspended_append_url_to_title_tooltip_line2a": {
+      "message": "Dadurch lassen sich ausgesetzte Tabs anhand des Hostnamens über"
+   },
+   "html_options_suspended_append_url_to_title_tooltip_line2b": {
+      "message": "Chromes \"Tabs durchsuchen\" (Strg+Umschalt+A) finden."
+   },
+   "html_options_suspended_title": {
+      "message": "Ausgesetzte Tabs"
+   },
+   "html_options_title": {
+      "message": "Einstellungen"
+   },
+   "html_options_whitelist_close": {
+      "message": "Schließen"
+   },
+   "html_options_whitelist_title": {
+      "message": "Tabs mit URL aus der Ausnahmeliste nicht aussetzen:"
+   },
+   "html_options_whitelist_tooltip_line1": {
+      "message": "Füge die URL jeder Seite, die du zulassen möchtest, in eine eigene Zeile ein. Zum Beispiel:"
+   },
+   "html_options_whitelist_tooltip_line2": {
+      "message": "Um mehrere Seiten in einer Zeile zuzulassen, kannst du stattdessen einen Teil der URL angeben:"
+   },
+   "html_options_whitelist_tooltip_line3": {
+      "message": "Du kannst auch reguläre Ausdrücke verwenden, wenn der Text von Schrägstrichen eingeschlossen ist:"
+   },
+   "html_options_whitelist_unsuspend": {
+      "message": "Passende Tabs jetzt aufwecken"
+   },
+   "html_permissions_backup": {
+      "message": "Hinweis: Das Ändern der Option lässt deine ausgesetzten Tabs kurz verschwinden.\nFür den Fall der Fälle solltest du jetzt eine Sicherung der aktuellen Sitzung anlegen."
+   },
+   "html_permissions_heading": {
+      "message": "Bitte erlaube Zugriff auf lokale (Datei-) URLs"
+   },
+   "html_permissions_info": {
+      "message": "Diese Erweiterung darf derzeit keine URLs aussetzen, die beginnen mit: \"file\".\nUm das zu ändern, aktiviere \"Zugriff auf lokale (Datei-) URLs\" in den Einstellungen der Erweiterung."
+   },
+   "html_permissions_info_note": {
+      "message": "TMS fordert die Berechtigungen für Downloads und Google-Konto nur an, wenn du unten die lokale oder Google-Drive-Sicherung aktivierst."
+   },
+   "html_permissions_info_note_link": {
+      "message": "Vollständige Aufschlüsselung der Berechtigungen ansehen."
+   },
+   "html_permissions_notice_dismiss": {
+      "message": "Verstanden"
+   },
+   "html_permissions_notice_link": {
+      "message": "Mehr über Berechtigungen erfahren."
+   },
+   "html_permissions_notice_text": {
+      "message": "Ab dieser Version fragt TMS nur dann nach Dateisystem-/Google-Konto-Zugriff, wenn du tatsächlich die lokale oder Google-Drive-Sicherung aktivierst, statt ihn im Voraus anzufordern."
+   },
+   "html_permissions_title": {
+      "message": "Berechtigungen"
+   },
+   "html_popup_backup_downloads_error": {
+      "message": "Automatische Sicherung fehlgeschlagen: Die Downloads-Berechtigung fehlt. Klicke hier, um das zu beheben."
+   },
+   "html_popup_backup_drive_error": {
+      "message": "Automatische Sicherung fehlgeschlagen: kein Google-Konto verbunden. Hier klicken, um es zu beheben."
+   },
+   "html_popup_backup_now_cloud": {
+      "message": "Sitzung jetzt sichern (Cloud)"
+   },
+   "html_popup_backup_now_local": {
+      "message": "Sitzung jetzt sichern (Lokal)"
+   },
+   "html_popup_backup_nudge_text": {
+      "message": "Automatische Sicherung ist deaktiviert. Schütze deine Sitzungen."
+   },
+   "html_popup_never_suspend_domain": {
+      "message": "Diese Domain nicht aussetzen"
+   },
+   "html_popup_never_suspend_page": {
+      "message": "Diese URL nicht aussetzen"
+   },
+   "html_popup_settings": {
+      "message": "Einstellungen"
+   },
+   "html_popup_suspend_other_tabs": {
+      "message": "Alle anderen Tabs aussetzen"
+   },
+   "html_popup_suspend_selected_tabs": {
+      "message": "Ausgewählte Tabs aussetzen"
+   },
+   "html_popup_suspend_tab": {
+      "message": "Diesen Tab jetzt aussetzen"
+   },
+   "html_popup_unsuspend_all_tabs": {
+      "message": "Alle Tabs aufwachen"
+   },
+   "html_popup_unsuspend_selected_tabs": {
+      "message": "Ausgewählte Tabs aufwachen"
+   },
+   "html_popup_unsuspend_tab": {
+      "message": "Diesen Tab aufwachen"
+   },
+   "html_popup_unsuspend_whitelisted_tabs": {
+      "message": "Passende Tabs jetzt aufwecken"
+   },
+   "html_recovery_description_line1": {
+      "message": "Es sieht so aus als wäre die Erweiterung abgestürzt."
+   },
+   "html_recovery_description_line2": {
+      "message": "Deine ausgesetzten Tabs sind abgestürzt oder verschwunden."
+   },
+   "html_recovery_disable_screen_capturing": {
+      "message": "Bildschirmaufnahme deaktivieren"
+   },
+   "html_recovery_go_to_session_manager": {
+      "message": "Gehe zur Sitzungsverwaltung"
+   },
+   "html_recovery_important_message": {
+      "message": "Aktuell ist die Bildschirmaufnahme aktiv. Sollte diese Erweiterung häufig abstürzen, solltest du diese Option deaktivieren."
+   },
+   "html_recovery_restore_tabs_automatically": {
+      "message": "Tabs automatisch wiederherstellen"
+   },
+   "html_recovery_ruh_roh": {
+      "message": "Oh oh!"
+   },
+   "html_recovery_tabs_to_restore": {
+      "message": "Tabs zur Wiederherstellung"
+   },
+   "html_recovery_title": {
+      "message": "Wiederherstellung"
+   },
+   "html_restoring_detail": {
+      "message": "Bitte warten Sie, bis ich dieses Fenster wiederhergestellt habe..."
+   },
+   "html_restoring_heading": {
+      "message": "Tabs wiederherstellen"
+   },
+   "html_restoring_title": {
+      "message": "Fenster wird wiederhergestellt"
+   },
+   "html_session_manager": {
+      "message": "Sitzungsverwaltung"
+   },
+   "html_shortcuts_context_menu_note": {
+      "message": "Hinweis: Diese Aktionen sind auch über das Rechtsklick-Kontextmenü verfügbar."
+   },
+   "html_shortcuts_keyboard_shortcuts": {
+      "message": "Tastenkombinationen"
+   },
+   "html_shortcuts_remap_keys": {
+      "message": "Tastenkombinationen ändern"
+   },
+   "html_shortcuts_title": {
+      "message": "Tastenkombinationen"
+   },
+   "html_sidebar_backup": {
+      "message": "Sicherung"
+   },
+   "html_sidebar_general_settings": {
+      "message": "Einstellungen"
+   },
+   "html_sidebar_news": {
+      "message": "Neuigkeiten"
+   },
+   "html_sidebar_session_management": {
+      "message": "Sitzungen"
+   },
+   "html_sidebar_shortcuts": {
+      "message": "Tastenkombinationen"
+   },
+   "html_sidebar_support": {
+      "message": "Über"
+   },
+   "html_sidebar_tab_health": {
+      "message": "Tab-Zustand"
+   },
+   "html_success_all_tabs_restored": {
+      "message": "Alles Tabs wurden wiederhergestellt."
+   },
+   "html_success_goto_advanced_prefix": {
+      "message": "Für eine erweitertete Sitzungsverwaltung, öffne die"
+   },
+   "html_success_goto_advanced_suffix": {
+      "message": "Seite"
+   },
+   "html_success_great_success": {
+      "message": "Großartig!"
+   },
+   "html_suspended_click_to_reload": {
+      "message": "Aktualisieren oder Klicken zum Neuladen"
+   },
+   "html_suspended_title": {
+      "message": "Ausgesetzter Tab"
+   },
+   "html_suspended_toast_not_connected": {
+      "message": "Du bist nicht mit dem Internet verbunden."
+   },
+   "html_suspended_toast_reload_disabled": {
+      "message": "Automatische Tab Aktualisierung ist temporär deaktiviert."
+   },
+   "html_update_heading2": {
+      "message": "ist bereit, noch marvellos\u003Ci>er\u003C/i> zu werden"
+   },
+   "html_update_info": {
+      "message": "Beim nächsten Neustart deines Browsers wird eine neue Version von The Marvellous Suspender installiert."
+   },
+   "html_update_info_nobackup_prefix": {
+      "message": "Empfehlung: exportiere eine Kopie deiner aktuellen Sitzung von "
+   },
+   "html_update_info_nobackup_suffix": {
+      "message": " bevor du die Aktualisierung durchführst."
+   },
+   "html_update_info_withbackup": {
+      "message": "WICHTIG: Wir konnten keinen Wiederherstellungspunkt für deine Tabs erstellen.\u003Cbr>Speichere JETZT eine Sicherung!"
+   },
+   "html_update_title": {
+      "message": "Aktualisierung"
+   },
+   "html_updated_great_suspender_updated": {
+      "message": "wurde aktualisiert"
+   },
+   "html_updated_info_line1": {
+      "message": "Eine automatische Sicherung deiner Tabs wurde vor der Aktualisierung angelegt."
+   },
+   "html_updated_info_line2_prefix": {
+      "message": "Sollte etwas während der Aktualisierung schief gehen, öffne die "
+   },
+   "html_updated_info_line2_suffix": {
+      "message": " Seite."
+   },
+   "html_updated_patch_message": {
+      "message": "Entschuldige die Störung. Es wurden Wartungsarbeiten durchgeführt."
+   },
+   "html_updated_title": {
+      "message": "Aktualisiert"
+   },
+   "html_updating_heading": {
+      "message": "wird aktualisiert"
+   },
+   "html_updating_message": {
+      "message": "Bitte warte, während die ausgesetzten Tabs wiederhergestellt werden..."
+   },
+   "html_welcome_text_line1": {
+      "message": "Danke fürs Ausprobieren."
+   },
+   "html_welcome_text_line2": {
+      "message": "Ich lasse deinen Computer geschmeidiger laufen indem ich Tabs aussetze, die du nicht benutzt."
+   },
+   "html_welcome_text_line3": {
+      "message": "Du kannst unten die Einstellungen verändern."
+   },
+   "js_backup_cooldown": {
+      "message": "Warte $seconds$s bis zur nächsten Sicherung.",
+      "placeholders": {
+         "seconds": {
+            "content": "$1"
+         }
+      }
+   },
+   "js_backup_drive_delete_confirm": {
+      "message": "Diese Sicherungsdatei von Drive löschen? Dies kann nicht rückgängig gemacht werden."
+   },
+   "js_backup_drive_delete_device_error": {
+      "message": "Einige Backup-Dateien konnten nicht gelöscht werden. Bitte erneut versuchen."
+   },
+   "js_backup_drive_settings_error": {
+      "message": "Einstellungen konnten nicht auf Drive gespeichert werden. Bitte erneut versuchen."
+   },
+   "js_backup_drive_settings_saved": {
+      "message": "Einstellungen auf Drive gespeichert."
+   },
+   "js_backup_drive_settings_saving": {
+      "message": "Wird auf Drive gespeichert…"
+   },
+   "js_backup_option_saved": {
+      "message": "Gespeichert"
+   },
+   "js_backup_permission_denied": {
+      "message": "Zugriff verweigert: automatische Sicherung wurde nicht aktiviert."
+   },
+   "js_backup_restore_error_drive": {
+      "message": "Download von Drive fehlgeschlagen. Prüfe deine Verbindung und versuche es erneut."
+   },
+   "js_backup_restore_error_generic": {
+      "message": "Import fehlgeschlagen. Bitte erneut versuchen."
+   },
+   "js_backup_restore_error_invalid": {
+      "message": "Ungültige Sicherungsdatei."
+   },
+   "js_backup_restore_go_sessions": {
+      "message": "→ Sitzungen öffnen, um wiederherzustellen"
+   },
+   "js_backup_restore_importing": {
+      "message": "Wird importiert…"
+   },
+   "js_backup_restore_legacy_group": {
+      "message": "Ältere Sicherungen"
+   },
+   "js_backup_restore_success": {
+      "message": "Als „$name$“ importiert.",
+      "placeholders": {
+         "name": {
+            "content": "$1"
+         }
+      }
+   },
+   "js_backup_settings_drive_downloading": {
+      "message": "Einstellungen werden von Drive heruntergeladen…"
+   },
+   "js_backup_settings_drive_last_backup": {
+      "message": "Letzte Sicherung: $date$",
+      "placeholders": {
+         "date": {
+            "content": "$1"
+         }
+      }
+   },
+   "js_backup_settings_drive_not_found": {
+      "message": "Keine Einstellungsdatei auf Drive gefunden. Speichere zuerst deine Einstellungen auf Drive."
+   },
+   "js_backup_settings_drive_overwrite_confirm": {
+      "message": "Bestehende Einstellungssicherung vom $date$. Überschreiben?",
+      "placeholders": {
+         "date": {
+            "content": "$1"
+         }
+      }
+   },
+   "js_backup_settings_drive_restore_error": {
+      "message": "Einstellungen konnten nicht von Drive wiederhergestellt werden. Bitte erneut versuchen."
+   },
+   "js_backup_settings_drive_restore_success": {
+      "message": "Einstellungen wiederhergestellt. Wird neu geladen…"
+   },
+   "js_context_force_suspend_all_tabs": {
+      "message": "Alle Tabs in allen Fenstern aussetzen (forcieren)"
+   },
+   "js_context_force_suspend_other_tabs_in_window": {
+      "message": "Alle anderen Tabs in diesem Fenster aussetzen (forcieren)"
+   },
+   "js_context_never_suspend_domain": {
+      "message": "Diese Domain nicht aussetzen"
+   },
+   "js_context_never_suspend_page": {
+      "message": "Diese URL nicht aussetzen"
+   },
+   "js_context_open_link_in_suspended_tab": {
+      "message": "Öffne Link in neuem ausgesetztem Tab"
+   },
+   "js_context_soft_suspend_all_tabs": {
+      "message": "Alle Tabs in allen Fenstern aussetzen"
+   },
+   "js_context_soft_suspend_other_tabs_in_window": {
+      "message": "Alle anderen Tabs in diesem Fenster aussetzen"
+   },
+   "js_context_suspend_selected_tabs": {
+      "message": "Ausgewählte Tabs aussetzen"
+   },
+   "js_context_suspend_tab_group": {
+      "message": "Alle Tabs in dieser Gruppe aussetzen"
+   },
+   "js_context_toggle_pause_suspension": {
+      "message": "Aussetzen dieses Tabs pausieren/fortführen"
+   },
+   "js_context_toggle_suspend_state": {
+      "message": "Diesen Tab aussetzen/aufwachen"
+   },
+   "js_context_unsuspend_all_tabs": {
+      "message": "Alle Tabs in allen Fenstern aufwachen"
+   },
+   "js_context_unsuspend_all_tabs_in_window": {
+      "message": "Alle Tabs in diesem Fenster aufwachen"
+   },
+   "js_context_unsuspend_selected_tabs": {
+      "message": "Ausgewählte Tabs aufwachen"
+   },
+   "js_context_unsuspend_tab_group": {
+      "message": "Alle Tabs in dieser Gruppe aufwachen"
+   },
+   "js_history_confirm_delete": {
+      "message": "Bist du sicher, dass du diese Sitzung löschen willst?"
+   },
+   "js_history_confirm_session_overwrite": {
+      "message": "Es gibt bereits eine gespeicherte Sitzung mit diesem Namen. Bestehende Sitzung überschreiben?"
+   },
+   "js_history_delete": {
+      "message": "löschen"
+   },
+   "js_history_enter_name_for_session": {
+      "message": "Benenne diese Sitzung"
+   },
+   "js_history_export": {
+      "message": "exportieren"
+   },
+   "js_history_import_fail": {
+      "message": "Datei konnte nicht geladen werden. Stelle sicher, dass es eine Textdatei ist und sie eine URL pro Zeile enthält."
+   },
+   "js_history_migrate_fail": {
+      "message": "Benötigt 32 Zeichen Erweiterung Id zum migrieren"
+   },
+   "js_history_migrate_success": {
+      "message": "$tabcount$ Tabs erfolgreich migriert. Starte deinen Browser neu, falls die migrierten Tabs nicht automatisch neu geladen werden.",
+      "placeholders": {
+         "tabcount": {
+            "content": "$1"
+         }
+      }
+   },
+   "js_history_reload": {
+      "message": "neu laden"
+   },
+   "js_history_resuspend": {
+      "message": "wieder aussetzen"
+   },
+   "js_history_save": {
+      "message": "speichern"
+   },
+   "js_history_tab": {
+      "message": "Tab"
+   },
+   "js_history_tabs": {
+      "message": "Tabs"
+   },
+   "js_history_window": {
+      "message": "Fenster"
+   },
+   "js_history_windows": {
+      "message": "Fenster"
+   },
+   "js_options_always_suspend_matches_heading": {
+      "message": "Offene Tabs, die der Immer-aussetzen-Liste entsprechen:"
+   },
+   "js_options_always_suspend_no_matches": {
+      "message": "Keine offenen Tabs entsprechen der aktuellen Immer-aussetzen-Liste."
+   },
+   "js_options_backup_drive_auth_error": {
+      "message": "Verbindung zu Google fehlgeschlagen. Bitte erneut versuchen."
+   },
+   "js_options_backup_drive_connecting": {
+      "message": "Verbinden…"
+   },
+   "js_options_backup_last_local": {
+      "message": "Letzte Sicherung: $date$",
+      "placeholders": {
+         "date": {
+            "content": "$1"
+         }
+      }
+   },
+   "js_options_backup_next_run": {
+      "message": "Nächster Lauf: $time$",
+      "placeholders": {
+         "time": {
+            "content": "$1"
+         }
+      }
+   },
+   "js_options_backup_now_done": {
+      "message": "Sicherung gespeichert."
+   },
+   "js_options_backup_now_error": {
+      "message": "Chrome fragt nach, wo Dateien gespeichert werden sollen, wodurch automatische Sicherungen nicht im Hintergrund funktionieren. Deaktiviere „Nachfragen, wo jede Datei gespeichert werden soll“ in chrome://settings/downloads."
+   },
+   "js_options_backup_now_running": {
+      "message": "Sicherung läuft…"
+   },
+   "js_options_incognito_warning": {
+      "message": "Du bist im Inkognitomodus. Einige Funktionen sind nicht verfügbar."
+   },
+   "js_options_settings_import_confirm": {
+      "message": "Dies überschreibt deine aktuellen Einstellungen. Fortfahren?"
+   },
+   "js_options_settings_import_error": {
+      "message": "Ungültige Einstellungsdatei."
+   },
+   "js_options_settings_import_success": {
+      "message": "Einstellungen importiert. Wird neu geladen…"
+   },
+   "js_options_whitelist_matches_heading": {
+      "message": "Offene Tabs auf der Ausnahmeliste:"
+   },
+   "js_options_whitelist_matches_overflow_prefix": {
+      "message": "und"
+   },
+   "js_options_whitelist_matches_overflow_suffix": {
+      "message": "weitere."
+   },
+   "js_options_whitelist_no_matches": {
+      "message": "Es sind keine offenen Tabs vorhanden, die der aktuellen Ausnahmeliste entsprechen."
+   },
+   "js_permissions_button_export": {
+      "message": "Sicherung anlegen"
+   },
+   "js_permissions_button_set": {
+      "message": "Einstellungen öffnen"
+   },
+   "js_popup_app_window": {
+      "message": "Tab ist in einem App-Fenster geöffnet"
+   },
+   "js_popup_audible": {
+      "message": "Audiowiedergabe in diesem Tab."
+   },
+   "js_popup_blockedFile": {
+      "message": "Lokale Dateien können nicht ausgesetzt werden."
+   },
+   "js_popup_blockedFile_enable": {
+      "message": "Aktivieren"
+   },
+   "js_popup_charging": {
+      "message": "Stromversorgung ist aktiv"
+   },
+   "js_popup_error": {
+      "message": "Automatisches Aussetzen für diesen Tab nicht verfügbar"
+   },
+   "js_popup_form_input": {
+      "message": "Formulareingabe in diesem Tab."
+   },
+   "js_popup_form_input_unpause": {
+      "message": "Fortführen"
+   },
+   "js_popup_initialising": {
+      "message": "Initialisiere die Erweiterung..."
+   },
+   "js_popup_never": {
+      "message": "Automatisches Aussetzen ist deaktiviert."
+   },
+   "js_popup_no_connectivity": {
+      "message": "Keine Netzwerkverbindung"
+   },
+   "js_popup_normal": {
+      "message": "Tab wird automatisch ausgesetzt."
+   },
+   "js_popup_normal_pause": {
+      "message": "Nicht jetzt"
+   },
+   "js_popup_pinned": {
+      "message": "Tab wurde gepinnt"
+   },
+   "js_popup_special": {
+      "message": "Tab kann nicht ausgesetzt werden"
+   },
+   "js_popup_suspended": {
+      "message": "Tab ausgesetzt"
+   },
+   "js_popup_suspended_pause": {
+      "message": "Nicht aussetzen"
+   },
+   "js_popup_temp_whitelist": {
+      "message": "Aussetzen pausiert."
+   },
+   "js_popup_temp_whitelist_unpause": {
+      "message": "Fortführen"
+   },
+   "js_popup_unknown": {
+      "message": "Lade den Tab..."
+   },
+   "js_popup_whitelisted": {
+      "message": "Seite zur Ausnahmeliste hinzugefügt."
+   },
+   "js_popup_whitelisted_remove": {
+      "message": "Von Ausnahmeliste entfernen"
+   },
+   "js_session_save_point": {
+      "message": "Automatischer Sicherungspunkt für v"
+   },
+   "js_shortcuts_default_command": {
+      "message": "Erweiterung aktivieren (Popup anzeigen)"
+   },
+   "js_shortcuts_not_set": {
+      "message": "nicht gesetzt"
+   },
+   "js_suspend_button_backup": {
+      "message": "Vor dem Update eine Sicherung speichern"
+   },
+   "js_suspended_hotkey_to_reload": {
+      "message": "Tastenkombination setzen"
+   },
+   "js_suspended_low_memory": {
+      "message": "Tab ausgesetzt aufgrund von niedrigem Speicher"
+   },
+   "js_update_button_export": {
+      "message": "Sicherung anlegen"
+   },
+   "js_update_button_reload": {
+      "message": "Erweiterung jetzt aktualisieren"
+   },
+   "js_update_confirm": {
+      "message": "Es existiert keine Sicherung. Erweiterung trotzdem aktualisieren?"
+   }
+}

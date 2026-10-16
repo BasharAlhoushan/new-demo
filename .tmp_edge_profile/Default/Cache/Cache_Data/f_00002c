@@ -1,0 +1,242 @@
+export const areas = [
+	{
+		id: "area-pearl",
+		slug: "the-pearl",
+		name: {
+			en: "The Pearl-Qatar",
+			ar: "جزيرة اللؤلؤة"
+		},
+		headline: {
+			en: "The Riviera of the Arabian Gulf",
+			ar: "ريفييرا الخليج العربي والجزيرة الأيقونية"
+		},
+		description: {
+			en: "An iconic man-made island spanning four million square meters, The Pearl-Qatar is renowned for its Mediterranean-style marinas, private beach villas in La Plage South, luxury towers in Porto Arabia, and Venetian canals in Qanat Quartier.",
+			ar: "جزيرة اصطناعية ساحرة تمتد على مساحة 4 ملايين متر مربع، تشتهر بمراسيها المتوسطية، وفللها الشاطئية في لا بلاج، وأبراجها الشاهقة في بورتو أرابيا، وقنواتها المائية الفينيسية في قناة كارتييه."
+		},
+		lifestyle: {
+			en: "Private yacht berths, Michelin-starred waterfront restaurants, high-fashion boutiques, and pristine beach promenades.",
+			ar: "مراسٍ خاصة لليخوت، مطاعم فاخرة على الواجهة البحرية، متاجر لأرقى دور الأزياء العالمية، وممشى شاطئي خلاب."
+		},
+		heroImage: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=85",
+		gallery: [
+			"https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80",
+			"https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80",
+			"https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=80"
+		],
+		propertiesCount: 16,
+		popularTypes: [
+			"Waterfront Residence",
+			"Penthouse",
+			"Villa",
+			"Duplex"
+		],
+		landmarks: [
+			"Porto Arabia Marina",
+			"Qanat Quartier Canals",
+			"Medina Centrale",
+			"Isola Dana Islands"
+		],
+		coordinates: {
+			lat: 25.3695,
+			lng: 51.5513
+		}
+	},
+	{
+		id: "area-lusail",
+		slug: "lusail-city",
+		name: {
+			en: "Lusail City",
+			ar: "مدينة لوسيل الحديثة"
+		},
+		headline: {
+			en: "The Sustainable City of the Future",
+			ar: "مدينة المستقبل الذكية والمستدامة"
+		},
+		description: {
+			en: "Lusail represents Qatar futuristic urban vision. Home to the iconic Lusail Marina, Fox Hills, Al Maha Island, and Lusail Boulevard, offering cutting-edge architectural marvels and world-class leisure destinations.",
+			ar: "تجسد لوسيل أحدث الرؤى الحضرية المستقبلية لدولة قطر، وتضم مارينا لوسيل الأيقونية، والفوكس هيلز، وجزيرة المها، وبوليفارد لوسيل بمرافقه العالمية."
+		},
+		lifestyle: {
+			en: "State-of-the-art smart infrastructure, international concert arenas, waterfront esplanades, and championship golf clubs.",
+			ar: "بنية تحتية ذكية فائقة التطور، ممشى مارينا بحري استثنائي، نوادي غولف عالمية، ومطاعم وترفيه راقٍ في جزيرة المها."
+		},
+		heroImage: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1600&q=85",
+		gallery: [
+			"https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+			"https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&w=1200&q=80",
+			"https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1200&q=80"
+		],
+		propertiesCount: 14,
+		popularTypes: [
+			"Sky Villa",
+			"Penthouse",
+			"Palatial Mansion",
+			"Waterfront Residence"
+		],
+		landmarks: [
+			"Lusail Marina Promenade",
+			"Al Maha Island",
+			"Katara Towers",
+			"Lusail Boulevard"
+		],
+		coordinates: {
+			lat: 25.4167,
+			lng: 51.5167
+		}
+	},
+	{
+		id: "area-westbay",
+		slug: "west-bay",
+		name: {
+			en: "West Bay & West Bay Lagoon",
+			ar: "الخليج الغربي ولاغون"
+		},
+		headline: {
+			en: "The Diplomatic Heart & Private Lagoon Sanctuaries",
+			ar: "القلب الدبلوماسي وملاذات اللاغون الشاطئية الخاصة"
+		},
+		description: {
+			en: "Combining the dramatic skyline of West Bay diplomatic district with the ultra-private gated estates of West Bay Lagoon (Al Qutaifiya). Residents enjoy private beach access, lush parks, and serene coastal water channels.",
+			ar: "يجمع بين ناطحات سحاب الخليج الغربي الدبلوماسية وأرقى الفلل الشاطئية الخاصة في لاغون القطيفية، حيث الشواطئ الهادئة والحدائق الغناء المحاطة بالأمان والخصوصية المطلقة."
+		},
+		lifestyle: {
+			en: "Gated security, direct boat mooring, five-star luxury hotel resorts, and close proximity to foreign embassies and corporate centers.",
+			ar: "بوابات أمنية خاصة، رسو مباشر للقوارب واليخوت، قرب من أرقى المنتجعات العالمية والسفارات والمراكز المالية."
+		},
+		heroImage: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1600&q=85",
+		gallery: ["https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1200&q=80", "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1200&q=80"],
+		propertiesCount: 10,
+		popularTypes: [
+			"Palatial Mansion",
+			"Villa",
+			"Penthouse"
+		],
+		landmarks: [
+			"West Bay Lagoon Private Beaches",
+			"Diplomatic Area",
+			"Four Seasons Marina",
+			"Doha Corniche"
+		],
+		coordinates: {
+			lat: 25.3217,
+			lng: 51.5312
+		}
+	},
+	{
+		id: "area-msheireb",
+		slug: "msheireb-downtown",
+		name: {
+			en: "Msheireb Downtown Doha",
+			ar: "مشيرب قلب الدوحة"
+		},
+		headline: {
+			en: "The Pinnacle of Sustainable Qatari Heritage",
+			ar: "قمة الاستدامة المعمارية والتراث القطري العصري"
+		},
+		description: {
+			en: "The world first fully sustainable downtown regeneration project. Msheireb merges traditional Qatari architectural proportion and shade with modern smart-home technology, luxury townhomes, and private courtyard mansions.",
+			ar: "أول مشروع مستدام بالكامل لتجديد وسط المدينة في العالم، يمزج روح العمارة القطرية بالهندسة الذكية الحديثة والمنازل ذات الأفنية الخاصة الهادئة."
+		},
+		lifestyle: {
+			en: "Pedestrian-friendly shaded arcades, the Msheireb Tram, boutique design galleries, Barahat Msheireb, and cultural museums.",
+			ar: "ممرات مشاة مظللة، ترام مشيرب، ساحة البراحة الفاخرة، معارض تصميم فنية، ومطاعم استثنائية في قلب العاصمة."
+		},
+		heroImage: "https://images.unsplash.com/photo-1541971875076-8f970d573be6?auto=format&fit=crop&w=1600&q=85",
+		gallery: ["https://images.unsplash.com/photo-1600573472550-8090b5e0745e?auto=format&fit=crop&w=1200&q=80", "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=80"],
+		propertiesCount: 6,
+		popularTypes: [
+			"Townhouse",
+			"Duplex",
+			"Penthouse"
+		],
+		landmarks: [
+			"Barahat Msheireb",
+			"Msheireb Museums",
+			"Mandarin Oriental Square",
+			"Galleria Mall"
+		],
+		coordinates: {
+			lat: 25.2867,
+			lng: 51.5289
+		}
+	},
+	{
+		id: "area-alwaab",
+		slug: "al-waab",
+		name: {
+			en: "Al Waab & Aspire Zone",
+			ar: "الوعب ومنطقة أسباير"
+		},
+		headline: {
+			en: "Prestigious Family Living & Expansive Compounds",
+			ar: "الملاذ العائلي الراقي والقصور الفسيحة"
+		},
+		description: {
+			en: "One of Doha most established and prestigious residential neighborhoods. Known for grand private palaces, VIP gated residential compounds, lush gardens, and international academies.",
+			ar: "من أرقى الأحياء السكنية وأكثرها عراقة في الدوحة، يتميز بالقصور المستقلة الفخمة، والمجمعات السكنية المغلقة ذات الحدائق الوارفة والهدوء التام."
+		},
+		lifestyle: {
+			en: "Family estates, private pools, proximity to Aspire Park, Villaggio Mall, and leading international private schools.",
+			ar: "مساحات عائلية واسعة، مسابح وحدائق خاصة، قرب من حديقة أسباير وفلاجيو وأرقى المدارس الدولية."
+		},
+		heroImage: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1600&q=85",
+		gallery: ["https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80", "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"],
+		propertiesCount: 8,
+		popularTypes: [
+			"Palatial Mansion",
+			"Villa",
+			"Townhouse"
+		],
+		landmarks: [
+			"Aspire Park",
+			"Khalifa International Stadium",
+			"Villaggio",
+			"Al Waab City"
+		],
+		coordinates: {
+			lat: 25.2608,
+			lng: 51.4647
+		}
+	},
+	{
+		id: "area-katara",
+		slug: "katara-hills",
+		name: {
+			en: "Katara Hills",
+			ar: "تلال كتارا السكنية"
+		},
+		headline: {
+			en: "Exclusive Hilltop Sanctuary Overlooking Cultural Heritage",
+			ar: "ملاذ جبلي استثنائي مطل على معالم كتارا الثقافية"
+		},
+		description: {
+			en: "Perched on rolling green elevations with sweeping panoramic views over Katara Cultural Village and the Arabian Gulf. An ultra-exclusive residential enclave offering privacy and bespoke architectural finishes.",
+			ar: "يتربع فوق المرتفعات الخضراء بإطلالات ساحرة ومفتوحة على قرية كتارا الثقافية ومياه الخليج العربي، ويقدم مستوى استثنائياً من العزلة والرفاهية."
+		},
+		lifestyle: {
+			en: "Curated tranquility, cultural amphitheatres, fine art galleries, luxury wellness spas, and private buggy chauffeur service.",
+			ar: "سكينة مطلقة، مسارح كتارا المفتوحة، معارض فنية راقية، مراكز سبا وصحة متخصصة، وخدمات تنقل خاصة."
+		},
+		heroImage: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1600&q=85",
+		gallery: ["https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80", "https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=1200&q=80"],
+		propertiesCount: 5,
+		popularTypes: [
+			"Palatial Mansion",
+			"Villa",
+			"Sky Villa"
+		],
+		landmarks: [
+			"Katara Amphitheatre",
+			"Katara Beach",
+			"Hills Promenade",
+			"Galeries Lafayette Doha"
+		],
+		coordinates: {
+			lat: 25.3585,
+			lng: 51.5273
+		}
+	}
+];
+
+//# sourceMappingURL=data:application/json;base64,eyJtYXBwaW5ncyI6IkFBRUEsT0FBTyxNQUFNLFFBQWdCO0NBQzNCO0VBQ0UsSUFBSTtFQUNKLE1BQU07RUFDTixNQUFNO0dBQ0osSUFBSTtHQUNKLElBQUk7RUFDTjtFQUNBLFVBQVU7R0FDUixJQUFJO0dBQ0osSUFBSTtFQUNOO0VBQ0EsYUFBYTtHQUNYLElBQUk7R0FDSixJQUFJO0VBQ047RUFDQSxXQUFXO0dBQ1QsSUFBSTtHQUNKLElBQUk7RUFDTjtFQUNBLFdBQVc7RUFDWCxTQUFTO0dBQ1A7R0FDQTtHQUNBO0VBQ0Y7RUFDQSxpQkFBaUI7RUFDakIsY0FBYztHQUFDO0dBQXdCO0dBQWE7R0FBUztFQUFRO0VBQ3JFLFdBQVc7R0FBQztHQUF1QjtHQUF5QjtHQUFtQjtFQUFvQjtFQUNuRyxhQUFhO0dBQ1gsS0FBSztHQUNMLEtBQUs7RUFDUDtDQUNGO0NBQ0E7RUFDRSxJQUFJO0VBQ0osTUFBTTtFQUNOLE1BQU07R0FDSixJQUFJO0dBQ0osSUFBSTtFQUNOO0VBQ0EsVUFBVTtHQUNSLElBQUk7R0FDSixJQUFJO0VBQ047RUFDQSxhQUFhO0dBQ1gsSUFBSTtHQUNKLElBQUk7RUFDTjtFQUNBLFdBQVc7R0FDVCxJQUFJO0dBQ0osSUFBSTtFQUNOO0VBQ0EsV0FBVztFQUNYLFNBQVM7R0FDUDtHQUNBO0dBQ0E7RUFDRjtFQUNBLGlCQUFpQjtFQUNqQixjQUFjO0dBQUM7R0FBYTtHQUFhO0dBQW9CO0VBQXNCO0VBQ25GLFdBQVc7R0FBQztHQUEyQjtHQUFrQjtHQUFpQjtFQUFrQjtFQUM1RixhQUFhO0dBQ1gsS0FBSztHQUNMLEtBQUs7RUFDUDtDQUNGO0NBQ0E7RUFDRSxJQUFJO0VBQ0osTUFBTTtFQUNOLE1BQU07R0FDSixJQUFJO0dBQ0osSUFBSTtFQUNOO0VBQ0EsVUFBVTtHQUNSLElBQUk7R0FDSixJQUFJO0VBQ047RUFDQSxhQUFhO0dBQ1gsSUFBSTtHQUNKLElBQUk7RUFDTjtFQUNBLFdBQVc7R0FDVCxJQUFJO0dBQ0osSUFBSTtFQUNOO0VBQ0EsV0FBVztFQUNYLFNBQVMsQ0FDUCxpR0FDQSwrRkFDRjtFQUNBLGlCQUFpQjtFQUNqQixjQUFjO0dBQUM7R0FBb0I7R0FBUztFQUFXO0VBQ3ZELFdBQVc7R0FBQztHQUFtQztHQUFtQjtHQUF1QjtFQUFlO0VBQ3hHLGFBQWE7R0FDWCxLQUFLO0dBQ0wsS0FBSztFQUNQO0NBQ0Y7Q0FDQTtFQUNFLElBQUk7RUFDSixNQUFNO0VBQ04sTUFBTTtHQUNKLElBQUk7R0FDSixJQUFJO0VBQ047RUFDQSxVQUFVO0dBQ1IsSUFBSTtHQUNKLElBQUk7RUFDTjtFQUNBLGFBQWE7R0FDWCxJQUFJO0dBQ0osSUFBSTtFQUNOO0VBQ0EsV0FBVztHQUNULElBQUk7R0FDSixJQUFJO0VBQ047RUFDQSxXQUFXO0VBQ1gsU0FBUyxDQUNQLGlHQUNBLCtGQUNGO0VBQ0EsaUJBQWlCO0VBQ2pCLGNBQWM7R0FBQztHQUFhO0dBQVU7RUFBVztFQUNqRCxXQUFXO0dBQUM7R0FBb0I7R0FBb0I7R0FBNEI7RUFBZTtFQUMvRixhQUFhO0dBQ1gsS0FBSztHQUNMLEtBQUs7RUFDUDtDQUNGO0NBQ0E7RUFDRSxJQUFJO0VBQ0osTUFBTTtFQUNOLE1BQU07R0FDSixJQUFJO0dBQ0osSUFBSTtFQUNOO0VBQ0EsVUFBVTtHQUNSLElBQUk7R0FDSixJQUFJO0VBQ047RUFDQSxhQUFhO0dBQ1gsSUFBSTtHQUNKLElBQUk7RUFDTjtFQUNBLFdBQVc7R0FDVCxJQUFJO0dBQ0osSUFBSTtFQUNOO0VBQ0EsV0FBVztFQUNYLFNBQVMsQ0FDUCxpR0FDQSwrRkFDRjtFQUNBLGlCQUFpQjtFQUNqQixjQUFjO0dBQUM7R0FBb0I7R0FBUztFQUFXO0VBQ3ZELFdBQVc7R0FBQztHQUFlO0dBQWlDO0dBQWE7RUFBYztFQUN2RixhQUFhO0dBQ1gsS0FBSztHQUNMLEtBQUs7RUFDUDtDQUNGO0NBQ0E7RUFDRSxJQUFJO0VBQ0osTUFBTTtFQUNOLE1BQU07R0FDSixJQUFJO0dBQ0osSUFBSTtFQUNOO0VBQ0EsVUFBVTtHQUNSLElBQUk7R0FDSixJQUFJO0VBQ047RUFDQSxhQUFhO0dBQ1gsSUFBSTtHQUNKLElBQUk7RUFDTjtFQUNBLFdBQVc7R0FDVCxJQUFJO0dBQ0osSUFBSTtFQUNOO0VBQ0EsV0FBVztFQUNYLFNBQVMsQ0FDUCxpR0FDQSwrRkFDRjtFQUNBLGlCQUFpQjtFQUNqQixjQUFjO0dBQUM7R0FBb0I7R0FBUztFQUFXO0VBQ3ZELFdBQVc7R0FBQztHQUF1QjtHQUFnQjtHQUFtQjtFQUF5QjtFQUMvRixhQUFhO0dBQ1gsS0FBSztHQUNMLEtBQUs7RUFDUDtDQUNGO0FBQ0YiLCJuYW1lcyI6W10sInNvdXJjZXMiOlsiYXJlYXMudHMiXSwidmVyc2lvbiI6Mywic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgQXJlYSB9IGZyb20gJy4uL3R5cGVzJztcblxuZXhwb3J0IGNvbnN0IGFyZWFzOiBBcmVhW10gPSBbXG4gIHtcbiAgICBpZDogJ2FyZWEtcGVhcmwnLFxuICAgIHNsdWc6ICd0aGUtcGVhcmwnLFxuICAgIG5hbWU6IHtcbiAgICAgIGVuOiAnVGhlIFBlYXJsLVFhdGFyJyxcbiAgICAgIGFyOiAn2KzYstmK2LHYqSDYp9mE2YTYpNmE2KTYqScsXG4gICAgfSxcbiAgICBoZWFkbGluZToge1xuICAgICAgZW46ICdUaGUgUml2aWVyYSBvZiB0aGUgQXJhYmlhbiBHdWxmJyxcbiAgICAgIGFyOiAn2LHZitmB2YrZitix2Kcg2KfZhNiu2YTZitisINin2YTYudix2KjZiiDZiNin2YTYrNiy2YrYsdipINin2YTYo9mK2YLZiNmG2YrYqScsXG4gICAgfSxcbiAgICBkZXNjcmlwdGlvbjoge1xuICAgICAgZW46ICdBbiBpY29uaWMgbWFuLW1hZGUgaXNsYW5kIHNwYW5uaW5nIGZvdXIgbWlsbGlvbiBzcXVhcmUgbWV0ZXJzLCBUaGUgUGVhcmwtUWF0YXIgaXMgcmVub3duZWQgZm9yIGl0cyBNZWRpdGVycmFuZWFuLXN0eWxlIG1hcmluYXMsIHByaXZhdGUgYmVhY2ggdmlsbGFzIGluIExhIFBsYWdlIFNvdXRoLCBsdXh1cnkgdG93ZXJzIGluIFBvcnRvIEFyYWJpYSwgYW5kIFZlbmV0aWFuIGNhbmFscyBpbiBRYW5hdCBRdWFydGllci4nLFxuICAgICAgYXI6ICfYrNiy2YrYsdipINin2LXYt9mG2KfYudmK2Kkg2LPYp9it2LHYqSDYqtmF2KrYryDYudmE2Ykg2YXYs9in2K3YqSA0INmF2YTYp9mK2YrZhiDZhdiq2LEg2YXYsdio2LnYjCDYqti02KrZh9ixINio2YXYsdin2LPZitmH2Kcg2KfZhNmF2KrZiNiz2LfZitip2Iwg2YjZgdmE2YTZh9inINin2YTYtNin2LfYptmK2Kkg2YHZiiDZhNinINio2YTYp9is2Iwg2YjYo9io2LHYp9is2YfYpyDYp9mE2LTYp9mH2YLYqSDZgdmKINio2YjYsdiq2Ygg2KPYsdin2KjZitin2Iwg2YjZgtmG2YjYp9iq2YfYpyDYp9mE2YXYp9im2YrYqSDYp9mE2YHZitmG2YrYs9mK2Kkg2YHZiiDZgtmG2KfYqSDZg9in2LHYqtmK2YrZhy4nLFxuICAgIH0sXG4gICAgbGlmZXN0eWxlOiB7XG4gICAgICBlbjogJ1ByaXZhdGUgeWFjaHQgYmVydGhzLCBNaWNoZWxpbi1zdGFycmVkIHdhdGVyZnJvbnQgcmVzdGF1cmFudHMsIGhpZ2gtZmFzaGlvbiBib3V0aXF1ZXMsIGFuZCBwcmlzdGluZSBiZWFjaCBwcm9tZW5hZGVzLicsXG4gICAgICBhcjogJ9mF2LHYp9iz2Y0g2K7Yp9i12Kkg2YTZhNmK2K7ZiNiq2Iwg2YXYt9in2LnZhSDZgdin2K7YsdipINi52YTZiSDYp9mE2YjYp9is2YfYqSDYp9mE2KjYrdix2YrYqdiMINmF2KrYp9is2LEg2YTYo9ix2YLZiSDYr9mI2LEg2KfZhNij2LLZitin2KEg2KfZhNi52KfZhNmF2YrYqdiMINmI2YXZhdi02Ykg2LTYp9i32KbZiiDYrtmE2KfYqC4nLFxuICAgIH0sXG4gICAgaGVyb0ltYWdlOiAnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE1MTI5MTc3NzQwODAtOTk5MWYxYzRjNzUwP2F1dG89Zm9ybWF0JmZpdD1jcm9wJnc9MTYwMCZxPTg1JyxcbiAgICBnYWxsZXJ5OiBbXG4gICAgICAnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE2MDA1OTY1NDI4MTUtZmZhZDRjMTUzOWE5P2F1dG89Zm9ybWF0JmZpdD1jcm9wJnc9MTIwMCZxPTgwJyxcbiAgICAgICdodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTYwMDYwNzY4NzkzOS1jZThhNmMyNTExOGM/YXV0bz1mb3JtYXQmZml0PWNyb3Amdz0xMjAwJnE9ODAnLFxuICAgICAgJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTgwNTg3NzcxNTI1LTc4YjlkYmEzYjkxND9hdXRvPWZvcm1hdCZmaXQ9Y3JvcCZ3PTEyMDAmcT04MCcsXG4gICAgXSxcbiAgICBwcm9wZXJ0aWVzQ291bnQ6IDE2LFxuICAgIHBvcHVsYXJUeXBlczogWydXYXRlcmZyb250IFJlc2lkZW5jZScsICdQZW50aG91c2UnLCAnVmlsbGEnLCAnRHVwbGV4J10sXG4gICAgbGFuZG1hcmtzOiBbJ1BvcnRvIEFyYWJpYSBNYXJpbmEnLCAnUWFuYXQgUXVhcnRpZXIgQ2FuYWxzJywgJ01lZGluYSBDZW50cmFsZScsICdJc29sYSBEYW5hIElzbGFuZHMnXSxcbiAgICBjb29yZGluYXRlczoge1xuICAgICAgbGF0OiAyNS4zNjk1LFxuICAgICAgbG5nOiA1MS41NTEzLFxuICAgIH0sXG4gIH0sXG4gIHtcbiAgICBpZDogJ2FyZWEtbHVzYWlsJyxcbiAgICBzbHVnOiAnbHVzYWlsLWNpdHknLFxuICAgIG5hbWU6IHtcbiAgICAgIGVuOiAnTHVzYWlsIENpdHknLFxuICAgICAgYXI6ICfZhdiv2YrZhtipINmE2YjYs9mK2YQg2KfZhNit2K/Zitir2KknLFxuICAgIH0sXG4gICAgaGVhZGxpbmU6IHtcbiAgICAgIGVuOiAnVGhlIFN1c3RhaW5hYmxlIENpdHkgb2YgdGhlIEZ1dHVyZScsXG4gICAgICBhcjogJ9mF2K/ZitmG2Kkg2KfZhNmF2LPYqtmC2KjZhCDYp9mE2LDZg9mK2Kkg2YjYp9mE2YXYs9iq2K/Yp9mF2KknLFxuICAgIH0sXG4gICAgZGVzY3JpcHRpb246IHtcbiAgICAgIGVuOiAnTHVzYWlsIHJlcHJlc2VudHMgUWF0YXIgZnV0dXJpc3RpYyB1cmJhbiB2aXNpb24uIEhvbWUgdG8gdGhlIGljb25pYyBMdXNhaWwgTWFyaW5hLCBGb3ggSGlsbHMsIEFsIE1haGEgSXNsYW5kLCBhbmQgTHVzYWlsIEJvdWxldmFyZCwgb2ZmZXJpbmcgY3V0dGluZy1lZGdlIGFyY2hpdGVjdHVyYWwgbWFydmVscyBhbmQgd29ybGQtY2xhc3MgbGVpc3VyZSBkZXN0aW5hdGlvbnMuJyxcbiAgICAgIGFyOiAn2KrYrNiz2K8g2YTZiNiz2YrZhCDYo9it2K/YqyDYp9mE2LHYpNmJINin2YTYrdi22LHZitipINin2YTZhdiz2KrZgtio2YTZitipINmE2K/ZiNmE2Kkg2YLYt9ix2Iwg2YjYqti22YUg2YXYp9ix2YrZhtinINmE2YjYs9mK2YQg2KfZhNij2YrZgtmI2YbZitip2Iwg2YjYp9mE2YHZiNmD2LMg2YfZitmE2LLYjCDZiNis2LLZitix2Kkg2KfZhNmF2YfYp9iMINmI2KjZiNmE2YrZgdin2LHYryDZhNmI2LPZitmEINio2YXYsdin2YHZgtmHINin2YTYudin2YTZhdmK2KkuJyxcbiAgICB9LFxuICAgIGxpZmVzdHlsZToge1xuICAgICAgZW46ICdTdGF0ZS1vZi10aGUtYXJ0IHNtYXJ0IGluZnJhc3RydWN0dXJlLCBpbnRlcm5hdGlvbmFsIGNvbmNlcnQgYXJlbmFzLCB3YXRlcmZyb250IGVzcGxhbmFkZXMsIGFuZCBjaGFtcGlvbnNoaXAgZ29sZiBjbHVicy4nLFxuICAgICAgYXI6ICfYqNmG2YrYqSDYqtit2KrZitipINiw2YPZitipINmB2KfYptmC2Kkg2KfZhNiq2LfZiNix2Iwg2YXZhdi02Ykg2YXYp9ix2YrZhtinINio2K3YsdmKINin2LPYqtir2YbYp9im2YrYjCDZhtmI2KfYr9mKINi62YjZhNmBINi52KfZhNmF2YrYqdiMINmI2YXYt9in2LnZhSDZiNiq2LHZgdmK2Ycg2LHYp9mC2Y0g2YHZiiDYrNiy2YrYsdipINin2YTZhdmH2KcuJyxcbiAgICB9LFxuICAgIGhlcm9JbWFnZTogJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTQ1MzI0NDE4LWNjMWEzZmExMGMwMD9hdXRvPWZvcm1hdCZmaXQ9Y3JvcCZ3PTE2MDAmcT04NScsXG4gICAgZ2FsbGVyeTogW1xuICAgICAgJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNjAwNTg1MTU0MzQwLWJlNjE2MWE1NmEwYz9hdXRvPWZvcm1hdCZmaXQ9Y3JvcCZ3PTEyMDAmcT04MCcsXG4gICAgICAnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE2MDA1NjUxOTMzNDgtZjc0YmQzYzdjY2RmP2F1dG89Zm9ybWF0JmZpdD1jcm9wJnc9MTIwMCZxPTgwJyxcbiAgICAgICdodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTU3NjAxMzU1MTYyNy0wY2MyMGI5NmMyYTc/YXV0bz1mb3JtYXQmZml0PWNyb3Amdz0xMjAwJnE9ODAnLFxuICAgIF0sXG4gICAgcHJvcGVydGllc0NvdW50OiAxNCxcbiAgICBwb3B1bGFyVHlwZXM6IFsnU2t5IFZpbGxhJywgJ1BlbnRob3VzZScsICdQYWxhdGlhbCBNYW5zaW9uJywgJ1dhdGVyZnJvbnQgUmVzaWRlbmNlJ10sXG4gICAgbGFuZG1hcmtzOiBbJ0x1c2FpbCBNYXJpbmEgUHJvbWVuYWRlJywgJ0FsIE1haGEgSXNsYW5kJywgJ0thdGFyYSBUb3dlcnMnLCAnTHVzYWlsIEJvdWxldmFyZCddLFxuICAgIGNvb3JkaW5hdGVzOiB7XG4gICAgICBsYXQ6IDI1LjQxNjcsXG4gICAgICBsbmc6IDUxLjUxNjcsXG4gICAgfSxcbiAgfSxcbiAge1xuICAgIGlkOiAnYXJlYS13ZXN0YmF5JyxcbiAgICBzbHVnOiAnd2VzdC1iYXknLFxuICAgIG5hbWU6IHtcbiAgICAgIGVuOiAnV2VzdCBCYXkgJiBXZXN0IEJheSBMYWdvb24nLFxuICAgICAgYXI6ICfYp9mE2K7ZhNmK2Kwg2KfZhNi62LHYqNmKINmI2YTYp9i62YjZhicsXG4gICAgfSxcbiAgICBoZWFkbGluZToge1xuICAgICAgZW46ICdUaGUgRGlwbG9tYXRpYyBIZWFydCAmIFByaXZhdGUgTGFnb29uIFNhbmN0dWFyaWVzJyxcbiAgICAgIGFyOiAn2KfZhNmC2YTYqCDYp9mE2K/YqNmE2YjZhdin2LPZiiDZiNmF2YTYp9iw2KfYqiDYp9mE2YTYp9i62YjZhiDYp9mE2LTYp9i32KbZitipINin2YTYrtin2LXYqScsXG4gICAgfSxcbiAgICBkZXNjcmlwdGlvbjoge1xuICAgICAgZW46ICdDb21iaW5pbmcgdGhlIGRyYW1hdGljIHNreWxpbmUgb2YgV2VzdCBCYXkgZGlwbG9tYXRpYyBkaXN0cmljdCB3aXRoIHRoZSB1bHRyYS1wcml2YXRlIGdhdGVkIGVzdGF0ZXMgb2YgV2VzdCBCYXkgTGFnb29uIChBbCBRdXRhaWZpeWEpLiBSZXNpZGVudHMgZW5qb3kgcHJpdmF0ZSBiZWFjaCBhY2Nlc3MsIGx1c2ggcGFya3MsIGFuZCBzZXJlbmUgY29hc3RhbCB3YXRlciBjaGFubmVscy4nLFxuICAgICAgYXI6ICfZitis2YXYuSDYqNmK2YYg2YbYp9i32K3Yp9iqINiz2K3Yp9ioINin2YTYrtmE2YrYrCDYp9mE2LrYsdio2Yog2KfZhNiv2KjZhNmI2YXYp9iz2YrYqSDZiNij2LHZgtmJINin2YTZgdmE2YQg2KfZhNi02KfYt9im2YrYqSDYp9mE2K7Yp9i12Kkg2YHZiiDZhNin2LrZiNmGINin2YTZgti32YrZgdmK2KnYjCDYrdmK2Ksg2KfZhNi02YjYp9i32KYg2KfZhNmH2KfYr9im2Kkg2YjYp9mE2K3Yr9in2KbZgiDYp9mE2LrZhtin2KEg2KfZhNmF2K3Yp9i32Kkg2KjYp9mE2KPZhdin2YYg2YjYp9mE2K7YtdmI2LXZitipINin2YTZhdi32YTZgtipLicsXG4gICAgfSxcbiAgICBsaWZlc3R5bGU6IHtcbiAgICAgIGVuOiAnR2F0ZWQgc2VjdXJpdHksIGRpcmVjdCBib2F0IG1vb3JpbmcsIGZpdmUtc3RhciBsdXh1cnkgaG90ZWwgcmVzb3J0cywgYW5kIGNsb3NlIHByb3hpbWl0eSB0byBmb3JlaWduIGVtYmFzc2llcyBhbmQgY29ycG9yYXRlIGNlbnRlcnMuJyxcbiAgICAgIGFyOiAn2KjZiNin2KjYp9iqINij2YXZhtmK2Kkg2K7Yp9i12KnYjCDYsdiz2Ygg2YXYqNin2LTYsSDZhNmE2YLZiNin2LHYqCDZiNin2YTZitiu2YjYqtiMINmC2LHYqCDZhdmGINij2LHZgtmJINin2YTZhdmG2KrYrNi52KfYqiDYp9mE2LnYp9mE2YXZitipINmI2KfZhNiz2YHYp9ix2KfYqiDZiNin2YTZhdix2KfZg9iyINin2YTZhdin2YTZitipLicsXG4gICAgfSxcbiAgICBoZXJvSW1hZ2U6ICdodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTYwMDYwNzY4NzkyMC00ZTJhMDljZjE1OWQ/YXV0bz1mb3JtYXQmZml0PWNyb3Amdz0xNjAwJnE9ODUnLFxuICAgIGdhbGxlcnk6IFtcbiAgICAgICdodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTYwMDU2Njc1MzM3Ni0xMmM4YWI3ZmI3NWI/YXV0bz1mb3JtYXQmZml0PWNyb3Amdz0xMjAwJnE9ODAnLFxuICAgICAgJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNjEzOTc3MjU3MzYzLTcwN2JhOTM0ODIyNz9hdXRvPWZvcm1hdCZmaXQ9Y3JvcCZ3PTEyMDAmcT04MCcsXG4gICAgXSxcbiAgICBwcm9wZXJ0aWVzQ291bnQ6IDEwLFxuICAgIHBvcHVsYXJUeXBlczogWydQYWxhdGlhbCBNYW5zaW9uJywgJ1ZpbGxhJywgJ1BlbnRob3VzZSddLFxuICAgIGxhbmRtYXJrczogWydXZXN0IEJheSBMYWdvb24gUHJpdmF0ZSBCZWFjaGVzJywgJ0RpcGxvbWF0aWMgQXJlYScsICdGb3VyIFNlYXNvbnMgTWFyaW5hJywgJ0RvaGEgQ29ybmljaGUnXSxcbiAgICBjb29yZGluYXRlczoge1xuICAgICAgbGF0OiAyNS4zMjE3LFxuICAgICAgbG5nOiA1MS41MzEyLFxuICAgIH0sXG4gIH0sXG4gIHtcbiAgICBpZDogJ2FyZWEtbXNoZWlyZWInLFxuICAgIHNsdWc6ICdtc2hlaXJlYi1kb3dudG93bicsXG4gICAgbmFtZToge1xuICAgICAgZW46ICdNc2hlaXJlYiBEb3dudG93biBEb2hhJyxcbiAgICAgIGFyOiAn2YXYtNmK2LHYqCDZgtmE2Kgg2KfZhNiv2YjYrdipJyxcbiAgICB9LFxuICAgIGhlYWRsaW5lOiB7XG4gICAgICBlbjogJ1RoZSBQaW5uYWNsZSBvZiBTdXN0YWluYWJsZSBRYXRhcmkgSGVyaXRhZ2UnLFxuICAgICAgYXI6ICfZgtmF2Kkg2KfZhNin2LPYqtiv2KfZhdipINin2YTZhdi52YXYp9ix2YrYqSDZiNin2YTYqtix2KfYqyDYp9mE2YLYt9ix2Yog2KfZhNi52LXYsdmKJyxcbiAgICB9LFxuICAgIGRlc2NyaXB0aW9uOiB7XG4gICAgICBlbjogJ1RoZSB3b3JsZCBmaXJzdCBmdWxseSBzdXN0YWluYWJsZSBkb3dudG93biByZWdlbmVyYXRpb24gcHJvamVjdC4gTXNoZWlyZWIgbWVyZ2VzIHRyYWRpdGlvbmFsIFFhdGFyaSBhcmNoaXRlY3R1cmFsIHByb3BvcnRpb24gYW5kIHNoYWRlIHdpdGggbW9kZXJuIHNtYXJ0LWhvbWUgdGVjaG5vbG9neSwgbHV4dXJ5IHRvd25ob21lcywgYW5kIHByaXZhdGUgY291cnR5YXJkIG1hbnNpb25zLicsXG4gICAgICBhcjogJ9ij2YjZhCDZhdi02LHZiNi5INmF2LPYqtiv2KfZhSDYqNin2YTZg9in2YXZhCDZhNiq2KzYr9mK2K8g2YjYs9i3INin2YTZhdiv2YrZhtipINmB2Yog2KfZhNi52KfZhNmF2Iwg2YrZhdiy2Kwg2LHZiNitINin2YTYudmF2KfYsdipINin2YTZgti32LHZitipINio2KfZhNmH2YbYr9iz2Kkg2KfZhNiw2YPZitipINin2YTYrdiv2YrYq9ipINmI2KfZhNmF2YbYp9iy2YQg2LDYp9iqINin2YTYo9mB2YbZitipINin2YTYrtin2LXYqSDYp9mE2YfYp9iv2KbYqS4nLFxuICAgIH0sXG4gICAgbGlmZXN0eWxlOiB7XG4gICAgICBlbjogJ1BlZGVzdHJpYW4tZnJpZW5kbHkgc2hhZGVkIGFyY2FkZXMsIHRoZSBNc2hlaXJlYiBUcmFtLCBib3V0aXF1ZSBkZXNpZ24gZ2FsbGVyaWVzLCBCYXJhaGF0IE1zaGVpcmViLCBhbmQgY3VsdHVyYWwgbXVzZXVtcy4nLFxuICAgICAgYXI6ICfZhdmF2LHYp9iqINmF2LTYp9ipINmF2LjZhNmE2KnYjCDYqtix2KfZhSDZhdi02YrYsdio2Iwg2LPYp9it2Kkg2KfZhNio2LHYp9it2Kkg2KfZhNmB2KfYrtix2KnYjCDZhdi52KfYsdi2INiq2LXZhdmK2YUg2YHZhtmK2KnYjCDZiNmF2LfYp9i52YUg2KfYs9iq2KvZhtin2KbZitipINmB2Yog2YLZhNioINin2YTYudin2LXZhdipLicsXG4gICAgfSxcbiAgICBoZXJvSW1hZ2U6ICdodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTU0MTk3MTg3NTA3Ni04Zjk3MGQ1NzNiZTY/YXV0bz1mb3JtYXQmZml0PWNyb3Amdz0xNjAwJnE9ODUnLFxuICAgIGdhbGxlcnk6IFtcbiAgICAgICdodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTYwMDU3MzQ3MjU1MC04MDkwYjVlMDc0NWU/YXV0bz1mb3JtYXQmZml0PWNyb3Amdz0xMjAwJnE9ODAnLFxuICAgICAgJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNjAwNTg1MTU0NTI2LTk5MGRjZWQ0ZGIwZD9hdXRvPWZvcm1hdCZmaXQ9Y3JvcCZ3PTEyMDAmcT04MCcsXG4gICAgXSxcbiAgICBwcm9wZXJ0aWVzQ291bnQ6IDYsXG4gICAgcG9wdWxhclR5cGVzOiBbJ1Rvd25ob3VzZScsICdEdXBsZXgnLCAnUGVudGhvdXNlJ10sXG4gICAgbGFuZG1hcmtzOiBbJ0JhcmFoYXQgTXNoZWlyZWInLCAnTXNoZWlyZWIgTXVzZXVtcycsICdNYW5kYXJpbiBPcmllbnRhbCBTcXVhcmUnLCAnR2FsbGVyaWEgTWFsbCddLFxuICAgIGNvb3JkaW5hdGVzOiB7XG4gICAgICBsYXQ6IDI1LjI4NjcsXG4gICAgICBsbmc6IDUxLjUyODksXG4gICAgfSxcbiAgfSxcbiAge1xuICAgIGlkOiAnYXJlYS1hbHdhYWInLFxuICAgIHNsdWc6ICdhbC13YWFiJyxcbiAgICBuYW1lOiB7XG4gICAgICBlbjogJ0FsIFdhYWIgJiBBc3BpcmUgWm9uZScsXG4gICAgICBhcjogJ9in2YTZiNi52Kgg2YjZhdmG2LfZgtipINij2LPYqNin2YrYsScsXG4gICAgfSxcbiAgICBoZWFkbGluZToge1xuICAgICAgZW46ICdQcmVzdGlnaW91cyBGYW1pbHkgTGl2aW5nICYgRXhwYW5zaXZlIENvbXBvdW5kcycsXG4gICAgICBhcjogJ9in2YTZhdmE2KfYsCDYp9mE2LnYp9im2YTZiiDYp9mE2LHYp9mC2Yog2YjYp9mE2YLYtdmI2LEg2KfZhNmB2LPZitit2KknLFxuICAgIH0sXG4gICAgZGVzY3JpcHRpb246IHtcbiAgICAgIGVuOiAnT25lIG9mIERvaGEgbW9zdCBlc3RhYmxpc2hlZCBhbmQgcHJlc3RpZ2lvdXMgcmVzaWRlbnRpYWwgbmVpZ2hib3Job29kcy4gS25vd24gZm9yIGdyYW5kIHByaXZhdGUgcGFsYWNlcywgVklQIGdhdGVkIHJlc2lkZW50aWFsIGNvbXBvdW5kcywgbHVzaCBnYXJkZW5zLCBhbmQgaW50ZXJuYXRpb25hbCBhY2FkZW1pZXMuJyxcbiAgICAgIGFyOiAn2YXZhiDYo9ix2YLZiSDYp9mE2KPYrdmK2KfYoSDYp9mE2LPZg9mG2YrYqSDZiNij2YPYq9ix2YfYpyDYudix2KfZgtipINmB2Yog2KfZhNiv2YjYrdip2Iwg2YrYqtmF2YrYsiDYqNin2YTZgti12YjYsSDYp9mE2YXYs9iq2YLZhNipINin2YTZgdiu2YXYqdiMINmI2KfZhNmF2KzZhdi52KfYqiDYp9mE2LPZg9mG2YrYqSDYp9mE2YXYutmE2YLYqSDYsNin2Kog2KfZhNit2K/Yp9im2YIg2KfZhNmI2KfYsdmB2Kkg2YjYp9mE2YfYr9mI2KEg2KfZhNiq2KfZhS4nLFxuICAgIH0sXG4gICAgbGlmZXN0eWxlOiB7XG4gICAgICBlbjogJ0ZhbWlseSBlc3RhdGVzLCBwcml2YXRlIHBvb2xzLCBwcm94aW1pdHkgdG8gQXNwaXJlIFBhcmssIFZpbGxhZ2dpbyBNYWxsLCBhbmQgbGVhZGluZyBpbnRlcm5hdGlvbmFsIHByaXZhdGUgc2Nob29scy4nLFxuICAgICAgYXI6ICfZhdiz2KfYrdin2Kog2LnYp9im2YTZitipINmI2KfYs9i52KnYjCDZhdiz2KfYqNitINmI2K3Yr9in2KbZgiDYrtin2LXYqdiMINmC2LHYqCDZhdmGINit2K/ZitmC2Kkg2KPYs9io2KfZitixINmI2YHZhNin2KzZitmIINmI2KPYsdmC2Ykg2KfZhNmF2K/Yp9ix2LMg2KfZhNiv2YjZhNmK2KkuJyxcbiAgICB9LFxuICAgIGhlcm9JbWFnZTogJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNjEzNDkwNDkzNTc2LTdmZGU2M2FjZDgxMT9hdXRvPWZvcm1hdCZmaXQ9Y3JvcCZ3PTE2MDAmcT04NScsXG4gICAgZ2FsbGVyeTogW1xuICAgICAgJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNjAwNjA3Njg3OTM5LWNlOGE2YzI1MTE4Yz9hdXRvPWZvcm1hdCZmaXQ9Y3JvcCZ3PTEyMDAmcT04MCcsXG4gICAgICAnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE2MDA1ODUxNTQzNDAtYmU2MTYxYTU2YTBjP2F1dG89Zm9ybWF0JmZpdD1jcm9wJnc9MTIwMCZxPTgwJyxcbiAgICBdLFxuICAgIHByb3BlcnRpZXNDb3VudDogOCxcbiAgICBwb3B1bGFyVHlwZXM6IFsnUGFsYXRpYWwgTWFuc2lvbicsICdWaWxsYScsICdUb3duaG91c2UnXSxcbiAgICBsYW5kbWFya3M6IFsnQXNwaXJlIFBhcmsnLCAnS2hhbGlmYSBJbnRlcm5hdGlvbmFsIFN0YWRpdW0nLCAnVmlsbGFnZ2lvJywgJ0FsIFdhYWIgQ2l0eSddLFxuICAgIGNvb3JkaW5hdGVzOiB7XG4gICAgICBsYXQ6IDI1LjI2MDgsXG4gICAgICBsbmc6IDUxLjQ2NDcsXG4gICAgfSxcbiAgfSxcbiAge1xuICAgIGlkOiAnYXJlYS1rYXRhcmEnLFxuICAgIHNsdWc6ICdrYXRhcmEtaGlsbHMnLFxuICAgIG5hbWU6IHtcbiAgICAgIGVuOiAnS2F0YXJhIEhpbGxzJyxcbiAgICAgIGFyOiAn2KrZhNin2YQg2YPYqtin2LHYpyDYp9mE2LPZg9mG2YrYqScsXG4gICAgfSxcbiAgICBoZWFkbGluZToge1xuICAgICAgZW46ICdFeGNsdXNpdmUgSGlsbHRvcCBTYW5jdHVhcnkgT3Zlcmxvb2tpbmcgQ3VsdHVyYWwgSGVyaXRhZ2UnLFxuICAgICAgYXI6ICfZhdmE2KfYsCDYrNio2YTZiiDYp9iz2KrYq9mG2KfYptmKINmF2LfZhCDYudmE2Ykg2YXYudin2YTZhSDZg9iq2KfYsdinINin2YTYq9mC2KfZgdmK2KknLFxuICAgIH0sXG4gICAgZGVzY3JpcHRpb246IHtcbiAgICAgIGVuOiAnUGVyY2hlZCBvbiByb2xsaW5nIGdyZWVuIGVsZXZhdGlvbnMgd2l0aCBzd2VlcGluZyBwYW5vcmFtaWMgdmlld3Mgb3ZlciBLYXRhcmEgQ3VsdHVyYWwgVmlsbGFnZSBhbmQgdGhlIEFyYWJpYW4gR3VsZi4gQW4gdWx0cmEtZXhjbHVzaXZlIHJlc2lkZW50aWFsIGVuY2xhdmUgb2ZmZXJpbmcgcHJpdmFjeSBhbmQgYmVzcG9rZSBhcmNoaXRlY3R1cmFsIGZpbmlzaGVzLicsXG4gICAgICBhcjogJ9mK2KrYsdio2Lkg2YHZiNmCINin2YTZhdix2KrZgdi52KfYqiDYp9mE2K7Yttix2KfYoSDYqNil2LfZhNin2YTYp9iqINiz2KfYrdix2Kkg2YjZhdmB2KrZiNit2Kkg2LnZhNmJINmC2LHZitipINmD2KrYp9ix2Kcg2KfZhNir2YLYp9mB2YrYqSDZiNmF2YrYp9mHINin2YTYrtmE2YrYrCDYp9mE2LnYsdio2YrYjCDZiNmK2YLYr9mFINmF2LPYqtmI2Ykg2KfYs9iq2KvZhtin2KbZitin2Ysg2YXZhiDYp9mE2LnYstmE2Kkg2YjYp9mE2LHZgdin2YfZitipLicsXG4gICAgfSxcbiAgICBsaWZlc3R5bGU6IHtcbiAgICAgIGVuOiAnQ3VyYXRlZCB0cmFucXVpbGl0eSwgY3VsdHVyYWwgYW1waGl0aGVhdHJlcywgZmluZSBhcnQgZ2FsbGVyaWVzLCBsdXh1cnkgd2VsbG5lc3Mgc3BhcywgYW5kIHByaXZhdGUgYnVnZ3kgY2hhdWZmZXVyIHNlcnZpY2UuJyxcbiAgICAgIGFyOiAn2LPZg9mK2YbYqSDZhdi32YTZgtip2Iwg2YXYs9in2LHYrSDZg9iq2KfYsdinINin2YTZhdmB2KrZiNit2KnYjCDZhdi52KfYsdi2INmB2YbZitipINix2KfZgtmK2KnYjCDZhdix2KfZg9iyINiz2KjYpyDZiNi12K3YqSDZhdiq2K7Ytdi12KnYjCDZiNiu2K/Zhdin2Kog2KrZhtmC2YQg2K7Yp9i12KkuJyxcbiAgICB9LFxuICAgIGhlcm9JbWFnZTogJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTgwNTg3NzcxNTI1LTc4YjlkYmEzYjkxND9hdXRvPWZvcm1hdCZmaXQ9Y3JvcCZ3PTE2MDAmcT04NScsXG4gICAgZ2FsbGVyeTogW1xuICAgICAgJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNjAwNTk2NTQyODE1LWZmYWQ0YzE1MzlhOT9hdXRvPWZvcm1hdCZmaXQ9Y3JvcCZ3PTEyMDAmcT04MCcsXG4gICAgICAnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE2MDA2MDc2ODc2NDQtYzcxNzFiNDI0OThmP2F1dG89Zm9ybWF0JmZpdD1jcm9wJnc9MTIwMCZxPTgwJyxcbiAgICBdLFxuICAgIHByb3BlcnRpZXNDb3VudDogNSxcbiAgICBwb3B1bGFyVHlwZXM6IFsnUGFsYXRpYWwgTWFuc2lvbicsICdWaWxsYScsICdTa3kgVmlsbGEnXSxcbiAgICBsYW5kbWFya3M6IFsnS2F0YXJhIEFtcGhpdGhlYXRyZScsICdLYXRhcmEgQmVhY2gnLCAnSGlsbHMgUHJvbWVuYWRlJywgJ0dhbGVyaWVzIExhZmF5ZXR0ZSBEb2hhJ10sXG4gICAgY29vcmRpbmF0ZXM6IHtcbiAgICAgIGxhdDogMjUuMzU4NSxcbiAgICAgIGxuZzogNTEuNTI3MyxcbiAgICB9LFxuICB9LFxuXTtcbiJdfQ==

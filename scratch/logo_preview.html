@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      margin: 0;
+      padding: 40px;
+      font-family: sans-serif;
+      background: #e5e5e5;
+    }
+    .box {
+      margin-bottom: 30px;
+      padding: 24px;
+      border-radius: 8px;
+    }
+    .white-bg {
+      background: #ffffff;
+      border: 1px solid #ccc;
+    }
+    .dark-bg {
+      background: #111715;
+    }
+    h3 { margin-top: 0; font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; }
+    .white-bg h3 { color: #17201C; }
+    .dark-bg h3 { color: #ffffff; }
+    img {
+      height: 60px;
+      width: auto;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="box white-bg">
+    <h3>Black logo on White background (Normal):</h3>
+    <img src="file:///C:/Users/basha/OneDrive/Desktop/demo-the-one/src/assets/logo/The One Real Estate Skyline Logo (1).png" />
+  </div>
+
+  <div class="box white-bg">
+    <h3>Black logo with mix-blend-mode multiply:</h3>
+    <img src="file:///C:/Users/basha/OneDrive/Desktop/demo-the-one/src/assets/logo/The One Real Estate Skyline Logo (1).png" style="mix-blend-mode: multiply;" />
+  </div>
+
+  <div class="box dark-bg">
+    <h3>White logo on Dark background (#111715):</h3>
+    <img src="file:///C:/Users/basha/OneDrive/Desktop/demo-the-one/src/assets/logo/The One Real Estate Skyline Logo.png" />
+  </div>
+</body>
+</html>
