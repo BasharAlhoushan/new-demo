@@ -18,10 +18,213 @@ import {
 import { Property } from '../../types';
 import { properties } from '../../data';
 import { formatPrice } from '../../utils/formatters';
+import { localizePropertyType, localizeAreaName } from '../../utils/localize';
 import { useFavoritesStore } from '../../store/favoritesStore';
 import { useCompareStore } from '../../store/compareStore';
 import { useCurrencyStore } from '../../store/currencyStore';
 import { Button } from '../common/Button';
+
+// Category matching helper shared across filters and counts
+const matchesCategory = (p: Property, categoryId: string): boolean => {
+  switch (categoryId) {
+    case 'palaces':
+      return (
+        p.propertyType === 'Palatial Mansion' ||
+        p.propertyType === 'Villa' ||
+        p.title.en.toLowerCase().includes('palace') ||
+        p.title.en.toLowerCase().includes('mansion') ||
+        p.title.en.toLowerCase().includes('manor')
+      );
+    case 'penthouses':
+      return (
+        p.propertyType === 'Penthouse' ||
+        p.title.en.toLowerCase().includes('penthouse')
+      );
+    case 'waterfront':
+      return (
+        p.propertyType === 'Waterfront Residence' ||
+        p.specifications.view.toLowerCase().includes('sea') ||
+        p.specifications.view.toLowerCase().includes('gulf') ||
+        p.specifications.view.toLowerCase().includes('marina') ||
+        p.amenities.some(
+          (a) =>
+            a.toLowerCase().includes('beach') ||
+            a.toLowerCase().includes('waterfront') ||
+            a.toLowerCase().includes('yacht')
+        )
+      );
+    case 'skyvillas':
+      return (
+        p.propertyType === 'Sky Villa' ||
+        p.propertyType === 'Duplex' ||
+        p.title.en.toLowerCase().includes('sky') ||
+        p.title.en.toLowerCase().includes('tower')
+      );
+    case 'all':
+    default:
+      return true;
+  }
+};
+
+const FILTER_CATEGORIES = [
+  { id: 'all', label: { en: 'All Signature', ar: 'كافة المجموعة' } },
+  { id: 'palaces', label: { en: 'Palaces & Mansions', ar: 'قصور وفلل' } },
+  { id: 'penthouses', label: { en: 'Penthouses', ar: 'بنتهاوس' } },
+  { id: 'waterfront', label: { en: 'Waterfront', ar: 'واجهات مائية' } },
+  { id: 'skyvillas', label: { en: 'Sky Villas', ar: 'سكاي فيلا' } },
+];
+
+interface MobilePropertyCardProps {
+  property: Property;
+  idx: number;
+  isActive: boolean;
+  lang: 'en' | 'ar';
+  isRTL: boolean;
+  currency: string;
+  isFavorite: boolean;
+  isInCompare: boolean;
+  onFavoriteClick: (e: React.MouseEvent, id: string) => void;
+  onCompareClick: (e: React.MouseEvent, prop: Property) => void;
+  t: (key: string) => string;
+}
+
+const MobilePropertyCard: React.FC<MobilePropertyCardProps> = ({
+  property,
+  idx,
+  lang,
+  isRTL,
+  currency,
+  isFavorite,
+  isInCompare,
+  onFavoriteClick,
+  onCompareClick,
+  t,
+}) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  return (
+    <article className="w-full bg-white border border-[#E7E3DA] rounded-[16px] overflow-hidden flex flex-col justify-between shadow-[0_2px_12px_rgba(16,33,43,0.04)] select-none">
+      {/* 1. Cinematic Architectural Photography (16:9 Aspect Ratio) */}
+      <div className="relative w-full aspect-[16/9] bg-[#10212B] overflow-hidden">
+        <Link to={`/properties/${property.slug}`} className="block w-full h-full">
+          <img
+            src={property.images[0]}
+            alt={property.title[lang]}
+            loading={idx === 0 ? 'eager' : 'lazy'}
+            onLoad={() => setImageLoaded(true)}
+            className={`w-full h-full object-cover transition-opacity duration-500 ease-out ${
+              imageLoaded ? 'opacity-100' : 'opacity-0'
+            }`}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20 pointer-events-none" />
+        </Link>
+
+        {/* Minimal Semi-Transparent Overlay Controls (40px) */}
+        <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none z-10">
+          <span className="pointer-events-auto inline-flex items-center px-2.5 py-1 rounded-full bg-[#10212B]/75 backdrop-blur-md border border-white/20 text-[#B69A70] text-[10px] uppercase font-semibold tracking-wider shadow-xs">
+            <span>{localizePropertyType(property.propertyType, lang)}</span>
+          </span>
+
+          <div className="flex items-center gap-1.5 pointer-events-auto">
+            {/* Compare Button (40px) */}
+            <motion.button
+              whileTap={{ scale: 0.9 }}
+              onClick={(e) => onCompareClick(e, property)}
+              title={isInCompare ? t('properties.removeFromCompare') : t('properties.addToCompare')}
+              aria-label="Compare property"
+              className={`w-10 h-10 min-w-[40px] min-h-[40px] rounded-full flex items-center justify-center backdrop-blur-md border transition-colors cursor-pointer ${
+                isInCompare
+                  ? 'bg-[#B69A70] border-[#B69A70] text-[#10212B] shadow-sm'
+                  : 'bg-[#10212B]/45 border-white/20 text-white hover:text-[#B69A70]'
+              }`}
+            >
+              <Layers className="w-4 h-4" />
+            </motion.button>
+
+            {/* Favorite Button (40px) */}
+            <motion.button
+              whileTap={{ scale: 0.9 }}
+              onClick={(e) => onFavoriteClick(e, property.id)}
+              title={isFavorite ? t('properties.saved') : t('properties.saveToFavorites')}
+              aria-label="Save to favorites"
+              className={`w-10 h-10 min-w-[40px] min-h-[40px] rounded-full flex items-center justify-center backdrop-blur-md border transition-colors cursor-pointer ${
+                isFavorite
+                  ? 'bg-[#10212B]/90 border-[#B69A70] text-[#B69A70] shadow-sm'
+                  : 'bg-[#10212B]/45 border-white/20 text-white hover:text-[#B69A70]'
+              }`}
+            >
+              <Heart className={`w-4 h-4 ${isFavorite ? 'fill-current text-[#B69A70]' : ''}`} />
+            </motion.button>
+          </div>
+        </div>
+      </div>
+
+      {/* Card Content with Exact Specified Hierarchy (16px padding) */}
+      <div className="p-4 flex flex-col justify-between flex-1 bg-white">
+        <div>
+          {/* 1. Location and Property Type */}
+          <div className="flex items-center justify-between gap-2 text-[12.5px] mb-1.5">
+            <div className="flex items-center gap-1.5 text-[#B69A70] font-medium uppercase tracking-wider truncate">
+              <MapPin className="w-3.5 h-3.5 text-[#B69A70] shrink-0" />
+              <span className="truncate">{localizeAreaName(property.location.area, lang)}</span>
+            </div>
+            <span className="text-[11px] font-mono text-[#727A7B] shrink-0 uppercase tracking-wider">
+              {property.listingType === 'rent' ? (isRTL ? 'إيجار' : 'Lease') : (isRTL ? 'تملك حر' : 'Freehold')}
+            </span>
+          </div>
+
+          {/* 2. Property Title (18-20px, max 2 lines, no single-line truncation) */}
+          <Link to={`/properties/${property.slug}`} className="block group/title mb-2">
+            <h3 className="font-serif text-[18px] sm:text-[19px] font-medium text-[#10212B] leading-snug line-clamp-2 min-h-[46px] group-hover/title:text-[#B69A70] transition-colors">
+              {property.title[lang]}
+            </h3>
+          </Link>
+
+          {/* 3. Price (22-25px, weight 600, proper currency formatting) */}
+          <div className="mb-3 flex items-baseline gap-1.5">
+            <span className="text-[22px] sm:text-[24px] font-serif font-semibold text-[#10212B] tracking-tight">
+              {formatPrice(property.price, currency, lang)}
+            </span>
+            {property.listingType === 'rent' && (
+              <span className="text-xs text-[#727A7B] font-light">
+                / {isRTL ? 'شهرياً' : 'mo'}
+              </span>
+            )}
+          </div>
+        </div>
+
+        <div>
+          {/* 4. Compact Specifications (12-13px, 3 equal columns) */}
+          <div className="grid grid-cols-3 gap-1 py-3 border-y border-[#E7E3DA] text-[#727A7B] text-[12.5px] font-medium mb-4">
+            <div className="flex items-center justify-center gap-1.5 px-1">
+              <Bed className="w-3.5 h-3.5 text-[#B69A70] shrink-0" />
+              <span className="truncate">{property.bedrooms} {t('properties.beds')}</span>
+            </div>
+            <div className="flex items-center justify-center gap-1.5 px-1 border-x border-[#E7E3DA]">
+              <Bath className="w-3.5 h-3.5 text-[#B69A70] shrink-0" />
+              <span className="truncate">{property.bathrooms} {t('properties.baths')}</span>
+            </div>
+            <div className="flex items-center justify-center gap-1.5 px-1">
+              <Maximize2 className="w-3.5 h-3.5 text-[#B69A70] shrink-0" />
+              <span className="truncate">{property.areaSqM} {t('properties.sqm')}</span>
+            </div>
+          </div>
+
+          {/* 5. Full-Width CTA (48px height, dark navy background, white text) */}
+          <Link to={`/properties/${property.slug}`} className="block w-full">
+            <button
+              type="button"
+              className="group w-full h-12 min-h-[48px] rounded-[10px] bg-[#10212B] hover:bg-[#B69A70] active:bg-[#9A8159] text-white hover:text-[#10212B] text-xs uppercase tracking-[0.16em] rtl:tracking-normal font-semibold transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-xs active:scale-[0.99]"
+            >
+              <span>{isRTL ? 'استكشف العقار' : 'Explore Residence'}</span>
+              <ArrowUpRight className="w-4 h-4 text-[#B69A70] group-hover:text-current transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 rtl:rotate-90 rtl:group-hover:-translate-x-0.5" />
+            </button>
+          </Link>
+        </div>
+      </div>
+    </article>
+  );
+};
 
 export const FeaturedProperties: React.FC = () => {
   const { t, i18n } = useTranslation();
@@ -41,62 +244,26 @@ export const FeaturedProperties: React.FC = () => {
   const [activeMobileIdx, setActiveMobileIdx] = useState<number>(0);
 
   const mobileScrollRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<(HTMLElement | null)[]>([]);
 
-  const filterCategories = [
-    { id: 'all', label: { en: 'All Signature', ar: 'كافة المجموعة' } },
-    { id: 'palaces', label: { en: 'Palaces & Mansions', ar: 'قصور وفلل' } },
-    { id: 'penthouses', label: { en: 'Penthouses', ar: 'بنتهاوس' } },
-    { id: 'waterfront', label: { en: 'Waterfront', ar: 'واجهات مائية' } },
-    { id: 'skyvillas', label: { en: 'Sky Villas', ar: 'سكاي فيلا' } },
-  ];
+  // Accurate category counts synchronized with filter logic
+  const categoryCounts = useMemo(() => {
+    const counts: Record<string, number> = {};
+    FILTER_CATEGORIES.forEach((cat) => {
+      counts[cat.id] = properties.filter((p) => matchesCategory(p, cat.id)).length;
+    });
+    return counts;
+  }, []);
 
   // Category filtering with robust property matching
   const filteredProperties = useMemo(() => {
-    switch (activeFilter) {
-      case 'palaces':
-        return properties.filter(
-          (p) =>
-            p.propertyType === 'Palatial Mansion' ||
-            p.propertyType === 'Villa' ||
-            p.title.en.toLowerCase().includes('palace') ||
-            p.title.en.toLowerCase().includes('mansion') ||
-            p.title.en.toLowerCase().includes('manor')
-        );
-      case 'penthouses':
-        return properties.filter(
-          (p) =>
-            p.propertyType === 'Penthouse' ||
-            p.title.en.toLowerCase().includes('penthouse')
-        );
-      case 'waterfront':
-        return properties.filter(
-          (p) =>
-            p.propertyType === 'Waterfront Residence' ||
-            p.specifications.view.toLowerCase().includes('sea') ||
-            p.specifications.view.toLowerCase().includes('gulf') ||
-            p.specifications.view.toLowerCase().includes('marina') ||
-            p.amenities.some(
-              (a) =>
-                a.toLowerCase().includes('beach') ||
-                a.toLowerCase().includes('waterfront') ||
-                a.toLowerCase().includes('yacht')
-            )
-        );
-      case 'skyvillas':
-        return properties.filter(
-          (p) =>
-            p.propertyType === 'Sky Villa' ||
-            p.propertyType === 'Duplex' ||
-            p.title.en.toLowerCase().includes('sky') ||
-            p.title.en.toLowerCase().includes('tower')
-        );
-      case 'all':
-      default:
-        return [...properties].sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+    if (activeFilter === 'all') {
+      return [...properties].sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
     }
+    return properties.filter((p) => matchesCategory(p, activeFilter));
   }, [activeFilter]);
 
-  // Reset page indices when activeFilter changes
+  // Reset page indices and scroll position when activeFilter changes
   useEffect(() => {
     setPageIdx(0);
     setActiveMobileIdx(0);
@@ -105,30 +272,111 @@ export const FeaturedProperties: React.FC = () => {
     }
   }, [activeFilter]);
 
-  // Track mobile carousel scroll position to update current active card & progress bar
+  // Clamp activeMobileIdx when filtered dataset length changes
+  useEffect(() => {
+    if (activeMobileIdx >= filteredProperties.length && filteredProperties.length > 0) {
+      setActiveMobileIdx(filteredProperties.length - 1);
+    }
+  }, [filteredProperties.length, activeMobileIdx]);
+
+  // Keep activeMobileIdx synchronized using IntersectionObserver
+  useEffect(() => {
+    const track = mobileScrollRef.current;
+    if (!track) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const idxAttr = entry.target.getAttribute('data-index');
+            if (idxAttr !== null) {
+              const idx = parseInt(idxAttr, 10);
+              if (!isNaN(idx)) {
+                setActiveMobileIdx(idx);
+              }
+            }
+          }
+        });
+      },
+      {
+        root: track,
+        threshold: 0.6,
+      }
+    );
+
+    const cards = track.querySelectorAll('[data-index]');
+    cards.forEach((card) => observer.observe(card));
+
+    return () => observer.disconnect();
+  }, [filteredProperties]);
+
+  // Mobile scroll handler fallback
   const handleMobileScroll = () => {
-    if (!mobileScrollRef.current) return;
-    const { scrollLeft } = mobileScrollRef.current;
-    const firstCard = mobileScrollRef.current.firstElementChild as HTMLElement | null;
-    const cardWidth = firstCard?.offsetWidth || 280;
-    const gap = 16;
-    const effectiveScroll = isRTL ? Math.abs(scrollLeft) : scrollLeft;
-    const calculatedIdx = Math.round(effectiveScroll / (cardWidth + gap));
-    const boundedIdx = Math.min(filteredProperties.length - 1, Math.max(0, calculatedIdx));
-    if (boundedIdx !== activeMobileIdx) {
-      setActiveMobileIdx(boundedIdx);
+    const track = mobileScrollRef.current;
+    if (!track) return;
+    const cards = track.querySelectorAll<HTMLElement>('[data-index]');
+    if (!cards.length) return;
+    const trackRect = track.getBoundingClientRect();
+    const trackCenter = trackRect.left + trackRect.width / 2;
+
+    let closestIdx = 0;
+    let minDistance = Infinity;
+
+    cards.forEach((card) => {
+      const rect = card.getBoundingClientRect();
+      const cardCenter = rect.left + rect.width / 2;
+      const distance = Math.abs(cardCenter - trackCenter);
+      if (distance < minDistance) {
+        minDistance = distance;
+        const idxAttr = card.getAttribute('data-index');
+        if (idxAttr) closestIdx = parseInt(idxAttr, 10);
+      }
+    });
+
+    if (closestIdx !== activeMobileIdx) {
+      setActiveMobileIdx(closestIdx);
     }
   };
 
-  // Scroll mobile carousel programmatically via Next/Prev buttons
-  const scrollMobileBy = (direction: 'prev' | 'next') => {
-    if (!mobileScrollRef.current) return;
-    const firstCard = mobileScrollRef.current.firstElementChild as HTMLElement | null;
-    const cardWidth = firstCard?.offsetWidth || 280;
-    const gap = 16;
-    const delta = (cardWidth + gap) * (direction === 'next' ? 1 : -1);
-    const scrollAmount = isRTL ? -delta : delta;
-    mobileScrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  // Scroll to slide by index smoothly in both LTR & RTL
+  const scrollToSlide = (idx: number) => {
+    const targetIdx = Math.max(0, Math.min(filteredProperties.length - 1, idx));
+    const card = cardRefs.current[targetIdx];
+    if (card) {
+      card.scrollIntoView({
+        behavior: 'smooth',
+        inline: 'start',
+        block: 'nearest',
+      });
+    }
+    setActiveMobileIdx(targetIdx);
+  };
+
+  // Accessible keyboard arrow navigation
+  const handleCarouselKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      if (isRTL) {
+        scrollToSlide(activeMobileIdx + 1);
+      } else {
+        scrollToSlide(activeMobileIdx - 1);
+      }
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      if (isRTL) {
+        scrollToSlide(activeMobileIdx - 1);
+      } else {
+        scrollToSlide(activeMobileIdx + 1);
+      }
+    }
+  };
+
+  // Format index counter (e.g. 01 / 08 or ٠١ / ٠٨)
+  const formatCounter = (num: number) => {
+    if (isRTL) {
+      return new Intl.NumberFormat('ar-QA', { minimumIntegerDigits: 2 }).format(num);
+    }
+    return String(num).padStart(2, '0');
   };
 
   // Curation pagination for desktop
@@ -162,13 +410,13 @@ export const FeaturedProperties: React.FC = () => {
   return (
     <section
       id="private-collection-section"
-      className="py-16 sm:py-24 lg:py-32 bg-[#F8F7F4] relative overflow-hidden border-t border-[#E8E6E0]"
+      className="py-12 sm:py-20 lg:py-32 bg-[#F7F5F0] relative overflow-hidden border-t border-[#E7E3DA]"
     >
       {/* Subtle Architectural Grid Texture in Background */}
       <div 
         className="absolute inset-0 opacity-[0.025] pointer-events-none"
         style={{
-          backgroundImage: `radial-gradient(#111715 1px, transparent 1px)`,
+          backgroundImage: `radial-gradient(#10212B 1px, transparent 1px)`,
           backgroundSize: '32px 32px'
         }}
         aria-hidden="true"
@@ -176,22 +424,28 @@ export const FeaturedProperties: React.FC = () => {
 
       <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* ================= 1. HEADER SECTION ================= */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-8 sm:mb-12 lg:mb-16 gap-6 sm:gap-8">
+        {/* ================= 1. SECTION HEADER (REFINED LUXURY EDITORIAL) ================= */}
+        <motion.div
+          initial={shouldReduceMotion ? false : { opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col lg:flex-row lg:items-end justify-between mb-5 sm:mb-8 lg:mb-14 gap-4 sm:gap-6"
+        >
           <div className="max-w-3xl">
             {/* Architectural Eyebrow */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-[#E8E6E0] text-[10px] sm:text-[11px] uppercase tracking-[0.22em] font-semibold text-[#B49A70] mb-3 sm:mb-4 shadow-xs">
-              <Sparkles className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-[#E7E3DA] text-[10px] sm:text-[11px] uppercase tracking-[0.2em] rtl:tracking-normal font-semibold text-[#B69A70] mb-2.5 sm:mb-3.5 shadow-xs">
+              <Sparkles className="w-3.5 h-3.5 text-[#B69A70]" />
               <span>{isRTL ? 'المجموعة الخاصة — الأرشيف الحصري' : 'PRIVATE COLLECTION • CURATED ARCHIVE'}</span>
             </div>
 
             {/* Main Section Heading */}
-            <h2 className="font-serif text-2xl sm:text-4xl md:text-5xl lg:text-[52px] font-normal text-[#17201C] tracking-tight leading-[1.15]">
+            <h2 className="font-serif text-[28px] sm:text-4xl md:text-5xl lg:text-[52px] font-normal text-[#10212B] tracking-tight leading-[1.18]">
               {t('properties.featuredTitle')}
             </h2>
 
             {/* Supporting Architectural Subtitle */}
-            <p className="mt-2.5 sm:mt-4 text-xs sm:text-sm md:text-base text-[#777C76] font-light leading-relaxed max-w-2xl">
+            <p className="mt-2 sm:mt-3.5 text-[13px] sm:text-sm md:text-base text-[#727A7B] font-light leading-relaxed max-w-2xl line-clamp-3 sm:line-clamp-none">
               {t('properties.featuredSubtitle')}
             </p>
           </div>
@@ -202,9 +456,9 @@ export const FeaturedProperties: React.FC = () => {
               <Button
                 variant="outline"
                 size="md"
-                className="group border-[#17201C] text-[#17201C] hover:bg-[#111715] hover:text-white transition-all text-xs tracking-wider uppercase px-5 py-2.5 font-medium"
+                className="group border-[#10212B] text-[#10212B] hover:bg-[#10212B] hover:text-white transition-all text-xs tracking-wider uppercase px-5 py-2.5 font-medium"
                 icon={
-                  <ArrowUpRight className="w-4 h-4 text-[#B49A70] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 rtl:rotate-90" />
+                  <ArrowUpRight className="w-4 h-4 text-[#B69A70] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 rtl:rotate-90" />
                 }
               >
                 <span>{t('properties.viewAll')}</span>
@@ -212,48 +466,38 @@ export const FeaturedProperties: React.FC = () => {
               </Button>
             </Link>
           </div>
-        </div>
+        </motion.div>
 
         {/* ================= 2. HORIZONTALLY SCROLLABLE FILTER ROW ================= */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 mb-6 sm:mb-10 border-b border-[#E8E6E0]">
-          {/* Filter Pills with 44px min touch height on mobile */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-3 sm:pb-0 scrollbar-none -mx-4 px-4 sm:mx-0 sm:px-0">
-            {filterCategories.map((cat) => {
-              const count =
-                cat.id === 'all'
-                  ? properties.length
-                  : cat.id === 'palaces'
-                  ? properties.filter((p) => p.propertyType === 'Palatial Mansion' || p.propertyType === 'Villa').length
-                  : cat.id === 'penthouses'
-                  ? properties.filter((p) => p.propertyType === 'Penthouse').length
-                  : cat.id === 'waterfront'
-                  ? properties.filter((p) => p.propertyType === 'Waterfront Residence').length
-                  : properties.filter((p) => p.propertyType === 'Sky Villa' || p.propertyType === 'Duplex').length;
-
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 pb-2 mb-6 sm:mb-10 border-b border-[#E7E3DA]">
+          {/* Filter Pills with compact 38-42px touch height on mobile */}
+          <div className="flex items-center gap-2 overflow-x-auto pb-2.5 sm:pb-0 scrollbar-none -mx-4 px-4 sm:mx-0 sm:px-0">
+            {FILTER_CATEGORIES.map((cat) => {
+              const count = categoryCounts[cat.id] ?? 0;
               const isActive = activeFilter === cat.id;
 
               return (
                 <button
                   key={cat.id}
                   onClick={() => setActiveFilter(cat.id)}
-                  className={`relative min-h-[44px] px-4 py-2 rounded-full text-xs uppercase tracking-wider font-medium transition-colors duration-300 whitespace-nowrap cursor-pointer select-none flex items-center gap-2 shrink-0 ${
+                  className={`relative h-[38px] sm:h-10 px-3.5 sm:px-4 rounded-full text-xs uppercase tracking-wider font-medium transition-colors duration-200 whitespace-nowrap cursor-pointer select-none flex items-center gap-2 shrink-0 ${
                     isActive
-                      ? 'text-[#F8F7F4]'
-                      : 'text-[#777C76] hover:text-[#17201C] bg-white sm:bg-transparent border border-[#E8E6E0] sm:border-transparent'
+                      ? 'text-white'
+                      : 'text-[#727A7B] hover:text-[#10212B] bg-white border border-[#E7E3DA]'
                   }`}
                 >
                   {/* Sliding Pill Background with Framer Motion */}
                   {isActive && (
                     <motion.div
                       layoutId="activeFilterPill"
-                      className="absolute inset-0 bg-[#111715] rounded-full shadow-md"
-                      transition={{ type: 'spring', damping: 26, stiffness: 300 }}
+                      className="absolute inset-0 bg-[#10212B] rounded-full shadow-sm"
+                      transition={{ type: 'spring', damping: 28, stiffness: 350 }}
                     />
                   )}
                   <span className="relative z-10">{cat.label[lang]}</span>
                   <span
-                    className={`relative z-10 text-[10px] font-mono px-1.5 py-0.5 rounded-full ${
-                      isActive ? 'bg-[#B49A70] text-[#111715] font-bold' : 'bg-black/5 text-[#777C76]'
+                    className={`relative z-10 text-[10px] font-mono px-1.5 py-0.5 rounded-full min-w-[18px] text-center ${
+                      isActive ? 'bg-[#B69A70] text-[#10212B] font-bold' : 'bg-[#F7F5F0] text-[#727A7B]'
                     }`}
                   >
                     {count}
@@ -266,7 +510,7 @@ export const FeaturedProperties: React.FC = () => {
           {/* Desktop/Tablet Curation Set Controls */}
           {totalPages > 1 && (
             <div className="hidden sm:flex items-center gap-3 self-end sm:self-auto pb-2 sm:pb-0">
-              <span className="text-[11px] font-mono uppercase tracking-widest text-[#777C76]">
+              <span className="text-[11px] font-mono uppercase tracking-widest text-[#727A7B]">
                 {isRTL ? `مجموعة منتقاة ٠${pageIdx + 1} / ٠${totalPages}` : `CURATION 0${pageIdx + 1} / 0${totalPages}`}
               </span>
 
@@ -274,7 +518,7 @@ export const FeaturedProperties: React.FC = () => {
                 <button
                   onClick={() => setPageIdx((p) => Math.max(0, p - 1))}
                   disabled={pageIdx === 0}
-                  className="w-8 h-8 rounded-full border border-[#E8E6E0] bg-white text-[#17201C] disabled:opacity-30 disabled:cursor-not-allowed hover:border-[#B49A70] hover:text-[#B49A70] transition-colors cursor-pointer flex items-center justify-center"
+                  className="w-8 h-8 rounded-full border border-[#E7E3DA] bg-white text-[#10212B] disabled:opacity-30 disabled:cursor-not-allowed hover:border-[#B69A70] hover:text-[#B69A70] transition-colors cursor-pointer flex items-center justify-center"
                   aria-label="Previous Curation"
                 >
                   {isRTL ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
@@ -282,7 +526,7 @@ export const FeaturedProperties: React.FC = () => {
                 <button
                   onClick={() => setPageIdx((p) => Math.min(totalPages - 1, p + 1))}
                   disabled={pageIdx >= totalPages - 1}
-                  className="w-8 h-8 rounded-full border border-[#E8E6E0] bg-white text-[#17201C] disabled:opacity-30 disabled:cursor-not-allowed hover:border-[#B49A70] hover:text-[#B49A70] transition-colors cursor-pointer flex items-center justify-center"
+                  className="w-8 h-8 rounded-full border border-[#E7E3DA] bg-white text-[#10212B] disabled:opacity-30 disabled:cursor-not-allowed hover:border-[#B69A70] hover:text-[#B69A70] transition-colors cursor-pointer flex items-center justify-center"
                   aria-label="Next Curation"
                 >
                   {isRTL ? <ChevronLeft className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
@@ -292,182 +536,141 @@ export const FeaturedProperties: React.FC = () => {
           )}
         </div>
 
-        {/* ================= 3A. MOBILE-FIRST SWIPEABLE SHOWCASE (< 768px) ================= */}
+        {/* ================= 3A. MOBILE LUXURY SWIPE CAROUSEL (< 768px) ================= */}
         <div className="block md:hidden">
-          {/* Swiping Track with 10–15% Peek of Next Card & Snap Navigation */}
-          <div
-            ref={mobileScrollRef}
-            onScroll={handleMobileScroll}
-            className="-mx-4 px-4 flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-4 pt-1 touch-pan-x"
-            style={{ WebkitOverflowScrolling: 'touch' }}
-          >
-            {filteredProperties.map((property, idx) => (
-              <article
-                key={`mobile-${property.id}`}
-                className="w-[82vw] max-w-[340px] shrink-0 snap-start bg-white border border-[#E8E6E0] rounded-sm overflow-hidden shadow-lg flex flex-col justify-between select-none"
+          {filteredProperties.length === 0 ? (
+            /* Graceful Empty State */
+            <div className="bg-white border border-[#E7E3DA] rounded-[16px] p-8 text-center my-4 mx-1 shadow-xs">
+              <div className="w-12 h-12 rounded-full bg-[#F7F5F0] text-[#B69A70] flex items-center justify-center mx-auto mb-3">
+                <Compass className="w-6 h-6" />
+              </div>
+              <h4 className="font-serif text-lg text-[#10212B] font-medium mb-1">
+                {isRTL ? 'لا توجد مساكن في هذا التصنيف' : 'No Residences Found'}
+              </h4>
+              <p className="text-xs text-[#727A7B] max-w-xs mx-auto mb-4 font-light">
+                {isRTL
+                  ? 'يرجى اختيار تصنيف آخر لاستعراض التحف المعمارية المتاحة.'
+                  : 'Please choose another collection category to view available residences.'}
+              </p>
+              <button
+                type="button"
+                onClick={() => setActiveFilter('all')}
+                className="px-4 py-2 rounded-full bg-[#10212B] text-white text-xs uppercase tracking-wider font-medium hover:bg-[#B69A70] transition-colors cursor-pointer"
               >
-                {/* 1. Large Portrait Architectural Image (Aspect 4:5) */}
-                <div className="relative w-full aspect-[4/5] bg-[#18201D] overflow-hidden">
-                  <Link to={`/properties/${property.slug}`} className="block w-full h-full">
-                    <img
-                      src={property.images[0]}
-                      alt={property.title[lang]}
-                      loading={idx === 0 ? 'eager' : 'lazy'}
-                      className="w-full h-full object-cover transition-transform duration-700 active:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/25 opacity-70" />
-                  </Link>
+                {isRTL ? 'عرض كافة المجموعة' : 'View All Signature'}
+              </button>
+            </div>
+          ) : (
+            <>
+              {/* 100% Full-Width Single-Card Track: Exactly 1 Card Visible, Zero Peeking, Zero Overflow */}
+              <div className="w-full overflow-hidden rounded-[16px]">
+                <div
+                  ref={mobileScrollRef}
+                  onScroll={handleMobileScroll}
+                  onKeyDown={handleCarouselKeyDown}
+                  tabIndex={0}
+                  role="region"
+                  aria-label={isRTL ? 'معرض المساكن المختارة' : 'Curated Residences Carousel'}
+                  className="w-full flex overflow-x-auto snap-x snap-mandatory scrollbar-none touch-pan-x overscroll-x-contain select-none focus:outline-none"
+                  style={{
+                    WebkitOverflowScrolling: 'touch',
+                    scrollSnapType: 'x mandatory',
+                  }}
+                >
+                  {filteredProperties.map((property, idx) => (
+                    <div
+                      key={`mobile-slide-${property.id}`}
+                      data-index={idx}
+                      ref={(el) => {
+                        cardRefs.current[idx] = el;
+                      }}
+                      className="w-full shrink-0 snap-center snap-always"
+                    >
+                      <MobilePropertyCard
+                        property={property}
+                        idx={idx}
+                        isActive={idx === activeMobileIdx}
+                        lang={lang}
+                        isRTL={isRTL}
+                        currency={currency}
+                        isFavorite={isFavorite(property.id)}
+                        isInCompare={isInCompare(property.id)}
+                        onFavoriteClick={handleFavoriteClick}
+                        onCompareClick={handleCompareClick}
+                        t={t}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
 
-                  {/* Clean Top Floating Bar: Category Badge + Favorite & Compare (44x44px Touch Targets) */}
-                  <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none">
-                    <span className="px-2.5 py-1 rounded-sm bg-[#111715]/90 backdrop-blur-md border border-[#B49A70]/50 text-[#B49A70] text-[9.5px] uppercase tracking-wider font-semibold shadow-xs">
-                      {property.propertyType}
+              {/* Minimal Pagination Dots, Slide Counter & Compact Prev/Next Controls */}
+              <div className="mt-4 flex items-center justify-between px-0.5">
+                {/* Compact Slide Counter */}
+                <span className="font-mono text-[11px] uppercase tracking-widest text-[#727A7B] font-medium shrink-0">
+                  {isRTL
+                    ? `مسكن ${formatCounter(activeMobileIdx + 1)} / ${formatCounter(filteredProperties.length)}`
+                    : `RESIDENCE ${formatCounter(activeMobileIdx + 1)} / ${formatCounter(filteredProperties.length)}`}
+                </span>
+
+                {/* Minimal Pagination Dots */}
+                <div className="flex items-center gap-1.5 mx-2 overflow-x-auto scrollbar-none py-1">
+                  {filteredProperties.slice(0, 10).map((_, dotIdx) => {
+                    const isDotActive = dotIdx === activeMobileIdx;
+                    return (
+                      <button
+                        key={`dot-${dotIdx}`}
+                        onClick={() => scrollToSlide(dotIdx)}
+                        aria-label={`Go to residence ${dotIdx + 1}`}
+                        className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+                          isDotActive
+                            ? 'w-5 bg-[#B69A70]'
+                            : 'w-1.5 bg-[#E7E3DA] hover:bg-[#B69A70]/60'
+                        }`}
+                      />
+                    );
+                  })}
+                  {filteredProperties.length > 10 && (
+                    <span className="text-[10px] text-[#727A7B] font-mono leading-none">
+                      +{filteredProperties.length - 10}
                     </span>
-
-                    <div className="flex items-center gap-1.5 pointer-events-auto">
-                      {/* Compare Button */}
-                      <button
-                        onClick={(e) => handleCompareClick(e, property)}
-                        title={isInCompare(property.id) ? t('properties.removeFromCompare') : t('properties.addToCompare')}
-                        className={`w-11 h-11 min-w-[44px] min-h-[44px] rounded-full flex items-center justify-center backdrop-blur-md border transition-all active:scale-95 cursor-pointer ${
-                          isInCompare(property.id)
-                            ? 'bg-[#B49A70] border-[#B49A70] text-[#111715] shadow-md'
-                            : 'bg-black/50 border-white/25 text-white active:bg-white active:text-[#111715]'
-                        }`}
-                        aria-label="Compare property"
-                      >
-                        <Layers className="w-4 h-4" />
-                      </button>
-
-                      {/* Favorite Button */}
-                      <button
-                        onClick={(e) => handleFavoriteClick(e, property.id)}
-                        title={isFavorite(property.id) ? t('properties.saved') : t('properties.saveToFavorites')}
-                        className={`w-11 h-11 min-w-[44px] min-h-[44px] rounded-full flex items-center justify-center backdrop-blur-md border transition-all active:scale-95 cursor-pointer ${
-                          isFavorite(property.id)
-                            ? 'bg-rose-600 border-rose-600 text-white shadow-md'
-                            : 'bg-black/50 border-white/25 text-white active:bg-white active:text-rose-600'
-                        }`}
-                        aria-label="Save to favorites"
-                      >
-                        <Heart className={`w-4 h-4 ${isFavorite(property.id) ? 'fill-current' : ''}`} />
-                      </button>
-                    </div>
-                  </div>
+                  )}
                 </div>
 
-                {/* 2. Key Property Information Placed Below Image */}
-                <div className="p-4 sm:p-5 flex flex-col justify-between flex-1 bg-white">
-                  <div>
-                    {/* Location */}
-                    <div className="flex items-center gap-1.5 text-xs uppercase tracking-wider text-[#B49A70] font-medium mb-1.5">
-                      <MapPin className="w-3.5 h-3.5 text-[#B49A70] shrink-0" />
-                      <span className="truncate">{property.location.area}</span>
-                    </div>
+                {/* Accessible Minimal Touch Arrows (40x40px) */}
+                <div className="flex items-center gap-1.5 shrink-0">
+                  <button
+                    onClick={() => scrollToSlide(activeMobileIdx - 1)}
+                    disabled={activeMobileIdx === 0}
+                    aria-label="Previous residence"
+                    className="w-10 h-10 min-w-[40px] min-h-[40px] rounded-full border border-[#E7E3DA] bg-white flex items-center justify-center text-[#10212B] disabled:opacity-25 disabled:cursor-not-allowed hover:border-[#B69A70] hover:text-[#B69A70] active:scale-95 transition-all shadow-xs cursor-pointer"
+                  >
+                    {isRTL ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
+                  </button>
 
-                    {/* Title */}
-                    <Link to={`/properties/${property.slug}`} className="block">
-                      <h3 className="font-serif text-lg font-medium text-[#17201C] line-clamp-1 leading-snug hover:text-[#B49A70] transition-colors">
-                        {property.title[lang]}
-                      </h3>
-                    </Link>
-
-                    {/* Price Hierarchy */}
-                    <div className="mt-2 flex items-baseline gap-1">
-                      <span className="text-xl font-serif font-semibold text-[#17201C] tracking-tight">
-                        {formatPrice(property.price, currency, lang)}
-                      </span>
-                      {property.listingType === 'rent' && (
-                        <span className="text-[11px] text-[#777C76]">
-                          / {isRTL ? 'شهرياً' : 'mo'}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Specs & Explore CTA */}
-                  <div className="mt-3.5 pt-3.5 border-t border-[#E8E6E0]">
-                    {/* Specs Row */}
-                    <div className="flex items-center justify-between text-xs text-[#777C76] font-medium mb-3.5">
-                      <div className="flex items-center gap-1.5">
-                        <Bed className="w-3.5 h-3.5 text-[#B49A70]" />
-                        <span>{property.bedrooms} {t('properties.beds')}</span>
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <Bath className="w-3.5 h-3.5 text-[#B49A70]" />
-                        <span>{property.bathrooms} {t('properties.baths')}</span>
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <Maximize2 className="w-3.5 h-3.5 text-[#B49A70]" />
-                        <span>{property.areaSqM} {t('properties.sqm')}</span>
-                      </div>
-                    </div>
-
-                    {/* Full-Width Mobile CTA Button with 44px min touch target */}
-                    <Link to={`/properties/${property.slug}`} className="block w-full">
-                      <button
-                        type="button"
-                        className="w-full min-h-[44px] py-2.5 px-4 rounded-sm bg-[#111715] hover:bg-[#B49A70] text-[#F8F7F4] hover:text-[#111715] text-xs uppercase tracking-widest font-semibold transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-xs active:scale-[0.98]"
-                      >
-                        <span>{isRTL ? 'استكشف المسكن' : 'Explore Residence'}</span>
-                        <ArrowUpRight className="w-4 h-4 rtl:rotate-90" />
-                      </button>
-                    </Link>
-                  </div>
+                  <button
+                    onClick={() => scrollToSlide(activeMobileIdx + 1)}
+                    disabled={activeMobileIdx >= filteredProperties.length - 1}
+                    aria-label="Next residence"
+                    className="w-10 h-10 min-w-[40px] min-h-[40px] rounded-full border border-[#E7E3DA] bg-white flex items-center justify-center text-[#10212B] disabled:opacity-25 disabled:cursor-not-allowed hover:border-[#B69A70] hover:text-[#B69A70] active:scale-95 transition-all shadow-xs cursor-pointer"
+                  >
+                    {isRTL ? <ChevronLeft className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
+                  </button>
                 </div>
-              </article>
-            ))}
-          </div>
+              </div>
 
-          {/* 3. Mobile Touch Controls, Progress Bar & Live Counter */}
-          <div className="mt-4 flex items-center justify-between px-1">
-            {/* Slide Index Counter */}
-            <span className="font-mono text-[11px] uppercase tracking-widest text-[#777C76] font-medium">
-              {isRTL
-                ? `مسكن ٠${activeMobileIdx + 1} / ٠${filteredProperties.length}`
-                : `RESIDENCE 0${activeMobileIdx + 1} / 0${filteredProperties.length}`}
-            </span>
-
-            {/* Dynamic Gold Progress Line */}
-            <div className="flex-1 max-w-[130px] mx-4 h-1 bg-[#E8E6E0] rounded-full overflow-hidden">
-              <motion.div
-                className="h-full bg-[#B49A70] rounded-full"
-                animate={{
-                  width: `${((activeMobileIdx + 1) / Math.max(1, filteredProperties.length)) * 100}%`
-                }}
-                transition={{ duration: 0.2 }}
-              />
-            </div>
-
-            {/* Accessible Touch Arrows (44x44px Touch Targets) */}
-            <div className="flex items-center gap-2">
-              <button
-                onClick={() => scrollMobileBy('prev')}
-                disabled={activeMobileIdx === 0}
-                aria-label="Previous property slide"
-                className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full border border-[#E8E6E0] bg-white flex items-center justify-center text-[#17201C] disabled:opacity-30 disabled:cursor-not-allowed hover:border-[#B49A70] active:scale-95 transition-all shadow-xs cursor-pointer"
-              >
-                {isRTL ? <ChevronRight className="w-5 h-5" /> : <ChevronLeft className="w-5 h-5" />}
-              </button>
-
-              <button
-                onClick={() => scrollMobileBy('next')}
-                disabled={activeMobileIdx >= filteredProperties.length - 1}
-                aria-label="Next property slide"
-                className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full border border-[#E8E6E0] bg-white flex items-center justify-center text-[#17201C] disabled:opacity-30 disabled:cursor-not-allowed hover:border-[#B49A70] active:scale-95 transition-all shadow-xs cursor-pointer"
-              >
-                {isRTL ? <ChevronLeft className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
-              </button>
-            </div>
-          </div>
-
-          {/* Mobile Bottom Portfolio Link */}
-          <div className="mt-8 pt-4 border-t border-[#E8E6E0] text-center">
-            <Link to="/properties" className="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-semibold text-[#17201C] hover:text-[#B49A70] transition-colors py-2">
-              <span>{isRTL ? 'عرض كامل المحفظة (أكثر من ٤٠ مسكن)' : 'View Complete Portfolio (40+ Residences)'}</span>
-              <ArrowUpRight className="w-4 h-4 text-[#B49A70] rtl:rotate-90" />
-            </Link>
-          </div>
+              {/* Mobile Bottom Portfolio Link */}
+              <div className="mt-6 pt-4 border-t border-[#E7E3DA] text-center">
+                <Link
+                  to="/properties"
+                  className="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-semibold text-[#10212B] hover:text-[#B69A70] transition-colors py-1"
+                >
+                  <span>{isRTL ? 'عرض كامل المحفظة (أكثر من ٤٠ مسكن)' : 'View Complete Portfolio (40+ Residences)'}</span>
+                  <ArrowUpRight className="w-4 h-4 text-[#B69A70] rtl:rotate-90" />
+                </Link>
+              </div>
+            </>
+          )}
         </div>
 
         {/* ================= 3B. DESKTOP & TABLET ASYMMETRIC EDITORIAL SHOWCASE (>= 768px) ================= */}
@@ -626,7 +829,7 @@ export const FeaturedProperties: React.FC = () => {
                   </div>
 
                   {/* ----------------- RIGHT STACKED SHOWCASES (5 COLS) ----------------- */}
-                  <div className="lg:col-span-5 flex flex-col gap-6 lg:gap-8 justify-between">
+                  <div className="lg:col-span-5 flex flex-col md:grid md:grid-cols-2 lg:flex lg:flex-col gap-6 lg:gap-8 justify-between">
                     {secondaryProperties.map((property, idx) => (
                       <motion.article
                         key={property.id}
@@ -634,7 +837,7 @@ export const FeaturedProperties: React.FC = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: '-60px' }}
                         transition={{ duration: 0.7, delay: 0.15 * (idx + 1), ease: [0.22, 1, 0.36, 1] }}
-                        className="group relative w-full h-[320px] sm:h-[340px] lg:h-[344px] rounded-sm overflow-hidden bg-[#111715] border border-[#222B26] shadow-xl flex flex-col justify-between p-5 sm:p-6 transition-all duration-500 hover:border-[#B49A70]/60"
+                        className="group relative w-full h-[320px] sm:h-[340px] md:h-[380px] lg:h-[344px] rounded-sm overflow-hidden bg-[#111715] border border-[#222B26] shadow-xl flex flex-col justify-between p-5 sm:p-6 transition-all duration-500 hover:border-[#B49A70]/60"
                       >
                         <div className="absolute inset-0 overflow-hidden pointer-events-none">
                           <img
