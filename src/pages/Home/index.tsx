@@ -1,83 +1,50 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import { ArrowUpRight, PhoneCall } from 'lucide-react';
 import { PageLayout } from '../../components/layout/PageLayout';
-import { CinematicHero } from '../../components/home/CinematicHero';
-import { HeroSearch } from '../../components/home/HeroSearch';
-import { FeaturedProperties } from '../../components/home/FeaturedProperties';
+import { MarketplaceHero } from '../../components/home/MarketplaceHero';
 import { SignatureProjects } from '../../components/home/SignatureProjects';
-import { PrimeLocations } from '../../components/home/PrimeLocations';
-import { PrivateClientServices } from '../../components/home/PrivateClientServices';
-import { ArchitectureStatement } from '../../components/home/ArchitectureStatement';
-import { Button } from '../../components/common/Button';
+import { FeaturedPropertiesSection } from '../../components/home/FeaturedPropertiesSection';
+import { PropertiesForSaleSection } from '../../components/home/PropertiesForSaleSection';
+import { PropertiesForRentSection } from '../../components/home/PropertiesForRentSection';
+import { FindByCategorySection } from '../../components/home/FindByCategorySection';
+import { ExploreByLocationSection } from '../../components/home/ExploreByLocationSection';
+import { ServicesOverviewSection } from '../../components/home/ServicesOverviewSection';
+import { WhyChooseUsSection } from '../../components/home/WhyChooseUsSection';
+import { ContactConsultationSection } from '../../components/home/ContactConsultationSection';
 
 export const HomePage: React.FC = () => {
-  const { t } = useTranslation();
-
   return (
     <PageLayout>
-      {/* 1. World-Class Cinematic Luxury Hero (Architecture as Visual Centerpiece) */}
-      <CinematicHero />
+      {/* SECTION 1 — HERO + PROPERTY SEARCH */}
+      <MarketplaceHero />
 
-      {/* 2. Refined Property Search Section (Sleek white card overlapping hero bottom by 36px) */}
-      <section className="relative z-20 -mt-8 sm:-mt-10 mb-2">
-        <HeroSearch />
-      </section>
-
-      {/* 3. Featured Signature Residences */}
-      <FeaturedProperties />
-
-      {/* 4. Masterpiece Flagship Developments */}
+      {/* SECTION 2 — FEATURED PROJECTS */}
       <SignatureProjects />
 
-      {/* 5. Explore by Qatar Prime Locations */}
-      <PrimeLocations />
+      {/* SECTION 3 — FEATURED PROPERTIES */}
+      <FeaturedPropertiesSection />
 
-      {/* 6. Private Client Bespoke Services (Dark Rhythm Section) */}
-      <PrivateClientServices />
+      {/* SECTION 4 — PROPERTIES FOR SALE */}
+      <PropertiesForSaleSection />
 
-      {/* 7. Architectural Manifesto & Key Metrics */}
-      <ArchitectureStatement />
+      {/* SECTION 5 — PROPERTIES FOR RENT */}
+      <PropertiesForRentSection />
 
-      {/* 8. Private Consultation VIP CTA Banner */}
-      <section className="py-20 sm:py-24 bg-[#18201D] text-white border-t border-[#2A3530] relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10">
-          <div className="max-w-2xl text-center lg:text-left rtl:lg:text-right">
-            <span className="text-xs uppercase tracking-[0.25em] text-[#B49A70] font-semibold block mb-2">
-              {t('home.consultation.badge')}
-            </span>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal leading-tight">
-              {t('home.consultation.title')}
-            </h2>
-            <p className="mt-4 text-sm text-[#777C76] font-light leading-relaxed">
-              {t('home.consultation.subtitle')}
-            </p>
-          </div>
+      {/* SECTION 6 — FIND BY CATEGORY */}
+      <FindByCategorySection />
 
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <Link to="/contact">
-              <Button
-                variant="primary"
-                size="lg"
-                icon={<ArrowUpRight className="w-4 h-4 rtl:rotate-90" />}
-              >
-                {t('home.consultation.cta')}
-              </Button>
-            </Link>
+      {/* SECTION 7 — EXPLORE BY LOCATION */}
+      <ExploreByLocationSection />
 
-            <a href="tel:+97444998800">
-              <Button
-                variant="outline-light"
-                size="lg"
-                icon={<PhoneCall className="w-4 h-4" />}
-              >
-                +974 4499 8800
-              </Button>
-            </a>
-          </div>
-        </div>
-      </section>
+      {/* SECTION 8 — OUR SERVICES */}
+      <ServicesOverviewSection />
+
+      {/* SECTION 9 — WHY CHOOSE THE ONE */}
+      <WhyChooseUsSection />
+
+      {/* SECTION 10 — CONTACT / CONSULTATION */}
+      <ContactConsultationSection />
     </PageLayout>
   );
 };
+
+export default HomePage;

@@ -11,25 +11,25 @@ export const AboutPage: React.FC = () => {
   const { t, i18n } = useTranslation();
   const lang = i18n.language as 'en' | 'ar';
 
-  const stats = [
-    { value: '4.8B+ QAR', label: t('about.stats.portfolioValue') },
-    { value: '280+', label: t('about.stats.propertiesSold') },
-    { value: '98.4%', label: t('about.stats.clientSatisfaction') },
-    { value: '18+', label: t('about.stats.yearsExperience') },
+  const commitments = [
+    { value: lang === 'ar' ? 'معتمد' : 'Verified', label: lang === 'ar' ? 'وساطة واستشارات مرخصة' : 'Licensed Real Estate Brokerage' },
+    { value: lang === 'ar' ? 'مختارة' : 'Curated', label: lang === 'ar' ? 'عقارات في أرقى مناطق قطر' : 'Prime Qatar Enclaves & Estates' },
+    { value: lang === 'ar' ? 'شفافية' : 'Integrity', label: lang === 'ar' ? 'تقييمات واقعية وموثوقة' : 'Transparent Market Guidance' },
+    { value: lang === 'ar' ? 'سرية' : 'Discreet', label: lang === 'ar' ? 'حماية تامة لخصوصية العملاء' : 'Confidential Client Representation' },
   ];
 
   return (
     <PageLayout>
       {/* Hero */}
-      <div className="relative min-h-[50vh] sm:min-h-[60vh] flex items-end bg-[#111715] overflow-hidden">
+      <div className="relative min-h-[44vh] sm:min-h-[50vh] flex items-end bg-[#10212B] overflow-hidden">
         <img
           src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=85"
-          alt="THE ONE Luxury Real Estate Heritage"
+          alt="THE ONE Real Estate Qatar"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#111715] via-[#111715]/60 to-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#10212B] via-[#10212B]/60 to-black/30" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 w-full">
+        <div className="relative z-10 max-w-7xl 2xl:max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-8 pb-14 w-full">
           <Breadcrumbs
             className="mb-4 text-white/70"
             items={[
@@ -38,93 +38,86 @@ export const AboutPage: React.FC = () => {
             ]}
           />
 
-          <span className="text-xs uppercase tracking-[0.25em] text-[#B49A70] font-semibold block mb-2">
+          <span className="text-xs uppercase tracking-wider text-[#B69A70] font-semibold block mb-2">
             {t('about.badge')}
           </span>
-          <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl text-white font-normal tracking-tight max-w-4xl leading-tight">
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl text-white font-medium tracking-tight max-w-4xl leading-tight">
             {t('about.title')}
           </h1>
         </div>
       </div>
 
-      <div className="py-20 bg-[#F8F7F4]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+      <div className="py-16 sm:py-20 bg-[#F7F5F0]">
+        <div className="max-w-7xl 2xl:max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
           {/* Story & Philosophy */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-7 space-y-6">
-              <span className="text-xs uppercase tracking-[0.25em] text-[#B49A70] font-semibold block">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-7 space-y-5">
+              <span className="text-xs uppercase tracking-wider text-[#B69A70] font-semibold block">
                 {t('aboutPage.badge')}
               </span>
-              <h2 className="font-serif text-3xl sm:text-4xl text-[#17201C] font-medium leading-tight">
+              <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#10212B] font-medium leading-tight">
                 {t('aboutPage.title')}
               </h2>
-              <p className="text-sm text-[#17201C]/80 leading-relaxed font-light">
+              <p className="text-xs sm:text-sm text-[#172B35]/85 leading-relaxed font-light">
                 {t('aboutPage.p1')}
               </p>
-              <p className="text-sm text-[#17201C]/80 leading-relaxed font-light">
+              <p className="text-xs sm:text-sm text-[#172B35]/85 leading-relaxed font-light">
                 {t('aboutPage.p2')}
               </p>
             </div>
 
             <div className="lg:col-span-5 relative">
-              <div className="aspect-[4/5] rounded-sm overflow-hidden bg-[#18201D] shadow-xl">
+              <div className="aspect-[4/3] sm:aspect-[4/5] rounded-2xl overflow-hidden bg-[#10212B] shadow-lg border border-[#E7E3DA]">
                 <img
                   src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80"
-                  alt="Architectural precision"
+                  alt="THE ONE Real Estate"
                   className="w-full h-full object-cover"
                 />
-              </div>
-              <div className="absolute -bottom-6 -left-6 rtl:-left-auto rtl:-right-6 bg-[#111715] text-white p-6 rounded-sm border border-[#222B26] shadow-2xl hidden sm:block">
-                <span className="font-serif text-3xl font-semibold text-[#B49A70] block">18+</span>
-                <span className="text-xs text-[#777C76] uppercase tracking-wider">{t('about.stats.yearsExperience')}</span>
               </div>
             </div>
           </div>
 
           {/* Core Values 3-Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 border border-[#E8E6E0] rounded-sm shadow-sm">
-              <ShieldCheck className="w-8 h-8 text-[#B49A70] mb-4" />
-              <h3 className="font-serif text-xl font-medium text-[#17201C] mb-2">{t('aboutPage.v1Title')}</h3>
-              <p className="text-xs text-[#777C76] leading-relaxed font-light">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-white p-7 border border-[#E7E3DA] rounded-2xl shadow-xs">
+              <ShieldCheck className="w-8 h-8 text-[#B69A70] mb-4" />
+              <h3 className="font-serif text-lg font-semibold text-[#10212B] mb-2">{t('aboutPage.v1Title')}</h3>
+              <p className="text-xs text-[#727A7B] leading-relaxed font-light">
                 {t('aboutPage.v1Desc')}
               </p>
             </div>
 
-            <div className="bg-white p-8 border border-[#E8E6E0] rounded-sm shadow-sm">
-              <Compass className="w-8 h-8 text-[#B49A70] mb-4" />
-              <h3 className="font-serif text-xl font-medium text-[#17201C] mb-2">{t('aboutPage.v2Title')}</h3>
-              <p className="text-xs text-[#777C76] leading-relaxed font-light">
+            <div className="bg-white p-7 border border-[#E7E3DA] rounded-2xl shadow-xs">
+              <Compass className="w-8 h-8 text-[#B69A70] mb-4" />
+              <h3 className="font-serif text-lg font-semibold text-[#10212B] mb-2">{t('aboutPage.v2Title')}</h3>
+              <p className="text-xs text-[#727A7B] leading-relaxed font-light">
                 {t('aboutPage.v2Desc')}
               </p>
             </div>
 
-            <div className="bg-white p-8 border border-[#E8E6E0] rounded-sm shadow-sm">
-              <Award className="w-8 h-8 text-[#B49A70] mb-4" />
-              <h3 className="font-serif text-xl font-medium text-[#17201C] mb-2">{t('aboutPage.v3Title')}</h3>
-              <p className="text-xs text-[#777C76] leading-relaxed font-light">
+            <div className="bg-white p-7 border border-[#E7E3DA] rounded-2xl shadow-xs">
+              <Award className="w-8 h-8 text-[#B69A70] mb-4" />
+              <h3 className="font-serif text-lg font-semibold text-[#10212B] mb-2">{t('aboutPage.v3Title')}</h3>
+              <p className="text-xs text-[#727A7B] leading-relaxed font-light">
                 {t('aboutPage.v3Desc')}
               </p>
             </div>
           </div>
 
-          {/* Stats Bar */}
-          <div className="bg-[#111715] text-white p-10 sm:p-14 rounded-sm border border-[#222B26]">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 divide-y lg:divide-y-0 lg:divide-x divide-[#222B26] rtl:divide-x-reverse text-center">
-              {stats.map((stat, idx) => (
+          {/* Commitments Bar */}
+          <div className="bg-[#10212B] text-white p-8 sm:p-12 rounded-3xl shadow-xl border border-white/10">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 divide-y lg:divide-y-0 lg:divide-x divide-white/10 rtl:divide-x-reverse text-center">
+              {commitments.map((c, idx) => (
                 <div key={idx} className="pt-4 lg:pt-0">
-                  <div className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#B49A70] tracking-tight mb-2">
-                    {stat.value}
+                  <div className="font-serif text-2xl sm:text-3xl font-semibold text-[#B69A70] tracking-tight mb-1.5">
+                    {c.value}
                   </div>
-                  <div className="text-xs uppercase tracking-wider text-[#777C76] font-medium">
-                    {stat.label}
+                  <div className="text-xs text-white/80 font-medium">
+                    {c.label}
                   </div>
                 </div>
               ))}
             </div>
-            <p className="mt-8 text-[11px] text-center text-[#777C76] font-light">
-              * Demonstration benchmarks reflecting representative practice metrics.
-            </p>
           </div>
 
           {/* Leadership Team (8 Agents) */}

@@ -62,15 +62,15 @@ export const ProjectDetailsPage: React.FC = () => {
   return (
     <PageLayout>
       {/* Cinematic Hero */}
-      <div className="relative min-h-[60vh] sm:min-h-[70vh] flex items-end bg-[#111715] overflow-hidden">
+      <div className="relative min-h-[55vh] sm:min-h-[65vh] flex items-end bg-[#10212B] overflow-hidden">
         <img
           src={project.heroImage}
           alt={project.name[lang]}
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#111715] via-[#111715]/60 to-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#10212B] via-[#10212B]/70 to-black/30" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 w-full">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 w-full">
           <Breadcrumbs
             className="mb-6 text-white/70"
             items={[
@@ -80,12 +80,12 @@ export const ProjectDetailsPage: React.FC = () => {
             ]}
           />
 
-          <div className="flex flex-wrap items-center gap-2 mb-3">
+          <div className="flex flex-wrap items-center gap-2 mb-4">
             <Badge variant="glass" size="sm">
               <span className="text-white font-semibold">{localizeStatus(project.status, lang)}</span>
             </Badge>
             <Badge variant="gold" size="sm">
-              <span className="text-[#8F764F]">
+              <span className="text-[#B69A70]">
                 {lang === 'ar' ? 'التسليم المتوقع:' : 'Handover:'} {project.completionDate}
               </span>
             </Badge>
@@ -101,11 +101,11 @@ export const ProjectDetailsPage: React.FC = () => {
 
           <div className="mt-6 flex flex-wrap items-center gap-6 text-xs text-white/70">
             <span className="flex items-center gap-2">
-              <Building className="w-4 h-4 text-[#B49A70]" />
+              <Building className="w-4 h-4 text-[#B69A70]" />
               <span>{lang === 'ar' ? 'المطور الرئيسي:' : 'Developer:'} {project.developer[lang]}</span>
             </span>
             <span className="flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-[#B49A70]" />
+              <MapPin className="w-4 h-4 text-[#B69A70]" />
               <span>{project.location[lang]}</span>
             </span>
           </div>
@@ -113,35 +113,35 @@ export const ProjectDetailsPage: React.FC = () => {
       </div>
 
       {/* Main Content Body */}
-      <div className="py-20 bg-[#F8F7F4]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      <div className="py-12 sm:py-16 bg-[#F7F5F0]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           {/* Overview & Concept */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            <div className="lg:col-span-8 bg-white p-8 sm:p-10 border border-[#E8E6E0] rounded-sm shadow-sm space-y-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <div className="lg:col-span-8 bg-white p-6 sm:p-10 border border-[#E7E3DA] rounded-2xl shadow-sm space-y-6">
               <div>
-                <span className="text-xs uppercase tracking-[0.25em] text-[#B49A70] font-semibold block mb-2">
+                <span className="text-xs uppercase tracking-[0.25em] text-[#B69A70] font-semibold block mb-2">
                   {t('projectDetails.conceptBadge')}
                 </span>
-                <h2 className="font-serif text-2xl sm:text-3xl text-[#17201C] font-medium">
+                <h2 className="font-serif text-2xl sm:text-3xl text-[#172B35] font-medium">
                   {lang === 'ar'
                     ? `إبداع معماري استثنائي في ${localizeAreaName(project.location.area, lang)}`
                     : `Visionary Craftsmanship in ${project.location.area}`}
                 </h2>
               </div>
 
-              <p className="text-sm text-[#17201C]/80 leading-relaxed font-light">
+              <p className="text-sm sm:text-base text-[#727A7B] leading-relaxed font-light">
                 {project.description[lang]}
               </p>
 
               {/* Key Features Bullet List */}
-              <div className="pt-4 border-t border-[#E8E6E0]">
-                <h4 className="text-xs uppercase tracking-wider font-semibold text-[#17201C] mb-4">
+              <div className="pt-6 border-t border-[#E7E3DA]">
+                <h4 className="text-xs uppercase tracking-wider font-semibold text-[#172B35] mb-4">
                   {lang === 'ar' ? 'أبرز المزايا الهندسية والتصميمية الاستثنائية:' : 'Signature Engineering & Design Highlights:'}
                 </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                   {project.features.map((feat, i) => (
-                    <div key={i} className="flex items-start gap-2.5 text-xs text-[#17201C]">
-                      <Sparkles className="w-4 h-4 text-[#B49A70] shrink-0 mt-0.5" />
+                    <div key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#172B35]">
+                      <Sparkles className="w-4 h-4 text-[#B69A70] shrink-0 mt-0.5" />
                       <span>{localizeFeature(feat, lang)}</span>
                     </div>
                   ))}
@@ -150,21 +150,21 @@ export const ProjectDetailsPage: React.FC = () => {
             </div>
 
             {/* Sticky Actions Sidebar */}
-            <div className="lg:col-span-4 bg-[#111715] text-[#F8F7F4] p-8 rounded-sm border border-[#222B26] space-y-6">
+            <div className="lg:col-span-4 bg-[#10212B] text-white p-6 sm:p-8 rounded-2xl border border-[#1E3A4B] space-y-6 shadow-sm">
               <div>
-                <span className="text-[10px] uppercase tracking-widest text-[#B49A70] block">
+                <span className="text-[11px] uppercase tracking-widest text-[#B69A70] font-semibold block">
                   {t('projects.startingFrom')}
                 </span>
-                <div className="font-serif text-3xl font-semibold text-white tracking-tight mt-1">
+                <div className="font-serif text-3xl font-semibold text-white tracking-tight mt-1.5">
                   {formatPrice(project.startingPrice, currency, lang)}
                 </div>
               </div>
 
-              <div className="space-y-3 pt-2 border-t border-[#222B26]">
+              <div className="space-y-3 pt-4 border-t border-white/10">
                 <Button
                   variant="primary"
                   size="md"
-                  className="w-full"
+                  className="w-full justify-center"
                   onClick={() => setPresentationModalOpen(true)}
                   icon={<Calendar className="w-4 h-4" />}
                 >
@@ -174,9 +174,9 @@ export const ProjectDetailsPage: React.FC = () => {
                 <Button
                   variant="outline-light"
                   size="md"
-                  className="w-full"
+                  className="w-full justify-center"
                   onClick={handleBrochureDownload}
-                  icon={brochureDownloaded ? <CheckCircle2 className="w-4 h-4 text-[#B49A70]" /> : <Download className="w-4 h-4" />}
+                  icon={brochureDownloaded ? <CheckCircle2 className="w-4 h-4 text-[#B69A70]" /> : <Download className="w-4 h-4" />}
                 >
                   {brochureDownloaded
                     ? (lang === 'ar' ? 'تم طلب الكتيب الشامل' : 'Master Brochure Queued')
@@ -185,7 +185,7 @@ export const ProjectDetailsPage: React.FC = () => {
               </div>
 
               {brochureDownloaded && (
-                <div className="p-3 bg-[#18201D] border border-[#B49A70]/30 rounded-sm text-[11px] text-[#B49A70]">
+                <div className="p-3 bg-[#174B65]/40 border border-[#B69A70]/30 rounded-xl text-xs text-[#B69A70]">
                   {t('projectDetails.requestDossier')}
                 </div>
               )}
@@ -193,20 +193,20 @@ export const ProjectDetailsPage: React.FC = () => {
           </div>
 
           {/* Available Units Matrix Table */}
-          <div className="bg-white p-8 sm:p-10 border border-[#E8E6E0] rounded-sm shadow-sm">
+          <div className="bg-white p-6 sm:p-10 border border-[#E7E3DA] rounded-2xl shadow-sm">
             <div className="mb-6">
-              <span className="text-xs uppercase tracking-[0.25em] text-[#B49A70] font-semibold block mb-1">
+              <span className="text-xs uppercase tracking-[0.25em] text-[#B69A70] font-semibold block mb-1">
                 {t('projectDetails.inventoryBadge')}
               </span>
-              <h2 className="font-serif text-2xl sm:text-3xl text-[#17201C] font-medium">
+              <h2 className="font-serif text-2xl sm:text-3xl text-[#172B35] font-medium">
                 {t('projects.availableUnits')}
               </h2>
             </div>
 
-            <div className="overflow-x-auto">
-              <table className="w-full text-left rtl:text-right text-xs">
+            <div className="overflow-x-auto -mx-6 sm:mx-0 px-6 sm:px-0">
+              <table className="w-full text-left rtl:text-right text-xs sm:text-sm">
                 <thead>
-                  <tr className="border-b border-[#E8E6E0] text-[#777C76] uppercase tracking-wider">
+                  <tr className="border-b border-[#E7E3DA] text-[#727A7B] uppercase tracking-wider text-[11px]">
                     <th className="py-3.5 px-4 font-semibold">{t('projectDetails.unitConfiguration')}</th>
                     <th className="py-3.5 px-4 font-semibold">{t('projectDetails.internalArea')}</th>
                     <th className="py-3.5 px-4 font-semibold">{t('projectDetails.startingValuation')}</th>
@@ -214,12 +214,12 @@ export const ProjectDetailsPage: React.FC = () => {
                     <th className="py-3.5 px-4 font-semibold text-right rtl:text-left">{lang === 'ar' ? 'استفسار' : 'Inquire'}</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#E8E6E0]">
+                <tbody className="divide-y divide-[#E7E3DA]">
                   {project.availableUnits.map((unit, idx) => (
-                    <tr key={idx} className="hover:bg-[#F8F7F4]/60 transition-colors">
-                      <td className="py-4 px-4 font-semibold text-[#17201C]">{localizeUnitType(unit.type, lang)}</td>
-                      <td className="py-4 px-4 text-[#777C76]">{unit.sizeSqM} {t('properties.sqm')}</td>
-                      <td className="py-4 px-4 font-serif font-semibold text-[#17201C] text-sm">
+                    <tr key={idx} className="hover:bg-[#F7F5F0]/60 transition-colors">
+                      <td className="py-4 px-4 font-semibold text-[#172B35]">{localizeUnitType(unit.type, lang)}</td>
+                      <td className="py-4 px-4 text-[#727A7B]">{unit.sizeSqM} {t('properties.sqm')}</td>
+                      <td className="py-4 px-4 font-serif font-semibold text-[#172B35] text-sm sm:text-base">
                         {formatPrice(unit.startingPrice, currency, lang)}
                       </td>
                       <td className="py-4 px-4">
@@ -230,7 +230,7 @@ export const ProjectDetailsPage: React.FC = () => {
                       <td className="py-4 px-4 text-right rtl:text-left">
                         <button
                           onClick={() => setPresentationModalOpen(true)}
-                          className="text-xs font-semibold uppercase tracking-wider text-[#B49A70] hover:text-[#17201C]"
+                          className="text-xs font-semibold uppercase tracking-wider text-[#B69A70] hover:text-[#172B35] transition-colors"
                         >
                           {lang === 'ar' ? '← حجز' : 'Reserve →'}
                         </button>
@@ -243,63 +243,95 @@ export const ProjectDetailsPage: React.FC = () => {
           </div>
 
           {/* Payment Plan Timeline */}
-          <div className="bg-white p-8 sm:p-10 border border-[#E8E6E0] rounded-sm shadow-sm">
+          <div className="bg-white p-6 sm:p-10 border border-[#E7E3DA] rounded-2xl shadow-sm">
             <div className="mb-8">
-              <span className="text-xs uppercase tracking-[0.25em] text-[#B49A70] font-semibold block mb-1">
+              <span className="text-xs uppercase tracking-[0.25em] text-[#B69A70] font-semibold block mb-1">
                 {lang === 'ar' ? 'خطة استثمارية مرنة' : 'FLEXIBLE INVESTMENT'}
               </span>
-              <h2 className="font-serif text-2xl sm:text-3xl text-[#17201C] font-medium">
+              <h2 className="font-serif text-2xl sm:text-3xl text-[#172B35] font-medium">
                 {t('projects.paymentPlan')}
               </h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="p-6 bg-[#F8F7F4] border border-[#E8E6E0] rounded-sm">
-                <span className="text-[10px] uppercase tracking-widest text-[#777C76] font-semibold block mb-1">
+              <div className="p-6 bg-[#F7F5F0] border border-[#E7E3DA] rounded-2xl">
+                <span className="text-[10px] uppercase tracking-widest text-[#727A7B] font-semibold block mb-1">
                   {lang === 'ar' ? 'المرحلة ٠١' : 'Step 01'}
                 </span>
-                <div className="font-serif text-3xl font-semibold text-[#17201C] mb-2">
+                <div className="font-serif text-3xl font-semibold text-[#172B35] mb-2">
                   {project.paymentPlan.downPaymentPercent}%
                 </div>
-                <h4 className="text-xs font-semibold uppercase tracking-wider text-[#17201C] mb-1">
+                <h4 className="text-xs font-semibold uppercase tracking-wider text-[#172B35] mb-1">
                   {t('projectDetails.downPayment')}
                 </h4>
-                <p className="text-xs text-[#777C76] font-light">
+                <p className="text-xs text-[#727A7B] font-light">
                   {lang === 'ar' ? 'عند الحجز وتوقيع عقد البيع المبدئي.' : 'Upon reservation and sale contract signing.'}
                 </p>
               </div>
 
-              <div className="p-6 bg-[#F8F7F4] border border-[#E8E6E0] rounded-sm">
-                <span className="text-[10px] uppercase tracking-widest text-[#777C76] font-semibold block mb-1">
+              <div className="p-6 bg-[#F7F5F0] border border-[#E7E3DA] rounded-2xl">
+                <span className="text-[10px] uppercase tracking-widest text-[#727A7B] font-semibold block mb-1">
                   {lang === 'ar' ? 'المرحلة ٠٢' : 'Step 02'}
                 </span>
-                <div className="font-serif text-3xl font-semibold text-[#17201C] mb-2">
+                <div className="font-serif text-3xl font-semibold text-[#172B35] mb-2">
                   {project.paymentPlan.constructionPercent}%
                 </div>
-                <h4 className="text-xs font-semibold uppercase tracking-wider text-[#17201C] mb-1">
+                <h4 className="text-xs font-semibold uppercase tracking-wider text-[#172B35] mb-1">
                   {t('projectDetails.duringConstruction')}
                 </h4>
-                <p className="text-xs text-[#777C76] font-light">
+                <p className="text-xs text-[#727A7B] font-light">
                   {lang === 'ar' ? 'مرتبطة بمراحل الإنجاز والإنشاء المعتمدة.' : 'Linked to verified construction milestones.'}
                 </p>
               </div>
 
-              <div className="p-6 bg-[#111715] text-white border border-[#222B26] rounded-sm">
-                <span className="text-[10px] uppercase tracking-widest text-[#B49A70] font-semibold block mb-1">
+              <div className="p-6 bg-[#10212B] text-white border border-[#1E3A4B] rounded-2xl">
+                <span className="text-[10px] uppercase tracking-widest text-[#B69A70] font-semibold block mb-1">
                   {lang === 'ar' ? 'المرحلة ٠٣' : 'Step 03'}
                 </span>
                 <div className="font-serif text-3xl font-semibold text-white mb-2">
                   {project.paymentPlan.handoverPercent}%
                 </div>
-                <h4 className="text-xs font-semibold uppercase tracking-wider text-[#B49A70] mb-1">
+                <h4 className="text-xs font-semibold uppercase tracking-wider text-[#B69A70] mb-1">
                   {t('projectDetails.onHandover')}
                 </h4>
-                <p className="text-xs text-[#777C76] font-light">
+                <p className="text-xs text-white/70 font-light">
                   {localizePostHandover(project.paymentPlan.postHandoverDuration || 'Key collection and title registration.', lang)}
                 </p>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Sticky Mobile Action Bar */}
+      <div className="lg:hidden fixed bottom-0 inset-x-0 bg-white/95 backdrop-blur-md border-t border-[#E7E3DA] px-4 py-3 z-40 shadow-lg pb-[max(0.75rem,env(safe-area-inset-bottom))]">
+        <div className="flex items-center gap-3">
+          <div className="flex-1 min-w-0">
+            <span className="text-[10px] uppercase tracking-wider text-[#727A7B] block truncate">
+              {t('projects.startingFrom')}
+            </span>
+            <div className="font-serif text-base font-semibold text-[#172B35] truncate">
+              {formatPrice(project.startingPrice, currency, lang)}
+            </div>
+          </div>
+          <Button
+            variant="primary"
+            size="sm"
+            className="shrink-0"
+            onClick={() => setPresentationModalOpen(true)}
+            icon={<Calendar className="w-3.5 h-3.5" />}
+          >
+            {lang === 'ar' ? 'طلب تفاصيل' : 'Inquire Now'}
+          </Button>
+          <a
+            href="https://wa.me/97444998800"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2.5 rounded-xl border border-[#E7E3DA] text-[#172B35] hover:bg-[#F7F5F0] transition-colors shrink-0"
+            aria-label="WhatsApp"
+          >
+            <PhoneCall className="w-4 h-4 text-[#10212B]" />
+          </a>
         </div>
       </div>
 

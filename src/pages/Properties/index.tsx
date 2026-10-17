@@ -21,6 +21,7 @@ import { Button } from '../../components/common/Button';
 import { properties } from '../../data';
 import { Property, ListingType } from '../../types';
 import { localizeAreaName, localizePropertyType, localizeAmenity } from '../../utils/localize';
+import { MobileFilterSheet } from '../../components/common/MobileFilterSheet';
 
 interface PropertiesPageProps {
   initialListingType?: 'buy' | 'rent';
@@ -175,8 +176,8 @@ export const PropertiesPage: React.FC<PropertiesPageProps> = ({ initialListingTy
 
   return (
     <PageLayout>
-      <div className="pt-28 pb-20 bg-[#F8F7F4] min-h-screen">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="pt-28 pb-20 bg-[#F7F5F0] min-h-screen">
+        <div className="max-w-7xl 2xl:max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb Header */}
           <div className="mb-6">
             <Breadcrumbs
@@ -195,51 +196,54 @@ export const PropertiesPage: React.FC<PropertiesPageProps> = ({ initialListingTy
           </div>
 
           {/* Page Headline & View Controls */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between pb-8 border-b border-[#E8E6E0] gap-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between pb-6 border-b border-[#E7E3DA] gap-6">
             <div>
-              <span className="text-xs uppercase tracking-[0.25em] text-[#B49A70] font-semibold block mb-2">
-                {t('propertiesPage.badge')}
+              <span className="text-xs uppercase tracking-wider text-[#B69A70] font-semibold block mb-1.5">
+                {lang === 'ar' ? 'سوق العقارات في قطر' : 'Qatar Real Estate Marketplace'}
               </span>
-              <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-[#17201C] tracking-tight">
+              <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl font-medium text-[#10212B] tracking-tight">
                 {pageTitle}
               </h1>
-              <p className="mt-2 text-sm text-[#777C76] font-light">
+              <p className="mt-1.5 text-xs sm:text-sm text-[#727A7B] font-light">
                 {t('search.resultsFound', { count: filteredProperties.length })}
               </p>
             </div>
 
             {/* View Mode Switcher (Grid, List, Map) */}
             <div className="flex items-center gap-2">
-              <div className="flex items-center p-1 bg-white border border-[#E8E6E0] rounded-sm shadow-sm">
+              <div className="flex items-center p-1 bg-white border border-[#E7E3DA] rounded-xl shadow-xs">
                 <button
+                  type="button"
                   onClick={() => setViewMode('grid')}
                   title={lang === 'ar' ? 'عرض شبكي' : 'Grid View'}
-                  className={`p-2 rounded-sm transition-colors ${
+                  className={`p-2 rounded-lg transition-colors ${
                     viewMode === 'grid'
-                      ? 'bg-[#111715] text-[#B49A70]'
-                      : 'text-[#777C76] hover:text-[#17201C]'
+                      ? 'bg-[#10212B] text-white'
+                      : 'text-[#727A7B] hover:text-[#10212B]'
                   }`}
                 >
                   <Grid className="w-4 h-4" />
                 </button>
                 <button
+                  type="button"
                   onClick={() => setViewMode('list')}
                   title={lang === 'ar' ? 'عرض طولي' : 'List View'}
-                  className={`p-2 rounded-sm transition-colors ${
+                  className={`p-2 rounded-lg transition-colors ${
                     viewMode === 'list'
-                      ? 'bg-[#111715] text-[#B49A70]'
-                      : 'text-[#777C76] hover:text-[#17201C]'
+                      ? 'bg-[#10212B] text-white'
+                      : 'text-[#727A7B] hover:text-[#10212B]'
                   }`}
                 >
                   <List className="w-4 h-4" />
                 </button>
                 <button
+                  type="button"
                   onClick={() => setViewMode('map')}
                   title={lang === 'ar' ? 'عرض الخريطة التفاعلية' : 'Interactive Map View'}
-                  className={`p-2 rounded-sm transition-colors ${
+                  className={`p-2 rounded-lg transition-colors ${
                     viewMode === 'map'
-                      ? 'bg-[#111715] text-[#B49A70]'
-                      : 'text-[#777C76] hover:text-[#17201C]'
+                      ? 'bg-[#10212B] text-white'
+                      : 'text-[#727A7B] hover:text-[#10212B]'
                   }`}
                 >
                   <MapIcon className="w-4 h-4" />
@@ -248,27 +252,28 @@ export const PropertiesPage: React.FC<PropertiesPageProps> = ({ initialListingTy
 
               {/* Mobile Filter Toggle */}
               <button
+                type="button"
                 onClick={() => setMobileFiltersOpen(true)}
-                className="lg:hidden flex items-center gap-2 px-4 py-2.5 bg-white border border-[#E8E6E0] rounded-sm text-xs font-semibold uppercase tracking-wider text-[#17201C]"
+                className="lg:hidden flex items-center gap-2 px-3.5 py-2.5 bg-white border border-[#E7E3DA] rounded-xl text-xs font-semibold text-[#10212B] shadow-xs"
               >
-                <SlidersHorizontal className="w-4 h-4 text-[#B49A70]" />
+                <SlidersHorizontal className="w-4 h-4 text-[#B69A70]" />
                 <span>{lang === 'ar' ? 'تصفية العقارات' : 'Filters'} {activeFiltersCount > 0 ? `(${activeFiltersCount})` : ''}</span>
               </button>
             </div>
           </div>
 
           {/* Horizontal Top Filters Bar (Desktop) */}
-          <div className="mt-8 bg-white border border-[#E8E6E0] rounded-sm p-4 shadow-sm hidden lg:block">
+          <div className="mt-6 bg-white border border-[#E7E3DA] rounded-2xl p-4 shadow-sm hidden lg:block">
             <div className="grid grid-cols-12 gap-3 items-center">
               {/* Keyword Search */}
               <div className="col-span-3 relative">
-                <Search className="w-4 h-4 text-[#777C76] absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none rtl:left-auto rtl:right-3" />
+                <Search className="w-4 h-4 text-[#727A7B] absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none rtl:left-auto rtl:right-3" />
                 <input
                   type="text"
                   value={searchQuery}
                   onChange={(e) => updateFilter('q', e.target.value)}
-                  placeholder={lang === 'ar' ? 'ابحث بالكلمة المفتاحية، اللؤلؤة، بنتهاوس...' : 'Keyword, Pearl, Penthouse...'}
-                  className="w-full bg-[#F8F7F4] border border-[#E8E6E0] focus:border-[#B49A70] rounded-sm pl-9 pr-3 py-2 text-xs text-[#17201C] outline-none rtl:pl-3 rtl:pr-9"
+                  placeholder={lang === 'ar' ? 'ابحث بالكلمة، اللؤلؤة، بنتهاوس...' : 'Keyword, Pearl, Penthouse...'}
+                  className="w-full bg-[#F7F5F0] border border-[#E7E3DA] focus:border-[#B69A70] rounded-xl pl-9 pr-3 py-2 text-xs text-[#10212B] outline-none rtl:pl-3 rtl:pr-9"
                 />
               </div>
 
@@ -277,7 +282,7 @@ export const PropertiesPage: React.FC<PropertiesPageProps> = ({ initialListingTy
                 <select
                   value={selectedArea}
                   onChange={(e) => updateFilter('area', e.target.value)}
-                  className="w-full bg-[#F8F7F4] border border-[#E8E6E0] rounded-sm px-3 py-2 text-xs text-[#17201C] outline-none cursor-pointer"
+                  className="w-full bg-[#F7F5F0] border border-[#E7E3DA] rounded-xl px-3 py-2 text-xs text-[#10212B] outline-none cursor-pointer"
                 >
                   <option value="all">{t('search.allLocations')}</option>
                   <option value="The Pearl">{localizeAreaName('The Pearl-Qatar', lang)}</option>
@@ -294,7 +299,7 @@ export const PropertiesPage: React.FC<PropertiesPageProps> = ({ initialListingTy
                 <select
                   value={selectedType}
                   onChange={(e) => updateFilter('propertyType', e.target.value)}
-                  className="w-full bg-[#F8F7F4] border border-[#E8E6E0] rounded-sm px-3 py-2 text-xs text-[#17201C] outline-none cursor-pointer"
+                  className="w-full bg-[#F7F5F0] border border-[#E7E3DA] rounded-xl px-3 py-2 text-xs text-[#10212B] outline-none cursor-pointer"
                 >
                   <option value="all">{t('search.allTypes')}</option>
                   <option value="Villa">{localizePropertyType('Villa', lang)}</option>
@@ -312,7 +317,7 @@ export const PropertiesPage: React.FC<PropertiesPageProps> = ({ initialListingTy
                 <select
                   value={selectedBeds}
                   onChange={(e) => updateFilter('beds', e.target.value)}
-                  className="w-full bg-[#F8F7F4] border border-[#E8E6E0] rounded-sm px-3 py-2 text-xs text-[#17201C] outline-none cursor-pointer"
+                  className="w-full bg-[#F7F5F0] border border-[#E7E3DA] rounded-xl px-3 py-2 text-xs text-[#10212B] outline-none cursor-pointer"
                 >
                   <option value="all">{t('search.anyBeds')}</option>
                   <option value="2">{lang === 'ar' ? '2+ غرف نوم' : '2+ Beds'}</option>
@@ -328,7 +333,7 @@ export const PropertiesPage: React.FC<PropertiesPageProps> = ({ initialListingTy
                 <select
                   value={sortBy}
                   onChange={(e) => updateFilter('sort', e.target.value)}
-                  className="w-full bg-[#F8F7F4] border border-[#E8E6E0] rounded-sm px-3 py-2 text-xs text-[#17201C] outline-none cursor-pointer"
+                  className="w-full bg-[#F7F5F0] border border-[#E7E3DA] rounded-xl px-3 py-2 text-xs text-[#10212B] outline-none cursor-pointer"
                 >
                   <option value="newest">{t('search.sortNewest')}</option>
                   <option value="price-asc">{t('search.sortPriceLow')}</option>
@@ -341,9 +346,10 @@ export const PropertiesPage: React.FC<PropertiesPageProps> = ({ initialListingTy
               <div className="col-span-1 flex justify-end">
                 {activeFiltersCount > 0 && (
                   <button
+                    type="button"
                     onClick={clearAllFilters}
                     title={t('search.resetFilters')}
-                    className="p-2 text-[#777C76] hover:text-rose-600 transition-colors"
+                    className="p-2 text-[#727A7B] hover:text-rose-600 transition-colors"
                   >
                     <RotateCcw className="w-4 h-4" />
                   </button>
@@ -531,135 +537,28 @@ export const PropertiesPage: React.FC<PropertiesPageProps> = ({ initialListingTy
         </div>
       </div>
 
-      {/* Mobile Filters Drawer */}
-      {mobileFiltersOpen && (
-        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4">
-          <div className="w-full sm:max-w-lg bg-white rounded-t-xl sm:rounded-lg p-6 max-h-[90vh] overflow-y-auto space-y-4 shadow-2xl">
-            <div className="flex items-center justify-between border-b border-[#E8E6E0] pb-3">
-              <h3 className="font-serif text-lg font-semibold text-[#17201C]">
-                {t('search.advancedFilters')}
-              </h3>
-              <button
-                type="button"
-                onClick={() => setMobileFiltersOpen(false)}
-                className="p-1 rounded-full text-[#777C76] hover:bg-black/5"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            {/* Keyword Search */}
-            <div>
-              <label className="block text-xs uppercase tracking-wider text-[#777C76] font-medium mb-1">
-                {lang === 'ar' ? 'الكلمة المفتاحية' : 'Search Keyword'}
-              </label>
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => updateFilter('q', e.target.value)}
-                placeholder={lang === 'ar' ? 'ابحث بالكلمة المفتاحية، اللؤلؤة، بنتهاوس...' : 'Search Pearl, Marina, Penthouse...'}
-                className="w-full p-2.5 bg-[#F8F7F4] border border-[#E8E6E0] rounded-sm text-xs text-[#17201C]"
-              />
-            </div>
-
-            {/* Location */}
-            <div>
-              <label className="block text-xs uppercase tracking-wider text-[#777C76] font-medium mb-1">
-                {t('search.location')}
-              </label>
-              <select
-                value={selectedArea}
-                onChange={(e) => updateFilter('area', e.target.value)}
-                className="w-full p-2.5 bg-[#F8F7F4] border border-[#E8E6E0] rounded-sm text-xs text-[#17201C]"
-              >
-                <option value="all">{t('search.allLocations')}</option>
-                <option value="The Pearl">{localizeAreaName('The Pearl-Qatar', lang)}</option>
-                <option value="Lusail">{localizeAreaName('Lusail City', lang)}</option>
-                <option value="West Bay">{localizeAreaName('West Bay', lang)}</option>
-                <option value="Msheireb">{localizeAreaName('Msheireb Downtown', lang)}</option>
-                <option value="Al Waab">{localizeAreaName('Al Waab', lang)}</option>
-                <option value="Katara">{localizeAreaName('Katara Hills', lang)}</option>
-              </select>
-            </div>
-
-            {/* Property Type */}
-            <div>
-              <label className="block text-xs uppercase tracking-wider text-[#777C76] font-medium mb-1">
-                {t('search.propertyType')}
-              </label>
-              <select
-                value={selectedType}
-                onChange={(e) => updateFilter('propertyType', e.target.value)}
-                className="w-full p-2.5 bg-[#F8F7F4] border border-[#E8E6E0] rounded-sm text-xs text-[#17201C]"
-              >
-                <option value="all">{t('search.allTypes')}</option>
-                <option value="Villa">{localizePropertyType('Villa', lang)}</option>
-                <option value="Palatial Mansion">{localizePropertyType('Palatial Mansion', lang)}</option>
-                <option value="Penthouse">{localizePropertyType('Penthouse', lang)}</option>
-                <option value="Waterfront Residence">{localizePropertyType('Waterfront Residence', lang)}</option>
-                <option value="Sky Villa">{localizePropertyType('Sky Villa', lang)}</option>
-                <option value="Duplex">{localizePropertyType('Duplex', lang)}</option>
-                <option value="Townhouse">{localizePropertyType('Townhouse', lang)}</option>
-              </select>
-            </div>
-
-            {/* Bedrooms */}
-            <div>
-              <label className="block text-xs uppercase tracking-wider text-[#777C76] font-medium mb-1">
-                {t('search.bedrooms')}
-              </label>
-              <select
-                value={selectedBeds}
-                onChange={(e) => updateFilter('beds', e.target.value)}
-                className="w-full p-2.5 bg-[#F8F7F4] border border-[#E8E6E0] rounded-sm text-xs text-[#17201C]"
-              >
-                <option value="all">{t('search.anyBeds')}</option>
-                <option value="2">{lang === 'ar' ? '2+ غرف نوم' : '2+ Bedrooms'}</option>
-                <option value="3">{lang === 'ar' ? '3+ غرف نوم' : '3+ Bedrooms'}</option>
-                <option value="4">{lang === 'ar' ? '4+ غرف نوم' : '4+ Bedrooms'}</option>
-                <option value="5">{lang === 'ar' ? '5+ غرف نوم' : '5+ Bedrooms'}</option>
-                <option value="6">{lang === 'ar' ? '6+ غرف نوم' : '6+ Bedrooms'}</option>
-              </select>
-            </div>
-
-            {/* Sort */}
-            <div>
-              <label className="block text-xs uppercase tracking-wider text-[#777C76] font-medium mb-1">
-                {t('search.sortBy')}
-              </label>
-              <select
-                value={sortBy}
-                onChange={(e) => updateFilter('sort', e.target.value)}
-                className="w-full p-2.5 bg-[#F8F7F4] border border-[#E8E6E0] rounded-sm text-xs text-[#17201C]"
-              >
-                <option value="newest">{t('search.sortNewest')}</option>
-                <option value="price-asc">{t('search.sortPriceLow')}</option>
-                <option value="price-desc">{t('search.sortPriceHigh')}</option>
-                <option value="area-desc">{t('search.sortArea')}</option>
-              </select>
-            </div>
-
-            <div className="pt-4 flex gap-2">
-              <Button
-                variant="outline"
-                size="md"
-                className="flex-1"
-                onClick={clearAllFilters}
-              >
-                {t('search.resetFilters')}
-              </Button>
-              <Button
-                variant="primary"
-                size="md"
-                className="flex-1"
-                onClick={() => setMobileFiltersOpen(false)}
-              >
-                {lang === 'ar' ? `عرض النتائج (${filteredProperties.length})` : `Show Results (${filteredProperties.length})`}
-              </Button>
-            </div>
-          </div>
-        </div>
-      )}
+      {/* Mobile Filters Bottom Sheet */}
+      <MobileFilterSheet
+        isOpen={mobileFiltersOpen}
+        onClose={() => setMobileFiltersOpen(false)}
+        listingType={inferredListingType === 'all' ? 'buy' : inferredListingType}
+        selectedLocation={selectedArea === 'all' ? '' : selectedArea}
+        onLocationChange={(loc) => updateFilter('area', loc || 'all')}
+        selectedType={selectedType === 'all' ? '' : selectedType}
+        onTypeChange={(type) => updateFilter('propertyType', type || 'all')}
+        minPrice={minPrice}
+        maxPrice={maxPrice}
+        onPriceChange={(min, max) => {
+          updateFilter('minPrice', min ? String(min) : null);
+          updateFilter('maxPrice', max ? String(max) : null);
+        }}
+        selectedBeds={selectedBeds === 'all' ? '' : selectedBeds}
+        onBedsChange={(beds) => updateFilter('beds', beds || 'all')}
+        onApply={() => setMobileFiltersOpen(false)}
+        onReset={clearAllFilters}
+        totalResultsCount={filteredProperties.length}
+      />
     </PageLayout>
   );
 };
+

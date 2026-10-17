@@ -1,17 +1,24 @@
 @import "tailwindcss";
 
 @theme {
-  --color-warm-ivory: #F8F7F4;
+  --color-primary-navy: #10212B;
+  --color-deep-navy: #00253B;
+  --color-petroleum: #174B65;
+  --color-warm-ivory: #F7F5F0;
   --color-pure-white: #FFFFFF;
-  --color-charcoal-green: #111715;
-  --color-charcoal-card: #18201D;
-  --color-dark-green: #17201C;
-  --color-muted-text: #777C76;
-  --color-champagne-gold: #B49A70;
+  --color-champagne-gold: #B69A70;
   --color-champagne-light: #D4C3A3;
   --color-champagne-dark: #8F764F;
-  --color-luxury-border: #E8E6E0;
+  --color-primary-text: #172B35;
+  --color-secondary-text: #727A7B;
+  --color-luxury-border: #E7E3DA;
   --color-luxury-border-dark: #222B26;
+
+  /* Backward compatibility aliases */
+  --color-charcoal-green: #10212B;
+  --color-charcoal-card: #00253B;
+  --color-dark-green: #172B35;
+  --color-muted-text: #727A7B;
 
   --font-serif: "Playfair Display", Georgia, serif;
   --font-sans: "Plus Jakarta Sans", "Manrope", Inter, sans-serif;
@@ -23,9 +30,13 @@
 
 @layer base {
   :root {
-    --bg-primary: #F8F7F4;
-    --text-primary: #17201C;
-    --color-accent: #B49A70;
+    --bg-primary: #F7F5F0;
+    --text-primary: #172B35;
+    --text-secondary: #727A7B;
+    --color-primary: #10212B;
+    --color-deep-navy: #00253B;
+    --color-accent: #B69A70;
+    --color-border: #E7E3DA;
     --font-arabic-family: "IBM Plex Sans Arabic", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
 
@@ -33,8 +44,8 @@
   html {
     scroll-behavior: smooth;
     font-family: var(--font-sans);
-    background-color: #F8F7F4;
-    color: #17201C;
+    background-color: #F7F5F0;
+    color: #172B35;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;

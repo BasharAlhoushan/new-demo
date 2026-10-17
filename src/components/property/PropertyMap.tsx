@@ -551,7 +551,7 @@ export const PropertyMap: React.FC<PropertyMapProps> = ({
       <div className={`absolute top-4 ${isRtl ? 'left-4' : 'right-4'} z-[400] flex flex-col gap-1.5 pointer-events-auto`}>
         <button
           onClick={handleZoomIn}
-          className="w-8 h-8 rounded-sm bg-[#111715]/90 hover:bg-[#18201D] text-white border border-[#222B26] flex items-center justify-center transition-all shadow-md active:scale-95 text-[#B49A70]"
+          className="w-8 h-8 rounded-xl bg-[#10212B]/90 hover:bg-[#174B65] text-white border border-[#1E3A4B] flex items-center justify-center transition-all shadow-md active:scale-95 text-[#B69A70]"
           title={isRtl ? 'تكبير' : 'Zoom In'}
           aria-label="Zoom in"
         >
@@ -560,7 +560,7 @@ export const PropertyMap: React.FC<PropertyMapProps> = ({
 
         <button
           onClick={handleZoomOut}
-          className="w-8 h-8 rounded-sm bg-[#111715]/90 hover:bg-[#18201D] text-white border border-[#222B26] flex items-center justify-center transition-all shadow-md active:scale-95 text-[#B49A70]"
+          className="w-8 h-8 rounded-xl bg-[#10212B]/90 hover:bg-[#174B65] text-white border border-[#1E3A4B] flex items-center justify-center transition-all shadow-md active:scale-95 text-[#B69A70]"
           title={isRtl ? 'تصغير' : 'Zoom Out'}
           aria-label="Zoom out"
         >
@@ -569,25 +569,25 @@ export const PropertyMap: React.FC<PropertyMapProps> = ({
 
         <button
           onClick={handleRecenter}
-          className="w-8 h-8 rounded-sm bg-[#111715]/90 hover:bg-[#18201D] text-white border border-[#222B26] flex items-center justify-center transition-all shadow-md active:scale-95"
+          className="w-8 h-8 rounded-xl bg-[#10212B]/90 hover:bg-[#174B65] text-white border border-[#1E3A4B] flex items-center justify-center transition-all shadow-md active:scale-95"
           title={isRtl ? 'إعادة التمركز' : 'Recenter Location'}
           aria-label="Recenter"
         >
-          <RotateCcw className="w-3.5 h-3.5 text-[#B49A70]" />
+          <RotateCcw className="w-3.5 h-3.5 text-[#B69A70]" />
         </button>
 
         <button
           onClick={toggleFullscreen}
-          className="w-8 h-8 rounded-sm bg-[#111715]/90 hover:bg-[#18201D] text-white border border-[#222B26] flex items-center justify-center transition-all shadow-md active:scale-95"
+          className="w-8 h-8 rounded-xl bg-[#10212B]/90 hover:bg-[#174B65] text-white border border-[#1E3A4B] flex items-center justify-center transition-all shadow-md active:scale-95"
           title={isFullscreen ? (isRtl ? 'خروج من وضع ملء الشاشة' : 'Exit Fullscreen') : (isRtl ? 'ملء الشاشة' : 'Fullscreen')}
           aria-label="Toggle fullscreen"
         >
-          {isFullscreen ? <Minimize2 className="w-3.5 h-3.5 text-[#B49A70]" /> : <Maximize2 className="w-3.5 h-3.5 text-[#B49A70]" />}
+          {isFullscreen ? <Minimize2 className="w-3.5 h-3.5 text-[#B69A70]" /> : <Maximize2 className="w-3.5 h-3.5 text-[#B69A70]" />}
         </button>
 
         <button
           onClick={() => setShowConfigModal(true)}
-          className="w-8 h-8 rounded-sm bg-[#111715]/90 hover:bg-[#18201D] text-[#B49A70] border border-[#B49A70]/40 flex items-center justify-center transition-all shadow-md active:scale-95"
+          className="w-8 h-8 rounded-xl bg-[#10212B]/90 hover:bg-[#174B65] text-[#B69A70] border border-[#B69A70]/40 flex items-center justify-center transition-all shadow-md active:scale-95"
           title={isRtl ? 'إعدادات مزود الخريطة' : 'Map Provider Settings'}
           aria-label="Provider settings"
         >
@@ -600,9 +600,9 @@ export const PropertyMap: React.FC<PropertyMapProps> = ({
         <div className="sm:hidden absolute inset-0 z-[300] bg-black/10 flex items-center justify-center pointer-events-auto">
           <button
             onClick={() => setIsMobileInteractive(true)}
-            className="px-4 py-2 bg-[#111715]/90 backdrop-blur-md text-[#B49A70] border border-[#B49A70]/40 rounded-sm text-xs font-semibold uppercase tracking-wider shadow-xl flex items-center gap-2"
+            className="px-4 py-2 bg-[#10212B]/90 backdrop-blur-md text-[#B69A70] border border-[#B69A70]/40 rounded-xl text-xs font-semibold uppercase tracking-wider shadow-xl flex items-center gap-2"
           >
-            <Compass className="w-4 h-4 text-[#B49A70] animate-spin-slow" />
+            <Compass className="w-4 h-4 text-[#B69A70] animate-spin-slow" />
             <span>{isRtl ? 'انقر للتفاعل مع الخريطة' : 'Tap to Explore Map'}</span>
           </button>
         </div>
@@ -613,7 +613,7 @@ export const PropertyMap: React.FC<PropertyMapProps> = ({
         <div className="sm:hidden absolute bottom-4 left-4 z-[400] pointer-events-auto">
           <button
             onClick={() => setIsMobileInteractive(false)}
-            className="px-3 py-1 bg-[#111715]/90 backdrop-blur-md text-white/80 border border-white/20 rounded-sm text-[10px] font-medium tracking-wide"
+            className="px-3 py-1 bg-[#10212B]/90 backdrop-blur-md text-white/80 border border-white/20 rounded-xl text-[10px] font-medium tracking-wide"
           >
             {isRtl ? 'إنهاء التفاعل' : 'Lock Scroll'}
           </button>
@@ -623,7 +623,7 @@ export const PropertyMap: React.FC<PropertyMapProps> = ({
       {/* Bottom Floating Luxury Property Preview Card */}
       {activePreviewProperty && (
         <div className="absolute bottom-4 left-4 right-4 sm:left-auto sm:right-4 sm:w-80 z-[500] pointer-events-auto animate-in fade-in slide-in-from-bottom-4 duration-300">
-          <div className="bg-[#111715] text-[#F8F7F4] border border-[#B49A70]/40 rounded-sm p-3.5 shadow-2xl relative" dir={isRtl ? 'rtl' : 'ltr'}>
+          <div className="bg-[#10212B] text-[#F7F5F0] border border-[#B69A70]/40 rounded-2xl p-4 shadow-2xl relative" dir={isRtl ? 'rtl' : 'ltr'}>
             <button
               onClick={() => setActivePreviewProperty(null)}
               className={`absolute top-2.5 ${isRtl ? 'left-2.5' : 'right-2.5'} p-1 rounded-full text-white/60 hover:text-white bg-black/40 transition-colors`}
@@ -636,17 +636,17 @@ export const PropertyMap: React.FC<PropertyMapProps> = ({
               <img
                 src={activePreviewProperty.images[0]}
                 alt={activePreviewProperty.title[lang]}
-                className="w-20 h-20 object-cover rounded-sm border border-[#222B26] shrink-0"
+                className="w-20 h-20 object-cover rounded-xl border border-[#1E3A4B] shrink-0"
               />
 
               <div className="min-w-0 flex-1">
-                <span className="text-[9px] uppercase tracking-wider text-[#B49A70] font-semibold block truncate">
+                <span className="text-[9px] uppercase tracking-wider text-[#B69A70] font-semibold block truncate">
                   {localizeAreaName(activePreviewProperty.location.area, lang)}
                 </span>
                 <h4 className="font-serif text-xs font-semibold text-white truncate mt-0.5">
                   {activePreviewProperty.title[lang]}
                 </h4>
-                <div className="text-sm font-semibold font-serif text-[#B49A70] mt-1">
+                <div className="text-sm font-semibold font-serif text-[#B69A70] mt-1">
                   {formatPrice(activePreviewProperty.price, currency, lang)}
                 </div>
                 <div className="text-[10px] text-white/60 mt-0.5">
@@ -655,13 +655,13 @@ export const PropertyMap: React.FC<PropertyMapProps> = ({
               </div>
             </div>
 
-            <div className="mt-3 pt-2.5 border-t border-[#222B26] flex items-center justify-between">
+            <div className="mt-3 pt-2.5 border-t border-[#1E3A4B] flex items-center justify-between">
               <span className="text-[10px] text-white/50">
                 {localizePropertyType(activePreviewProperty.propertyType, lang)}
               </span>
               <a
                 href={`/properties/${activePreviewProperty.slug}`}
-                className="text-[11px] font-semibold uppercase tracking-wider text-[#B49A70] hover:text-white flex items-center gap-1 transition-colors"
+                className="text-[11px] font-semibold uppercase tracking-wider text-[#B69A70] hover:text-white flex items-center gap-1 transition-colors"
               >
                 <span>{isRtl ? 'عرض المسكن' : 'View Residence'}</span>
                 <ChevronRight className={`w-3.5 h-3.5 ${isRtl ? 'rotate-180' : ''}`} />
@@ -674,7 +674,7 @@ export const PropertyMap: React.FC<PropertyMapProps> = ({
       {/* Mapbox Token Configuration Modal */}
       {showConfigModal && (
         <div className="absolute inset-0 z-[600] bg-black/75 backdrop-blur-sm flex items-center justify-center p-4" dir={isRtl ? 'rtl' : 'ltr'}>
-          <div className="bg-[#111715] text-[#F8F7F4] border border-[#B49A70]/50 rounded-sm max-w-md w-full p-6 shadow-2xl relative space-y-4">
+          <div className="bg-[#10212B] text-[#F7F5F0] border border-[#B69A70]/50 rounded-2xl max-w-md w-full p-6 shadow-2xl relative space-y-4">
             <button
               onClick={() => setShowConfigModal(false)}
               className={`absolute top-4 ${isRtl ? 'left-4' : 'right-4'} text-white/60 hover:text-white`}
@@ -683,7 +683,7 @@ export const PropertyMap: React.FC<PropertyMapProps> = ({
               <X className="w-4 h-4" />
             </button>
 
-            <div className="flex items-center gap-2 text-[#B49A70]">
+            <div className="flex items-center gap-2 text-[#B69A70]">
               <Layers className="w-5 h-5" />
               <h3 className="font-serif text-lg font-medium text-white">
                 {isRtl ? 'إعدادات محرك الخرائط التفاعلية' : 'Map Engine Configuration'}
@@ -696,7 +696,7 @@ export const PropertyMap: React.FC<PropertyMapProps> = ({
                 : 'THE ONE automatically provides real interactive high-resolution luxury cartography. To enable the optional Mapbox GL 3D vector engine, specify your public token:'}
             </p>
 
-            <div className="bg-[#18201D] p-3 rounded-sm border border-[#222B26] font-mono text-xs text-[#B49A70]">
+            <div className="bg-[#174B65]/30 p-3 rounded-xl border border-[#1E3A4B] font-mono text-xs text-[#B69A70]">
               VITE_MAPBOX_ACCESS_TOKEN=pk.eyJ1...
             </div>
 
@@ -709,13 +709,13 @@ export const PropertyMap: React.FC<PropertyMapProps> = ({
                 value={customToken}
                 onChange={(e) => setCustomToken(e.target.value)}
                 placeholder="pk.eyJ1..."
-                className="w-full bg-[#18201D] border border-[#222B26] rounded-sm px-3 py-2 text-xs text-white placeholder-white/30 focus:border-[#B49A70] outline-none font-mono"
+                className="w-full bg-[#174B65]/20 border border-[#1E3A4B] rounded-xl px-3 py-2 text-xs text-white placeholder-white/30 focus:border-[#B69A70] outline-none font-mono"
               />
             </div>
 
             <div className="flex items-center justify-between pt-2">
               <span className="text-[10px] text-white/60 flex items-center gap-1">
-                <Info className="w-3 h-3 text-[#B49A70]" />
+                <Info className="w-3 h-3 text-[#B69A70]" />
                 {hasValidMapboxToken
                   ? (isRtl ? 'محرك Mapbox GL 3D نشط' : 'Mapbox GL 3D Active')
                   : (isRtl ? 'طبقة الخرائط الواقعية الفاخرة نشطة' : 'Luxury Real Cartography Active')}
@@ -723,7 +723,7 @@ export const PropertyMap: React.FC<PropertyMapProps> = ({
 
               <button
                 onClick={() => setShowConfigModal(false)}
-                className="px-4 py-1.5 bg-[#B49A70] text-[#111715] text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-[#D4C3A3] transition-colors"
+                className="px-4 py-2 bg-[#B69A70] text-[#10212B] text-xs font-semibold uppercase tracking-wider rounded-xl hover:bg-[#D4C3A3] transition-colors"
               >
                 {isRtl ? 'حفظ وإغلاق' : 'Apply & Close'}
               </button>

@@ -37,8 +37,8 @@ export const ServicesPage: React.FC = () => {
 
   return (
     <PageLayout>
-      <div className="pt-28 pb-24 bg-[#F8F7F4] min-h-screen">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="pt-28 pb-24 bg-[#F7F5F0] min-h-screen">
+        <div className="max-w-7xl 2xl:max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumbs
             className="mb-6"
             items={[
@@ -47,14 +47,14 @@ export const ServicesPage: React.FC = () => {
             ]}
           />
 
-          <div className="pb-8 border-b border-[#E8E6E0] mb-16">
-            <span className="text-xs uppercase tracking-[0.25em] text-[#B49A70] font-semibold block mb-2">
+          <div className="pb-6 border-b border-[#E7E3DA] mb-12">
+            <span className="text-xs uppercase tracking-wider text-[#B69A70] font-semibold block mb-1.5">
               {t('servicesPage.badge')}
             </span>
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-[#17201C] tracking-tight">
+            <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl font-medium text-[#10212B] tracking-tight">
               {t('services.title')}
             </h1>
-            <p className="mt-3 text-sm text-[#777C76] font-light max-w-2xl leading-relaxed">
+            <p className="mt-2 text-xs sm:text-sm text-[#727A7B] font-light max-w-2xl leading-relaxed">
               {t('services.subtitle')}
             </p>
           </div>

@@ -41,15 +41,15 @@ export const AreaDetailsPage: React.FC = () => {
   return (
     <PageLayout>
       {/* Area Hero */}
-      <div className="relative min-h-[50vh] sm:min-h-[60vh] flex items-end bg-[#111715] overflow-hidden">
+      <div className="relative min-h-[44vh] sm:min-h-[50vh] flex items-end bg-[#10212B] overflow-hidden">
         <img
           src={area.heroImage}
           alt={area.name[lang]}
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#111715] via-[#111715]/60 to-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#10212B] via-[#10212B]/60 to-black/30" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 w-full">
+        <div className="relative z-10 max-w-7xl 2xl:max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-8 pb-14 w-full">
           <Breadcrumbs
             className="mb-4 text-white/70"
             items={[
@@ -59,40 +59,40 @@ export const AreaDetailsPage: React.FC = () => {
             ]}
           />
 
-          <span className="text-xs uppercase tracking-[0.25em] text-[#B49A70] font-semibold block mb-2">
+          <span className="text-xs uppercase tracking-wider text-[#B69A70] font-semibold block mb-1.5">
             {area.headline[lang]}
           </span>
-          <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl text-white font-normal tracking-tight">
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl text-white font-medium tracking-tight">
             {area.name[lang]}
           </h1>
-          <p className="mt-4 text-sm sm:text-base text-white/80 max-w-2xl font-light leading-relaxed">
+          <p className="mt-2 text-xs sm:text-sm text-white/80 max-w-2xl font-light leading-relaxed">
             {area.lifestyle[lang]}
           </p>
         </div>
       </div>
 
-      <div className="py-20 bg-[#F8F7F4]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      <div className="py-16 sm:py-20 bg-[#F7F5F0]">
+        <div className="max-w-7xl 2xl:max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
           {/* Overview & Key Highlights */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            <div className="lg:col-span-8 bg-white p-8 sm:p-10 border border-[#E8E6E0] rounded-sm shadow-sm space-y-6">
-              <h2 className="font-serif text-2xl sm:text-3xl font-medium text-[#17201C]">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <div className="lg:col-span-8 bg-white p-6 sm:p-8 border border-[#E7E3DA] rounded-2xl shadow-xs space-y-5">
+              <h2 className="font-serif text-xl sm:text-2xl font-medium text-[#10212B]">
                 {lang === 'ar' ? `أسلوب الحياة في ${area.name[lang]}` : `Living in ${area.name[lang]}`}
               </h2>
-              <p className="text-sm text-[#17201C]/80 leading-relaxed font-light">
+              <p className="text-xs sm:text-sm text-[#172B35]/85 leading-relaxed font-light">
                 {area.description[lang]}
               </p>
 
               {/* Landmarks */}
-              <div className="pt-4 border-t border-[#E8E6E0]">
-                <h4 className="text-xs uppercase tracking-wider font-semibold text-[#17201C] mb-3">
+              <div className="pt-4 border-t border-[#E7E3DA]">
+                <h4 className="text-xs uppercase tracking-wider font-semibold text-[#10212B] mb-2.5">
                   {lang === 'ar' ? 'أبرز المعالم والوجهات المحيطة:' : 'Signature Destinations & Enclaves:'}
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {area.landmarks.map((landmark, i) => (
                     <span
                       key={i}
-                      className="px-3.5 py-1.5 rounded-sm bg-[#F8F7F4] border border-[#E8E6E0] text-xs text-[#17201C] font-medium"
+                      className="px-3 py-1.5 rounded-xl bg-[#F7F5F0] border border-[#E7E3DA] text-xs text-[#10212B] font-medium"
                     >
                       {localizeLandmark(landmark, lang)}
                     </span>
@@ -102,15 +102,15 @@ export const AreaDetailsPage: React.FC = () => {
             </div>
 
             {/* Map Preview */}
-            <div className="lg:col-span-4 bg-white p-6 border border-[#E8E6E0] rounded-sm shadow-sm">
-              <h3 className="font-serif text-lg font-medium text-[#17201C] mb-3">
+            <div className="lg:col-span-4 bg-white p-5 border border-[#E7E3DA] rounded-2xl shadow-xs">
+              <h3 className="font-serif text-base font-semibold text-[#10212B] mb-3">
                 {t('areaDetails.geographicalPlacement')}
               </h3>
               <PropertyMap
                 properties={areaProperties}
                 center={[area.coordinates.lat, area.coordinates.lng]}
                 zoom={14}
-                className="h-[280px]"
+                className="h-[280px] rounded-xl overflow-hidden"
               />
             </div>
           </div>

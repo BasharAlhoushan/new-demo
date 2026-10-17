@@ -46,8 +46,8 @@ export const ComparePage: React.FC = () => {
 
   return (
     <PageLayout>
-      <div className="pt-28 pb-24 bg-[#F8F7F4] min-h-screen">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="pt-28 pb-24 bg-[#F7F5F0] min-h-screen">
+        <div className="max-w-7xl 2xl:max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumbs
             className="mb-6"
             items={[
@@ -57,15 +57,15 @@ export const ComparePage: React.FC = () => {
           />
 
           {/* Headline */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between pb-8 border-b border-[#E8E6E0] mb-10 gap-4">
+          <div className="flex flex-col md:flex-row md:items-end justify-between pb-6 border-b border-[#E7E3DA] mb-8 gap-4">
             <div>
-              <span className="text-xs uppercase tracking-[0.25em] text-[#B49A70] font-semibold block mb-2">
+              <span className="text-xs uppercase tracking-wider text-[#B69A70] font-semibold block mb-1.5">
                 {t('comparePage.badge')}
               </span>
-              <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-[#17201C] tracking-tight">
+              <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl font-medium text-[#10212B] tracking-tight">
                 {t('compare.title')}
               </h1>
-              <p className="mt-2 text-sm text-[#777C76] font-light">
+              <p className="mt-2 text-xs sm:text-sm text-[#727A7B] font-light">
                 {t('compare.subtitle')} ({lang === 'ar' ? `تم اختيار ${properties.length} من 4` : `${properties.length}/4 selected`})
               </p>
             </div>

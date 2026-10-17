@@ -13,8 +13,8 @@ export const AreasPage: React.FC = () => {
 
   return (
     <PageLayout>
-      <div className="pt-28 pb-24 bg-[#F8F7F4] min-h-screen">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="pt-28 pb-24 bg-[#F7F5F0] min-h-screen">
+        <div className="max-w-7xl 2xl:max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumbs
             className="mb-6"
             items={[
@@ -23,39 +23,39 @@ export const AreasPage: React.FC = () => {
             ]}
           />
 
-          <div className="pb-8 border-b border-[#E8E6E0] mb-12">
-            <span className="text-xs uppercase tracking-[0.25em] text-[#B49A70] font-semibold block mb-2">
+          <div className="pb-6 border-b border-[#E7E3DA] mb-10">
+            <span className="text-xs uppercase tracking-wider text-[#B69A70] font-semibold block mb-1.5">
               {t('areasPage.badge')}
             </span>
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-[#17201C] tracking-tight">
+            <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl font-medium text-[#10212B] tracking-tight">
               {t('areasPage.title')}
             </h1>
-            <p className="mt-3 text-sm text-[#777C76] font-light max-w-2xl leading-relaxed">
+            <p className="mt-2 text-xs sm:text-sm text-[#727A7B] font-light max-w-2xl leading-relaxed">
               {t('areasPage.subtitle')}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
             {areas.map((area, idx) => (
               <div
                 key={area.id}
-                className="group relative bg-white border border-[#E8E6E0] rounded-sm overflow-hidden flex flex-col justify-between hover:shadow-xl hover:border-[#B49A70]/50 transition-all duration-300"
+                className="group relative bg-white border border-[#E7E3DA] rounded-2xl overflow-hidden flex flex-col justify-between hover:shadow-xl hover:border-[#B69A70]/50 transition-all duration-300"
               >
                 <div>
-                  <div className="relative aspect-[16/10] overflow-hidden bg-[#18201D]">
+                  <div className="relative aspect-[16/10] overflow-hidden bg-[#10212B]">
                     <img
                       src={area.heroImage}
                       alt={area.name[lang]}
                       className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    <span className="absolute bottom-3 left-3 text-[11px] uppercase tracking-wider font-semibold text-white bg-black/40 backdrop-blur-md px-3 py-1 rounded-sm">
+                    <span className="absolute bottom-3 left-3 rtl:left-auto rtl:right-3 text-[11px] uppercase tracking-wider font-semibold text-white bg-black/50 backdrop-blur-md px-3 py-1 rounded-lg">
                       {area.propertiesCount} {t('areas.availableListings')}
                     </span>
                   </div>
 
                   <div className="p-6">
-                    <span className="text-xs uppercase tracking-widest text-[#B49A70] font-medium block mb-1">
+                    <span className="text-xs uppercase tracking-wider text-[#B69A70] font-semibold block mb-1">
                       {area.headline[lang]}
                     </span>
                     <h3 className="font-serif text-2xl font-medium text-[#17201C] group-hover:text-[#B49A70] transition-colors mb-2">

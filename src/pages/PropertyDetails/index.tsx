@@ -473,7 +473,7 @@ export const PropertyDetailsPage: React.FC = () => {
                 </Link>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {similarProperties.map((p, idx) => (
                   <PropertyCard key={p.id} property={p} index={idx} />
                 ))}
@@ -482,6 +482,44 @@ export const PropertyDetailsPage: React.FC = () => {
           )}
         </div>
       </div>
+
+      {/* Sticky Mobile Action Bar (Call, WhatsApp, Schedule Viewing) */}
+      <aside
+        aria-label="Quick Actions"
+        className="fixed bottom-0 inset-x-0 z-40 lg:hidden bg-white/95 backdrop-blur-md border-t border-[#E7E3DA] p-3 shadow-2xl pb-[max(0.75rem,env(safe-area-inset-bottom))]"
+      >
+        <div className="flex items-center gap-2 max-w-lg mx-auto">
+          {/* Direct Phone */}
+          <a
+            href={`tel:${agent?.phone || '+97444998800'}`}
+            className="flex-1 flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-xl bg-[#10212B] text-white text-xs font-semibold shadow-xs"
+          >
+            <Phone className="w-3.5 h-3.5 text-[#B69A70]" />
+            <span>{lang === 'ar' ? 'اتصال' : 'Call'}</span>
+          </a>
+
+          {/* WhatsApp Direct */}
+          <a
+            href={whatsAppHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-xl bg-[#25D366] text-white text-xs font-semibold shadow-xs"
+          >
+            <MessageSquare className="w-3.5 h-3.5" />
+            <span>{lang === 'ar' ? 'واتساب' : 'WhatsApp'}</span>
+          </a>
+
+          {/* Schedule Viewing Modal */}
+          <button
+            type="button"
+            onClick={() => setViewingModalOpen(true)}
+            className="flex-[1.2] flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-xl bg-[#B69A70] text-[#10212B] text-xs font-semibold shadow-xs"
+          >
+            <Calendar className="w-3.5 h-3.5" />
+            <span>{lang === 'ar' ? 'حجز معاينة' : 'Book Viewing'}</span>
+          </button>
+        </div>
+      </aside>
 
       {/* Modals */}
       <ScheduleViewingModal

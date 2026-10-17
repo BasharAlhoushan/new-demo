@@ -21,8 +21,8 @@ export const ProjectsPage: React.FC = () => {
 
   return (
     <PageLayout>
-      <div className="pt-28 pb-24 bg-[#F8F7F4] min-h-screen">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="pt-28 pb-24 bg-[#F7F5F0] min-h-screen">
+        <div className="max-w-7xl 2xl:max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb */}
           <div className="mb-6">
             <Breadcrumbs
@@ -34,33 +34,34 @@ export const ProjectsPage: React.FC = () => {
           </div>
 
           {/* Headline */}
-          <div className="pb-8 border-b border-[#E8E6E0]">
-            <span className="text-xs uppercase tracking-[0.25em] text-[#B49A70] font-semibold block mb-2">
+          <div className="pb-6 border-b border-[#E7E3DA]">
+            <span className="text-xs uppercase tracking-wider text-[#B69A70] font-semibold block mb-1.5">
               {t('projectsPage.badge')}
             </span>
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-[#17201C] tracking-tight">
+            <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl font-medium text-[#10212B] tracking-tight">
               {lang === 'ar' ? 'المشاريع التطويرية الكبرى وإطلاقات المخططات' : 'Flagship Developments & Master Launches'}
             </h1>
-            <p className="mt-3 text-sm text-[#777C76] font-light max-w-2xl leading-relaxed">
+            <p className="mt-2 text-xs sm:text-sm text-[#727A7B] font-light max-w-2xl leading-relaxed">
               {t('projectsPage.subtitle')}
             </p>
           </div>
 
           {/* Filter Bar */}
-          <div className="mt-8 flex flex-wrap items-center justify-between gap-4 bg-white p-4 border border-[#E8E6E0] rounded-sm">
+          <div className="mt-6 flex flex-wrap items-center justify-between gap-4 bg-white p-4 border border-[#E7E3DA] rounded-2xl shadow-xs">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="text-xs uppercase tracking-wider text-[#777C76] font-semibold mr-1">
-                {t('projectsPage.filterStatus')}
+              <span className="text-xs uppercase tracking-wider text-[#727A7B] font-semibold mr-1">
+                {t('projectsPage.filterStatus')}:
               </span>
               {['all', 'Off-Plan', 'Under Construction', 'Nearing Handover', 'Ready to Move'].map(
                 (status) => (
                   <button
                     key={status}
+                    type="button"
                     onClick={() => setSelectedStatus(status)}
-                    className={`px-3 py-1.5 rounded-sm text-xs uppercase tracking-wider font-medium transition-colors ${
+                    className={`px-3 py-1.5 rounded-xl text-xs font-medium transition-colors ${
                       selectedStatus === status
-                        ? 'bg-[#111715] text-[#B49A70]'
-                        : 'bg-[#F8F7F4] text-[#777C76] hover:text-[#17201C] border border-[#E8E6E0]'
+                        ? 'bg-[#10212B] text-white shadow-xs'
+                        : 'bg-[#F7F5F0] text-[#727A7B] hover:text-[#10212B] border border-[#E7E3DA]'
                     }`}
                   >
                     {status === 'all'
@@ -72,13 +73,13 @@ export const ProjectsPage: React.FC = () => {
             </div>
 
             <div className="flex items-center gap-2">
-              <span className="text-xs uppercase tracking-wider text-[#777C76] font-semibold">
-                {t('projectsPage.filterArea')}
+              <span className="text-xs uppercase tracking-wider text-[#727A7B] font-semibold">
+                {t('projectsPage.filterArea')}:
               </span>
               <select
                 value={selectedArea}
                 onChange={(e) => setSelectedArea(e.target.value)}
-                className="bg-[#F8F7F4] border border-[#E8E6E0] rounded-sm px-3 py-1.5 text-xs text-[#17201C] outline-none cursor-pointer"
+                className="bg-[#F7F5F0] border border-[#E7E3DA] rounded-xl px-3 py-2 text-xs text-[#10212B] outline-none cursor-pointer"
               >
                 <option value="all">{t('projectsPage.allEnclaves')}</option>
                 <option value="Lusail">{localizeAreaName('Lusail City', lang)}</option>

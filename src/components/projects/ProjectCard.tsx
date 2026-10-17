@@ -32,11 +32,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index = 0 }) 
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.5, delay: (index % 4) * 0.1 }}
-      className="group relative bg-white border border-[#E8E6E0] rounded-sm overflow-hidden flex flex-col justify-between hover:shadow-2xl hover:border-[#B49A70]/50 transition-all duration-500"
+      className="group relative bg-white border border-[#E7E3DA] rounded-2xl overflow-hidden flex flex-col justify-between hover:shadow-xl hover:border-[#B69A70]/50 transition-all duration-300"
     >
       <div>
         {/* Hero Image */}
-        <div className="relative aspect-[16/10] overflow-hidden bg-[#18201D]">
+        <div className="relative aspect-[16/10] overflow-hidden bg-[#10212B]">
           <Link to={`/projects/${project.slug}`} className="block w-full h-full">
             <img
               src={project.heroImage}
@@ -106,19 +106,19 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index = 0 }) 
       </div>
 
       {/* Footer */}
-      <div className="px-6 py-4 border-t border-[#E8E6E0] bg-[#F8F7F4]/60 flex items-center justify-between">
+      <div className="px-6 py-4 border-t border-[#E7E3DA] bg-[#F7F5F0]/70 flex items-center justify-between">
         <div>
-          <span className="block text-[10px] uppercase tracking-widest text-[#777C76]">
+          <span className="block text-[10px] uppercase tracking-widest text-[#727A7B]">
             {t('projects.startingFrom')}
           </span>
-          <span className="text-base sm:text-lg font-serif font-semibold text-[#17201C]">
+          <span className="text-base sm:text-lg font-serif font-semibold text-[#10212B]">
             {formatPrice(project.startingPrice, currency, lang)}
           </span>
         </div>
 
         <Link
           to={`/projects/${project.slug}`}
-          className="p-2 rounded-full bg-white border border-[#E8E6E0] group-hover:bg-[#B49A70] group-hover:text-[#111715] group-hover:border-[#B49A70] text-[#17201C] transition-all"
+          className="p-2 rounded-full bg-white border border-[#E7E3DA] group-hover:bg-[#B69A70] group-hover:text-white group-hover:border-[#B69A70] text-[#10212B] transition-all"
           aria-label={lang === 'ar' ? 'عرض تفاصيل المشروع' : 'View Project'}
         >
           <ArrowUpRight className="w-4 h-4 rtl:rotate-90" />

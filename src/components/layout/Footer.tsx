@@ -12,6 +12,7 @@ import {
   Send 
 } from 'lucide-react';
 import { Button } from '../common/Button';
+import { BrandLogo } from '../common/BrandLogo';
 import { localizeAreaName } from '../../utils/localize';
 
 export const Footer: React.FC = () => {
@@ -29,20 +30,15 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-[#111715] text-[#F8F7F4] border-t border-[#222B26] pt-20 pb-12">
+    <footer className="bg-[#10212B] text-white border-t border-[#174B65]/40 pt-16 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-16 border-b border-[#222B26]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
           {/* Brand & Mission (2 cols) */}
-          <div className="lg:col-span-2 space-y-6">
-            <Link to="/" dir="ltr" className="inline-block brand-logo-lock text-left">
-              <span className="font-serif text-3xl tracking-widest font-semibold text-white">
-                THE ONE<span className="text-[#B49A70]">.</span>
-              </span>
-              <span className="block text-[10px] tracking-[0.3em] uppercase text-[#B49A70] mt-1 font-light">
-                LUXURY REAL ESTATE & PRIVATE RESIDENCES
-              </span>
-            </Link>
+          <div className="lg:col-span-2 space-y-5">
+            <div>
+              <BrandLogo variant="white" size="lg" />
+            </div>
 
             <p className="text-sm text-[#777C76] leading-relaxed max-w-md font-light">
               {t('hero.subtitle')}

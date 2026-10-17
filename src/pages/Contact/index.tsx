@@ -66,8 +66,8 @@ export const ContactPage: React.FC = () => {
 
   return (
     <PageLayout>
-      <div className="pt-28 pb-24 bg-[#F8F7F4] min-h-screen">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="pt-28 pb-24 bg-[#F7F5F0] min-h-screen">
+        <div className="max-w-7xl 2xl:max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumbs
             className="mb-6"
             items={[
@@ -76,27 +76,27 @@ export const ContactPage: React.FC = () => {
             ]}
           />
 
-          <div className="pb-8 border-b border-[#E8E6E0] mb-12">
-            <span className="text-xs uppercase tracking-[0.25em] text-[#B49A70] font-semibold block mb-2">
+          <div className="pb-6 border-b border-[#E7E3DA] mb-10">
+            <span className="text-xs uppercase tracking-wider text-[#B69A70] font-semibold block mb-1.5">
               {t('contact.badge')}
             </span>
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-[#17201C] tracking-tight">
+            <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl font-medium text-[#10212B] tracking-tight">
               {t('contact.title')}
             </h1>
-            <p className="mt-3 text-sm text-[#777C76] font-light max-w-2xl leading-relaxed">
+            <p className="mt-2 text-xs sm:text-sm text-[#727A7B] font-light max-w-2xl leading-relaxed">
               {t('contact.subtitle')}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
             {/* Left Contact Info & Office (5 cols) */}
-            <div className="lg:col-span-5 space-y-8">
-              <div className="bg-[#111715] text-[#F8F7F4] p-8 sm:p-10 rounded-sm border border-[#222B26] space-y-8 shadow-xl">
+            <div className="lg:col-span-5 space-y-6">
+              <div className="bg-[#10212B] text-white p-7 sm:p-9 rounded-3xl border border-white/10 space-y-7 shadow-xl">
                 <div>
-                  <span className="text-[10px] uppercase tracking-widest text-[#B49A70] font-semibold block mb-2">
+                  <span className="text-[10px] uppercase tracking-wider text-[#B69A70] font-semibold block mb-1.5">
                     {t('contact.headquarters')}
                   </span>
-                  <h3 className="font-serif text-2xl text-white font-medium mb-3">
+                  <h3 className="font-serif text-xl sm:text-2xl text-white font-medium mb-2">
                     {t('contactPage.suite')}
                   </h3>
                   <div className="flex items-start gap-3 text-xs text-[#777C76] font-light leading-relaxed">
